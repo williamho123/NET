@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title','Home')
+
 @section('content')
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
@@ -29,7 +31,6 @@
                     <div class="icon-block">
                         <h2 class="center teal-text"><i class="material-icons">av_timer</i></h2>
                         <h5 class="center">A Day of Activities</h5>
-
                         <p class="light">In teams of 4, students challenge themselves against other teams in individual and quiz-bowl based rounds that test their economics knowledge. Students will also have the chance to hear from and interact with Northwestern professors and graduate students.</p>
                     </div>
                 </div>
@@ -38,7 +39,6 @@
                     <div class="icon-block">
                         <h2 class="center teal-text"><i class="material-icons">redeem</i></h2>
                         <h5 class="center">Cash Prizes</h5>
-
                         <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu dictum magna. Sed sed tempor purus. In vitae blandit turpis, et fringilla justo. Duis ligula.</p>
                     </div>
                 </div>
@@ -47,7 +47,6 @@
                     <div class="icon-block">
                         <h2 class="center teal-text"><i class="material-icons">group</i></h2>
                         <h5 class="center">Passion for Learning</h5>
-
                         <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu dictum magna. Sed sed tempor purus. In vitae blandit turpis, et fringilla justo. Duis ligula.</p>
                     </div>
                 </div>
@@ -60,8 +59,12 @@
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="row center">
-                    <h5 class="header col s12 white-text">A valuable learning opportunity for all students in a stimulating environment</h5>
+                    <h4 class="header col s12 white-text">April 7th, 2018 - Kellogg Global Hub</h4>
                 </div>
+                <div class="row center">
+                    <a href="{{ url('/logistics') }}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">About the Competition</a>
+                </div>
+                <br><br>
             </div>
         </div>
         <div class="parallax"><img src="resources/pics/kellogg.png"></div>
@@ -69,7 +72,6 @@
 
     <div class="container">
         <div class="section">
-
             <div class="row">
                 <div class="col s12 center">
                     <h3><i class="mdi-content-send brown-text"></i></h3>
@@ -85,10 +87,10 @@
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="row center">
-                    <h5 class="header col s12 white-text">Sign up for the tournament today!</h5>
+                    <h4 class="header col s12 white-text">Sign up for the tournament today!</h4>
                 </div>
                 <div class="row center">
-                    <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Registration</a>
+                    <a href="{{ url('/registration') }}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Register Now</a>
                 </div>
                 <br><br>
             </div>

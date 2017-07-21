@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
+@section('title','Registration')
+
 @section('content')
     <div class="container">
-        <h3 class="center-align">Registration</h3>
+        <h3>Registration</h3>
     </div>
 @endsection

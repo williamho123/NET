@@ -29,33 +29,13 @@ class PagesController extends Controller
     }
 
     /**
-     * Shows the bio page.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function bios() {
-
-        return view('bios');
-    }
-
-    /**
      * Shows the logistics page.
      *
      * @return \Illuminate\View\View
      */
     public function logistics() {
 
-        return view('tournament.logistics');
-    }
-
-    /**
-     * Shows the sample questions page.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function questions() {
-
-        return view('tournament.questions');
+        return view('tournament');
     }
 
     /**
@@ -65,16 +45,6 @@ class PagesController extends Controller
      */
     public function rules() {
 
-        return view('tournament.rules');
-    }
-
-    /**
-     * Shows the speakers page.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function speakers() {
-
-        return view('tournament.speakers');
+        return view('rules');
     }
 }

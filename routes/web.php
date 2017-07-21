@@ -13,12 +13,11 @@
 
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
-Route::get('/bios', 'PagesController@bios');
-Route::get('/logistics', 'PagesController@logistics');
-Route::get('/questions', 'PagesController@questions');
+Route::get('/tournament', 'PagesController@logistics');
 Route::get('/rules', 'PagesController@rules');
-Route::get('/speakers', 'PagesController@speakers');
 
 Route::get('/contact', 'ContactController@index');
+
+Route::get('/status', 'StatusController@index');
 
 Route::get('/registration', 'RegistrationController@index');
