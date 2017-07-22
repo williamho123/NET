@@ -23,32 +23,32 @@
                 <div class="divider"></div>
 
                 <div id="meet" class="section scrollspy">
-                    <h3>Meet the Team</h3>
+                    <h3 class="teal-text text-lighten-2">Meet the Team</h3>
 
-                    <p style="font-size: 1.25rem">We are a team of undergraduate students at Northwestern University.</p>
+                    <p class="information-text">We are a team of undergraduate students at Northwestern University.</p>
 
                     <div class="row">
                         <div class="col m6">
-                            <div class="card">
+                            <div class="card z-depth-5">
                                 <div class="card-image">
-                                    <img src="resources/pics/will.jpg">
+                                    <img src="{{ asset('resources/pics/will.jpg') }}">
                                 </div>
                                 <div class="card-content">
-                                    <h5>William Ho</h5>
+                                    <h5 class="black-text">William Ho</h5>
                                     <p>William is a junior majoring in Economics and Computer Science.</p>
                                     <br>
-                                    <p><b>Fun Fact: </b> I once played basketball with Jeremy Lin but didn't get a picture with him.</p>
+                                    <p><b>Fun Fact: </b> I once played basketball with Jeremy Lin but (sadly) don't have a picture.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col m6">
-                            <div class="card">
+                            <div class="card z-depth-5">
                                 <div class="card-image">
-                                    <img src="resources/pics/jackie.jpg">
+                                    <img src="{{ asset('resources/pics/jackie.jpg') }}">
                                 </div>
                                 <div class="card-content">
-                                    <h5>Jacqueline Wu</h5>
+                                    <h5 class="black-text">Jacqueline Wu</h5>
                                     <p>Jacqueline is a junior majoring in Economics and Statistics. </p>
                                     <br>
                                     <p><b>Fun Fact: </b> I once played in a chamber orchestra on the set of Glee!</p>
@@ -59,12 +59,12 @@
 
                     <div class="row">
                         <div class="col m6">
-                            <div class="card">
+                            <div class="card z-depth-5">
                                 <div class="card-image">
-                                    <img src="resources/pics/pete.jpg">
+                                    <img src="{{ asset('resources/pics/pete.jpg') }}">
                                 </div>
                                 <div class="card-content">
-                                    <h5>Peter Nam</h5>
+                                    <h5 class="black-text">Peter Nam</h5>
                                     <p> Peter is a junior majoring in Economics, Computer Science, and MMSS.</p>
                                     <br>
                                     <p><b>Fun Fact: </b> I actually preferred to use Bing over Google for a period of time.</p>
@@ -73,12 +73,12 @@
                         </div>
 
                         <div class="col m6">
-                            <div class="card">
+                            <div class="card z-depth-5">
                                 <div class="card-image">
-                                    <img src="resources/pics/josh.jpg">
+                                    <img src="{{ asset('resources/pics/josh.jpg') }}">
                                 </div>
                                 <div class="card-content">
-                                    <h5>Josh Avery</h5>
+                                    <h5 class="black-text">Josh Avery</h5>
                                     <p>Josh is a junior majoring in Economics and minoring in Business Institutions.</p>
                                     <br>
                                     <p><b>Fun Fact: </b> I crashed my bike into a moose a few summers ago and lived to tell the tale.</p>
@@ -101,19 +101,5 @@
             </div>
         </div>
     </div>
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.scrollspy').scrollSpy();
-        });
-
-        setTimeout(function() {
-            if ($('nav').length) {
-                $('.toc-wrapper').pushpin({
-                    top: $('nav').height(),
-                });
-            }
-        }, 100);
-    </script>
 
 @endsection

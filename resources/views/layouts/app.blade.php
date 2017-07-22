@@ -8,8 +8,8 @@
     <!--CSS-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,500,800" rel="stylesheet" type="text/css">
-    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{{ asset('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
 
     <style>
         html, body {
@@ -17,6 +17,14 @@
             font-weight: 100;
             height: 100vh;
             margin: 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #4db6ac;
+        }
+
+        .information-text {
+            font-size: 1.25rem;
         }
     </style>
 </head>
@@ -50,10 +58,24 @@
 
 <!--Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="js/materialize.min.js"></script>
-<script src="js/init.js"></script>
+<script src="{{ asset('js/materialize.min.js') }}"></script>
+<script src="{{ asset('js/init.js') }}"></script>
 
 @yield('content')
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.scrollspy').scrollSpy();
+    });
+
+    setTimeout(function() {
+        if ($('nav').length) {
+            $('.toc-wrapper').pushpin({
+                top: $('nav').height(),
+            });
+        }
+    }, 100);
+</script>
 
 <footer class="page-footer teal lighten-2">
     <div class="footer-copyright">
