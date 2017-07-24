@@ -3,7 +3,10 @@
 @section('title','Rules')
 
 @section('content')
+
     <div class="container">
-        <h3>Rules & Regulations</h3>
+        <div class="section">
+            <h3>General Rules</h3>
+        </div>
     </div>
 @endsection

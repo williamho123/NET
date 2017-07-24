@@ -102,4 +102,6 @@
         </div>
     </div>
 
+    <script src="{{ asset('js/scrollspy.js') }}"></script>
+
 @endsection

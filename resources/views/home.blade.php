@@ -19,7 +19,7 @@
                 <br><br>
             </div>
         </div>
-        <div class="parallax"><img src="resources/pics/northwestern-arch.png"></div>
+        <div class="parallax"><img src="{{ asset('resources/pics/northwestern-arch.png') }}"></div>
     </div>
 
     <div class="container">
@@ -67,7 +67,7 @@
                 <br><br>
             </div>
         </div>
-        <div class="parallax"><img src="resources/pics/kellogg.png"></div>
+        <div class="parallax"><img src="{{ asset('resources/pics/kellogg.png') }}"></div>
     </div>
 
     <div class="container">
@@ -95,6 +95,6 @@
                 <br><br>
             </div>
         </div>
-        <div class="parallax"><img src="resources/pics/skyline.png"></div>
+        <div class="parallax"><img src="{{ asset('resources/pics/skyline.png') }}"></div>
     </div>
 @endsection

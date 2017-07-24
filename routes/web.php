@@ -17,7 +17,9 @@ Route::get('/tournament', 'PagesController@logistics');
 Route::get('/rules', 'PagesController@rules');
 
 Route::get('/contact', 'ContactController@index');
+Route::post('/contact', 'ContactController@store');
 
 Route::get('/status', 'StatusController@index');
 
 Route::get('/registration', 'RegistrationController@index');
+Route::get('/registration/page', 'RegistrationController@page');
