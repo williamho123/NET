@@ -6,7 +6,7 @@
     <div class="container">
         <div class="section">
             <h3>NET Registration Form</h3>
-            <p class="information-text">
+            <p class="information-text red-text">
                 All fields are required.
             </p>
 
@@ -175,7 +175,7 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="advisor_subject" name="advisor_subject" type="text" class="validate">
-                                <label for="advisor_subject">Subject Taught</label>
+                                <label for="advisor_subject">Subject Taught/Relationship to Participants</label>
                             </div>
                         </div>
                     </div>
@@ -183,7 +183,7 @@
                     <br>
 
                     <div class="form-section">
-                        <h5>High School</h5>
+                        <h5>High School Information</h5>
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="school" name="school" type="text" class="validate">
@@ -197,14 +197,117 @@
                             </div>
                         </div>
                     </div>
+
+                    <br>
+
+                    <div class="form-section">
+                        <h5>Mobile Phone Numbers</h5>
+                        <p>This information will only be used in the event we need to contact you the day of the tournament.</p>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="team_captain_number" name="team_captain_number" type="text" class="validate" placeholder="XXX-XXX-XXXX">
+                                <label for="team_captain_number">Team Captain Number</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="advisor_number" name="advisor_number" type="text" class="validate" placeholder="XXX-XXX-XXXX">
+                                <label for="advisor_number">Advisor Number</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form-section">
+                        <h5>Economics Background</h5>
+                        <p class="information-text">Has any team member had previous exposure to economics (e.g. coursework, activities, etc.)?</p>
+                        <div class="row">
+                            <div class="switch">
+                                <label>
+                                    No
+                                    <input id="econ_back" name="econ_back" type="checkbox">
+                                    <span class="lever"></span>
+                                    Yes
+                                </label>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="econ_exp_div" hidden>
+                            <p class="information-text">Please elaborate on economics background (e.g. which courses, what setting, etc.).</p>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="econ_exp" name="econ_exp" class="materialize-textarea" data-length="1500"></textarea>
+                                    <label for="econ_exp">Economics Background</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form-section">
+                        <h5>Short Answer Question</h5>
+                        <p class="information-text">What do you and your team hope to get out of NET?</p>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="why_net" name="why_net" class="materialize-textarea" data-length="1500"></textarea>
+                                <label for="why_net">Enter Response</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 
+    @include('errors.modal')
+
     <script type="text/javascript">
         $(document).ready(function() {
+
             $('select').material_select();
+
+            $('#econ_back').change(function() {
+                var object = $('#econ_exp_div');
+                if ($('#econ_back').prop('checked')) {
+                    object.show(700);
+                } else {
+                    object.hide(700);
+                }
+            });
+
+            $('#registerform').on('submit', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '/registration',
+                    data: new FormData($(this)[0]),
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+
+                    },
+                    error: function (data) {
+                        if (data.status === 500) {
+                            $('#500message').text(data.responseJSON['message']);
+                            $('#500modal').modal('open');
+                        } else {
+                            var list = errorsJSONToList(data);
+                            $('#alerts').show().html(list);
+                            $('#alertmodal').modal('open');
+                        }
+                    }
+                });
+            });
         });
     </script>
 @endsection

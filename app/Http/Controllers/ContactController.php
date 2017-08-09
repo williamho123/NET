@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Contact;
+use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
 {
@@ -20,27 +19,12 @@ class ContactController extends Controller
     /**
      * Validates and stores the new contact request in the database.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param ContactRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(ContactRequest $request) {
 
-        $this->validate($request, [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email',
-            'subject' => 'required|max:255',
-            'message' => 'required|max:1500'
-        ]);
-
-        $contact = new Contact();
-        $contact->firstname = $request->input('first_name');
-        $contact->lastname = $request->input('last_name');
-        $contact->email = $request->input('email');
-        $contact->subject = $request->input('subject');
-        $contact->message = $request->input('message');
-
-        if ($contact->save()) {
+        if ($request->persist()) {
             return response('Success',200);
         }
 

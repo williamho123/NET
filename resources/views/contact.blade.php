@@ -76,10 +76,11 @@
                     success: function (data) {
                         Materialize.toast('Form successfully submitted!', 4000);
                         $('#contactform')[0].reset();
+                        Materialize.updateTextFields();
                     },
                     error: function (data) {
                         if (data.status === 500) {
-                            $('#500message').text(data.responseJSON['message'])
+                            $('#500message').text(data.responseJSON['message']);
                             $('#500modal').modal('open');
                         } else {
                             var list = errorsJSONToList(data);

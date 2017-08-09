@@ -16,7 +16,7 @@
             <br>
 
             <div class="center-align">
-                <a href="{{ url('/registration/page') }}" class="btn waves-effect waves-light">Start Application
+                <a href="{{ url('/registration/create') }}" class="btn waves-effect waves-light">Start Application
                     <i class="material-icons right">keyboard_arrow_right</i>
                 </a>
             </div>

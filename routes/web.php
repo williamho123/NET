@@ -22,4 +22,5 @@ Route::post('/contact', 'ContactController@store');
 Route::get('/status', 'StatusController@index');
 
 Route::get('/registration', 'RegistrationController@index');
-Route::get('/registration/page', 'RegistrationController@page');
+Route::get('/registration/create', 'RegistrationController@create');
+Route::post('/registration', 'RegistrationController@store');

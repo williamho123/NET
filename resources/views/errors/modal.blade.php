@@ -10,13 +10,13 @@
 </div>
 
 <div id="500modal" class="modal">
-<div class="modal-content">
-    <h4><i class="small material-icons">error_outline</i> Internal Server Error</h4>
-    <p id="500message" class="information-text"></p>
-</div>
-<div class="modal-footer">
-    <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-</div>
+    <div class="modal-content">
+        <h4><i class="small material-icons">error_outline</i> Internal Server Error</h4>
+        <p id="500message" class="information-text"></p>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
 </div>
 
 <script type="text/javascript">

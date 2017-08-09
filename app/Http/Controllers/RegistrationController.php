@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use App\Http\Requests\RegistrationRequest;
 
 class RegistrationController extends Controller
 {
@@ -23,8 +21,19 @@ class RegistrationController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function page() {
+    public function create() {
 
-        return view('registration.page');
+        return view('registration.create');
+    }
+
+    /**
+     * Validates and stores the new registration in the database.
+     *
+     * @param RegistrationRequest $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(RegistrationRequest $request) {
+
+
     }
 }
