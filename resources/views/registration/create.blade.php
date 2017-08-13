@@ -2,6 +2,10 @@
 
 @section('title', 'Registration')
 
+@section('scripts')
+    <script src="{{ asset('js/registration_create.js') }}"></script>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="section">
@@ -220,7 +224,7 @@
                     <br>
 
                     <div class="form-section">
-                        <h5>Economics Background</h5>
+                        <h5>Economics Experience</h5>
                         <p class="information-text">Has any team member had previous exposure to economics (e.g. coursework, activities, etc.)?</p>
                         <div class="row">
                             <div class="switch">
@@ -238,7 +242,7 @@
                             <div class="row">
                                 <div class="input-field col s12">
                                     <textarea id="econ_exp" name="econ_exp" class="materialize-textarea" data-length="1500"></textarea>
-                                    <label for="econ_exp">Economics Background</label>
+                                    <label for="econ_exp">Economics Experience</label>
                                 </div>
                             </div>
                         </div>
@@ -271,43 +275,4 @@
 
     @include('errors.modal')
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-            $('select').material_select();
-
-            $('#econ_back').change(function() {
-                var object = $('#econ_exp_div');
-                if ($('#econ_back').prop('checked')) {
-                    object.show(700);
-                } else {
-                    object.hide(700);
-                }
-            });
-
-            $('#registerform').on('submit', function (e) {
-                e.preventDefault();
-                $.ajax({
-                    type: 'POST',
-                    url: '/registration',
-                    data: new FormData($(this)[0]),
-                    processData: false,
-                    contentType: false,
-                    success: function (data) {
-
-                    },
-                    error: function (data) {
-                        if (data.status === 500) {
-                            $('#500message').text(data.responseJSON['message']);
-                            $('#500modal').modal('open');
-                        } else {
-                            var list = errorsJSONToList(data);
-                            $('#alerts').show().html(list);
-                            $('#alertmodal').modal('open');
-                        }
-                    }
-                });
-            });
-        });
-    </script>
 @endsection

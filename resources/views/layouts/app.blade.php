@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>NET - @yield('title')</title>
+
+    <!--CSS-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,500,800" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
 <body>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>NET - @yield('title')</title>
-
-        <!--CSS-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,500,800" rel="stylesheet" type="text/css">
-        <link href="{{ asset('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="{{ asset('css/app.css') }}" type="text/css"  rel="stylesheet" media="screen,projection">
-    </head>
-
     <main id="app-layout">
         <nav class="teal lighten-2" role="navigation">
             <div class="nav-wrapper container">
@@ -43,6 +42,7 @@
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="{{ asset('js/materialize.min.js') }}"></script>
         <script src="{{ asset('js/init.js') }}"></script>
+        @yield('scripts')
 
         @yield('content')
     </main>

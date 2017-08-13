@@ -2,6 +2,10 @@
 
 @section('title','About')
 
+@section('scripts')
+    <script src="{{ asset('js/scrollspy.js') }}"></script>
+@endsection
+
 @section('content')
 
     <div class="container">
@@ -9,7 +13,13 @@
             <div class="col s12 m9 l10">
                 <div id="about" class="section scrollspy">
                     <h3>About NET</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis varius massa. Maecenas efficitur efficitur diam, sit amet dictum nunc tincidunt dignissim. Vestibulum at maximus augue. Duis in urna porta est congue aliquet nec vitae elit. Donec at massa elit. Nulla leo orci, maximus at luctus in, bibendum at magna. Suspendisse vel vestibulum metus. Pellentesque ultrices urna nisl, et luctus augue pretium vitae. Mauris consequat diam sed facilisis placerat. Maecenas eu sagittis ex. Quisque accumsan sollicitudin mauris, in vehicula dui porta a. Suspendisse non blandit arcu.
+                    <div class="card z-depth-5">
+                        <div class="card-image">
+                            <img class="image-fill" src="{{ asset('resources/pics/NET_Group.jpg') }}">
+                        </div>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis varius massa. Maecenas efficitur efficitur diam, sit amet dictum nunc tincidunt dignissim. Vestibulum at maximus augue. Duis in urna porta est congue aliquet nec vitae elit. Donec at massa elit. Nulla leo orci, maximus at luctus in, bibendum at magna. Suspendisse vel vestibulum metus. Pellentesque ultrices urna nisl, et luctus augue pretium vitae. Mauris consequat diam sed facilisis placerat. Maecenas eu sagittis ex. Quisque accumsan sollicitudin mauris, in vehicula dui porta a. Suspendisse non blandit arcu.
 
                         Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus venenatis porttitor enim, eget vehicula felis viverra sagittis. Curabitur porttitor arcu nec enim feugiat faucibus. Etiam sit amet pharetra magna. Donec urna ex, pellentesque consequat lectus nec, consectetur pharetra massa. Nam pulvinar sapien nunc, vel pretium arcu tempor vel. Nullam laoreet posuere vehicula.
 
@@ -17,7 +27,8 @@
 
                         Vestibulum dolor magna, semper auctor faucibus non, blandit in turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam sed auctor nisi, ac dictum urna. Nulla facilisi. Curabitur vehicula nibh urna, ac egestas nulla dapibus a. Sed rutrum scelerisque fermentum. Sed auctor interdum ipsum id malesuada. Fusce congue porta dui vitae eleifend. Vivamus at ligula sit amet arcu mattis iaculis vel a dui. Nulla metus enim, elementum in neque vel, sodales cursus elit. Sed ultrices non arcu et pellentesque. Mauris vel porttitor odio, ut porttitor est. Curabitur ornare ullamcorper imperdiet. Donec mattis, odio vehicula pulvinar molestie, ipsum arcu feugiat nisi, a ultricies ex est et nunc. Nunc elit arcu, pharetra non fermentum eget, ornare non massa.
 
-                        Suspendisse sed mollis risus. </p>
+                        Suspendisse sed mollis risus.
+                    </p>
                 </div>
 
                 <div class="divider"></div>
@@ -101,7 +112,5 @@
             </div>
         </div>
     </div>
-
-    <script src="{{ asset('js/scrollspy.js') }}"></script>
 
 @endsection
