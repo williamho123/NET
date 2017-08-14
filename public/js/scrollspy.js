@@ -5,7 +5,7 @@ $(document).ready(function(){
 setTimeout(function() {
     if ($('nav').length) {
         $('.toc-wrapper').pushpin({
-            top: $('nav').height(),
+            top: $('nav').height()
         });
     }
 }, 100);

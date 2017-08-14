@@ -3,7 +3,10 @@
 @section('title','Tournament')
 
 @section('content')
+
     <div class="container">
-        <h3>Details & Logistics</h3>
+        <div class="section">
+            <h3>Details & Logistics</h3>
+        </div>
     </div>
 @endsection

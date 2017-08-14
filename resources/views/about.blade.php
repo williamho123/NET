@@ -18,20 +18,47 @@
                             <img class="image-fill" src="{{ asset('resources/pics/NET_Group.jpg') }}">
                         </div>
                     </div>
+                    <br>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis varius massa. Maecenas efficitur efficitur diam, sit amet dictum nunc tincidunt dignissim. Vestibulum at maximus augue. Duis in urna porta est congue aliquet nec vitae elit. Donec at massa elit. Nulla leo orci, maximus at luctus in, bibendum at magna. Suspendisse vel vestibulum metus. Pellentesque ultrices urna nisl, et luctus augue pretium vitae. Mauris consequat diam sed facilisis placerat. Maecenas eu sagittis ex. Quisque accumsan sollicitudin mauris, in vehicula dui porta a. Suspendisse non blandit arcu.
-
-                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus venenatis porttitor enim, eget vehicula felis viverra sagittis. Curabitur porttitor arcu nec enim feugiat faucibus. Etiam sit amet pharetra magna. Donec urna ex, pellentesque consequat lectus nec, consectetur pharetra massa. Nam pulvinar sapien nunc, vel pretium arcu tempor vel. Nullam laoreet posuere vehicula.
-
-                        Vestibulum risus metus, feugiat sit amet nibh sollicitudin, porta vestibulum neque. Cras a ligula lacus. Nulla facilisi. Vestibulum sollicitudin imperdiet luctus. Donec pellentesque mauris id leo commodo, at sodales nisl ultrices. Aenean facilisis euismod sem, laoreet sodales arcu ullamcorper quis. Cras sagittis tincidunt tortor, at placerat ipsum. Pellentesque vel lacus malesuada, suscipit lacus id, pretium diam. Quisque nisi risus, molestie vel bibendum sed, interdum eu elit. Sed lobortis vehicula erat. Aliquam ut ultricies est. Morbi quis convallis elit. Quisque pellentesque ligula sapien, at cursus tellus aliquet in. Ut pharetra dui a nisi tincidunt, quis viverra velit aliquam.
-
-                        Vestibulum dolor magna, semper auctor faucibus non, blandit in turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam sed auctor nisi, ac dictum urna. Nulla facilisi. Curabitur vehicula nibh urna, ac egestas nulla dapibus a. Sed rutrum scelerisque fermentum. Sed auctor interdum ipsum id malesuada. Fusce congue porta dui vitae eleifend. Vivamus at ligula sit amet arcu mattis iaculis vel a dui. Nulla metus enim, elementum in neque vel, sodales cursus elit. Sed ultrices non arcu et pellentesque. Mauris vel porttitor odio, ut porttitor est. Curabitur ornare ullamcorper imperdiet. Donec mattis, odio vehicula pulvinar molestie, ipsum arcu feugiat nisi, a ultricies ex est et nunc. Nunc elit arcu, pharetra non fermentum eget, ornare non massa.
-
-                        Suspendisse sed mollis risus.
+                        Northwestern Economics Tournament (NET) is an annual event for high school students passionate about economics
+                        and its applications.
                     </p>
-                </div>
 
-                <div class="divider"></div>
+                    <p>
+                        Student competitors will be challenged on various economics principles at the AP Microeconomics and AP Macroeconomics levels as
+                        well as on economic history, current events, and modern economic research through individual and team-based rounds.
+                        Northwestern economics professors and graduate students will also give presentations and lectures in order to help students gain
+                        a broader sense of what role economics plays in the world beyond the classroom. Students will have the chance to interact with
+                        our distinguished faculty as well.
+                    </p>
+
+                    <p>
+                        Above all else, NET is a learning experience for students, so we encourage everyone interested to participate regardless of their
+                        level of exposure to economics. The tournament is a great way to form friendships with peers who are also interested in economics
+                        and to learn more about the field and its real-world applications in a college setting.
+                    </p>
+
+                    <p>
+                        The 2nd annual tournament will take place on <b>April 7th, 2018</b> at the Kellogg Global Hub. We would like to welcome all students
+                        interested in learning more about economics to participate in the tournament! Please use the links below to learn more about the tournament
+                        itself or to contact us if you have any questions.
+                    </p>
+
+                    <p>We look forward to seeing you in April!</p>
+
+                    <div class="row">
+                        <div class="input-field col">
+                            <a href="{{ url('/tournament') }}" class="btn waves-effect waves-light">The Tournament
+                                <i class="material-icons right">chrome_reader_mode</i>
+                            </a>
+                        </div>
+                        <div class="input-field col">
+                            <a href="{{ url('/contact') }}" class="btn waves-effect waves-light">Contact Us
+                                <i class="material-icons right">contact_mail</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
                 <div id="meet" class="section scrollspy">
                     <h3 class="teal-text text-lighten-2">Meet the Team</h3>

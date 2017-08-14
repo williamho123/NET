@@ -62,39 +62,11 @@
                     <h4 class="header col s12 white-text">April 7th, 2018 - Kellogg Global Hub</h4>
                 </div>
                 <div class="row center">
-                    <a href="{{ url('/tournament') }}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">About the Competition</a>
-                </div>
-                <br><br>
-            </div>
-        </div>
-        <div class="parallax"><img src="{{ asset('resources/pics/kellogg.png') }}"></div>
-    </div>
-
-    <div class="container">
-        <div class="section">
-            <div class="row">
-                <div class="col s12 center">
-                    <h3><i class="mdi-content-send brown-text"></i></h3>
-                    <h4 class="black-text">Random Heading</h4>
-                    <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-            <div class="container">
-                <div class="row center">
-                    <h4 class="header col s12 white-text">Sign up for the tournament today!</h4>
-                </div>
-                <div class="row center">
                     <a href="{{ url('/registration') }}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Register Now</a>
                 </div>
                 <br><br>
             </div>
         </div>
-        <div class="parallax"><img src="{{ asset('resources/pics/skyline.png') }}"></div>
+        <div class="parallax"><img src="{{ asset('resources/pics/kellogg.png') }}"></div>
     </div>
 @endsection

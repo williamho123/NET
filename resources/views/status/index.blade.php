@@ -4,6 +4,8 @@
 
 @section('content')
     <div class="container">
-        <h3>Application Status</h3>
+        <div class="section">
+            <h3>Application Status</h3>
+        </div>
     </div>
 @endsection

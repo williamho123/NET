@@ -19,4 +19,4 @@
     </div>
 </div>
 
-<script src="{{ asset('errors_modal.js') }}"></script>
+<script src="{{ asset('js/errors_modal.js') }}"></script>
