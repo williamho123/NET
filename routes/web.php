@@ -11,10 +11,18 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
-Route::get('/about', 'PagesController@about');
-Route::get('/tournament', 'PagesController@logistics');
-Route::get('/rules', 'PagesController@rules');
+Route::get('/', function () {
+    return view('home');
+});
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/tournament', function () {
+    return view('tournament');
+});
+Route::get('/rules', function () {
+    return view('rules');
+});
 
 Route::get('/contact', 'ContactController@index');
 Route::post('/contact', 'ContactController@store');
