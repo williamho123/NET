@@ -17,8 +17,8 @@
                         <div class="card-content white-text">
                             <span class="card-title">Application Process</span>
                             <ul class="browser-default">
-                                <li>After submitting the application, you will receive a confirmation email with your team's unique ID code.</li>
-                                <li>Use this ID code to track the status of your application through the portal under app status.</li>
+                                <li>After submitting the application, you will receive a confirmation email with your team's unique ID code and password.</li>
+                                <li>Use these credentials to track the status of your application through the portal under app status.</li>
                                 <li>Once your application has been accepted, you may use the portal to pay the registration fee through PayPal and upload tournament waivers for students and the advisor.</li>
                                 <li>You will have 5 business days to complete those two tasks. Otherwise, your spot may be given to another team on the waitlist.</li>
                                 <li>Your portal will reflect a completed status when all steps have been completed. A confirmation email will also be sent.</li>
@@ -71,12 +71,11 @@
                 Please designate a team captain to fill out the application. One application per team.
             </p>
 
-            <br>
             <div class="divider"></div>
             <br>
 
             <div class="center-align">
-                <a href="{{ url('/registration/create') }}" class="btn waves-effect waves-light">Start Application
+                <a href="{{ url('/registration/create') }}" class="btn btn-large waves-effect waves-light">Start Application
                     <i class="material-icons right">keyboard_arrow_right</i>
                 </a>
             </div>

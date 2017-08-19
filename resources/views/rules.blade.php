@@ -141,8 +141,6 @@
                         <li class="collection-item">The decision of the moderator is final.</li>
                     </ul>
                 </div>
-
-
             </div>
 
             <div class="col hide-on-small-only m3 l2">

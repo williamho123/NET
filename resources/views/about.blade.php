@@ -53,6 +53,11 @@
                             </a>
                         </div>
                         <div class="input-field col">
+                            <a href="{{ url('/rules') }}" class="btn waves-effect waves-light">Rules
+                                <i class="material-icons right">book</i>
+                            </a>
+                        </div>
+                        <div class="input-field col">
                             <a href="{{ url('/contact') }}" class="btn waves-effect waves-light">Contact Us
                                 <i class="material-icons right">contact_mail</i>
                             </a>
