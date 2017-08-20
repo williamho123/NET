@@ -27,8 +27,14 @@ Route::get('/rules', function () {
 Route::get('/contact', 'ContactController@index');
 Route::post('/contact', 'ContactController@store');
 
-Route::get('/status', 'StatusController@index');
-
 Route::get('/registration', 'RegistrationController@index');
 Route::get('/registration/create', 'RegistrationController@create');
 Route::post('/registration', 'RegistrationController@store');
+
+Route::get('/status', 'StatusController@index');
+Route::get('/status/home', 'StatusController@home');
+
+Route::get('/admin', 'AdminController@dashboard');
+Route::get('/admin/login', 'AuthController@showAdminLogin');
+Route::post('/admin/login', 'AuthController@adminLogin');
+Route::get('/admin/logout', 'AuthController@adminLogout');

@@ -22,3 +22,15 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Admin::class, function (Faker\Generator $faker) {
+
+    return [
+        'firstname' => 'NET',
+        'lastname' => 'Admin',
+        'username' => 'rootuser',
+        'email' => env('ADMIN_EMAIL'),
+        'password' => bcrypt(env('ADMIN_PASSWORD')),
+        'root' => true
+    ];
+});
