@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\AdminLoginRequest;
+use App\Http\Requests\TeamLoginRequest;
 
 class AuthController extends Controller
 {
@@ -14,7 +15,9 @@ class AuthController extends Controller
     public function __construct() {
 
         $this->middleware('auth:admin')->only('adminLogout');
+        $this->middleware('auth:team')->only('teamLogout');
         $this->middleware('guest:admin')->only(['showAdminLogin', 'adminLogin']);
+        $this->middleware('guest:team')->only(['showTeamLogin', 'teamLogin']);
     }
 
     /**
@@ -51,5 +54,41 @@ class AuthController extends Controller
         $request->session()->regenerate();
 
         return redirect()->to('/admin/login');
+    }
+
+    /**
+     * Shows the view for the team login page.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showTeamLogin() {
+
+        return view('auth.team-login');
+    }
+
+    /**
+     * Perform login action for the team.
+     *
+     * @param TeamLoginRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function teamLogin(TeamLoginRequest $request) {
+
+        return $request->loginWithRedirect();
+    }
+
+    /**
+     * Logs the team out of the application.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function teamLogout(Request $request) {
+
+        Auth::guard('team')->logout();
+        $request->session()->flush();
+        $request->session()->regenerate();
+
+        return redirect()->to('/team/login');
     }
 }

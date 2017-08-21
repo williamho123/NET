@@ -12,16 +12,6 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password;
-
-    return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
-    ];
-});
 
 $factory->define(App\Admin::class, function (Faker\Generator $faker) {
 
@@ -32,5 +22,21 @@ $factory->define(App\Admin::class, function (Faker\Generator $faker) {
         'email' => env('ADMIN_EMAIL'),
         'password' => bcrypt(env('ADMIN_PASSWORD')),
         'root' => true
+    ];
+});
+
+$factory->define(App\Registration::class, function (Faker\Generator $faker) {
+
+    return [
+        // Fill in dummy data later.
+    ];
+});
+
+$factory->define(App\Team::class, function (Faker\Generator $faker) {
+
+    return [
+        'team_id_code' => 123456,
+        'password' => bcrypt('test'),
+        'registration_id' => 1,
     ];
 });

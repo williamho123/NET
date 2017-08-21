@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class Admin extends Model implements AuthenticatableContract, AuthorizableContract {
+class Team extends Model implements AuthenticatableContract, AuthorizableContract {
 
     use Notifiable, Authenticatable, Authorizable, SoftDeletes;
 
@@ -19,7 +19,7 @@ class Admin extends Model implements AuthenticatableContract, AuthorizableContra
      *
      * @var array
      */
-    protected $fillable = ['firstname', 'lastname', 'username', 'email', 'password'];
+    protected $fillable = ['team_id_code', 'password', 'registration_id'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -34,4 +34,5 @@ class Admin extends Model implements AuthenticatableContract, AuthorizableContra
      * @var array
      */
     protected $dates = ['deleted_at'];
+
 }

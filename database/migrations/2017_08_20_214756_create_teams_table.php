@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdminsTable extends Migration
+class CreateTeamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,19 @@ class CreateAdminsTable extends Migration
      */
     public function up() {
 
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('teams', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('username')->unique();
-            $table->string('email');
+            $table->string('team_id_code')->unique();
             $table->string('password');
-            $table->boolean('root')->default(false);
+            $table->integer('registration_id')->unsigned();
+            $table->boolean('accepted')->default(false);
+            $table->boolean('paid')->default(false);
+            $table->boolean('forms')->default(false);
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('registration_id')->references('id')->on('registrations')->onDelete('cascade');
         });
     }
 
@@ -34,6 +36,6 @@ class CreateAdminsTable extends Migration
      */
     public function down() {
 
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('teams');
     }
 }

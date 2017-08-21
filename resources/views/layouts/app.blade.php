@@ -21,7 +21,7 @@
                     <li><a class="white-text" href="{{ url('/about') }}">About</a></li>
                     <li><a class="white-text" href="{{ url('/tournament') }}">The Tournament</a></li>
                     <li><a class="white-text" href="{{ url('/rules') }}">Rules</a></li>
-                    <li><a class="white-text" href="{{ url('/status') }}">App Status</a></li>
+                    <li><a class="white-text" href="{{ url('/team') }}">App Status</a></li>
                     <li><a class="white-text" href="{{ url('/contact') }}">Contact</a></li>
                     <li><a class="white-text waves-effect waves-light btn" href="{{ url('/registration') }}">Register</a></li>
                 </ul>
@@ -30,7 +30,7 @@
                     <li><a href="{{ url('/about') }}">About</a></li>
                     <li><a href="{{ url('/tournament') }}">The Tournament</a></li>
                     <li><a href="{{ url('/rules') }}">Rules</a></li>
-                    <li><a href="{{ url('/status') }}">App Status</a></li>
+                    <li><a href="{{ url('/team') }}">App Status</a></li>
                     <li><a href="{{ url('/contact') }}">Contact</a></li>
                     <li><a class="white-text waves-effect waves-light btn" href="{{ url('/registration') }}">Register</a></li>
                 </ul>

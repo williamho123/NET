@@ -26,7 +26,7 @@ class RedirectIfAuthenticated
 
             default:
                 if (Auth::guard($guard)->check()) {
-                    return redirect()->to('/status/home');
+                    return redirect()->to('/team');
                 }
                 break;
         }

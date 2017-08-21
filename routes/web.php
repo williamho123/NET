@@ -31,8 +31,10 @@ Route::get('/registration', 'RegistrationController@index');
 Route::get('/registration/create', 'RegistrationController@create');
 Route::post('/registration', 'RegistrationController@store');
 
-Route::get('/status', 'StatusController@index');
-Route::get('/status/home', 'StatusController@home');
+Route::get('/team', 'TeamController@dashboard');
+Route::get('/team/login', 'AuthController@showTeamLogin');
+Route::post('/team/login', 'AuthController@teamLogin');
+Route::get('/team/logout', 'AuthController@teamLogout');
 
 Route::get('/admin', 'AdminController@dashboard');
 Route::get('/admin/login', 'AuthController@showAdminLogin');

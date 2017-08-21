@@ -13,26 +13,42 @@
             <div id="team-login" class="row">
                 <div class="col s12 m4 offset-m4">
                     <div class="z-depth-5 card-panel">
-                        <form class="login-form">
+                        <form id="team-login-form" method="POST" action="{{ url('/team/login') }}">
+
+                            {{ csrf_field() }}
+
                             <div class="row">
                                 <div class="input-field col s12 center">
                                     <h5 class="center">NET Team Login</h5>
                                 </div>
                             </div>
+
+                            <div class="center-align">
+                                @if ($errors->any())
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li class="red-text">{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </div>
+
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">people_outline</i>
-                                    <input id="username" type="text">
-                                    <label for="username" class="center-align">Team ID Code</label>
+                                    <input id="team_id_code" name="team_id_code" type="text">
+                                    <label for="team_id_code" class="center-align">Team ID Code</label>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">lock_outline</i>
-                                    <input id="password" type="password">
+                                    <input id="password" name="password" type="password">
                                     <label for="password">Password</label>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="input-field col s12">
                                     <button class="btn waves-effect waves-light col s12" type="submit" name="login">Login
