@@ -12,7 +12,9 @@
 <div id="500modal" class="modal modal-fixed-footer">
     <div class="modal-content">
         <h4><i class="small material-icons">error_outline</i> Internal Server Error</h4>
-        <p id="500message" class="information-text"></p>
+        <p id="500message" class="information-text">
+            Please try again later. If problem persists, please send an email to {{ env('ADMIN_EMAIL') }}
+        </p>
     </div>
     <div class="modal-footer blue-grey lighten-4">
         <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>

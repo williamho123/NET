@@ -8,13 +8,12 @@ jQuery(document).ready(function () {
             processData: false,
             contentType: false,
             success: function (data) {
-                Materialize.toast('Form successfully submitted!', 4000);
+                Materialize.toast('Form successfully submitted! <a class="btn-flat toast-action" onclick="closeToast()">Dismiss</a>', 10000);
                 $('#contactform')[0].reset();
                 Materialize.updateTextFields();
             },
             error: function (data) {
                 if (data.status === 500) {
-                    $('#500message').text(data.responseJSON['message']);
                     $('#500modal').modal('open');
                 } else {
                     var list = errorsJSONToList(data);

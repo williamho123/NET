@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>NET - @yield('title')</title>
+    <title>NET Team - @yield('title')</title>
 
     <!--CSS-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,27 +18,22 @@
         <nav class="teal lighten-2" role="navigation">
             <div class="nav-wrapper container">
                 <a id="logo-container" href="{{ url('/') }}" class="brand-logo"><img src="{{ asset('resources/pics/logo.png') }}"></a>
+                <a class="brand-logo white-text center">@yield('title')</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a class="white-text" href="{{ url('/about') }}">About</a></li>
-                    <li><a class="white-text" href="{{ url('/tournament') }}">The Tournament</a></li>
-                    <li><a class="white-text" href="{{ url('/rules') }}">Rules</a></li>
-                    <li><a class="white-text" href="{{ url('/team') }}">App Status</a></li>
-                    <li><a class="white-text" href="{{ url('/contact') }}">Contact</a></li>
-                    <li><a class="white-text waves-effect waves-light btn" href="{{ url('/registration') }}">Register</a></li>
+                    <li><a class="white-text waves-effect waves-light btn" href="{{ url('/team/logout') }}">Logout
+                            <i class="material-icons right white-text">exit_to_app</i>
+                        </a>
+                    </li>
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="{{ url('/about') }}">About</a></li>
-                    <li><a href="{{ url('/tournament') }}">The Tournament</a></li>
-                    <li><a href="{{ url('/rules') }}">Rules</a></li>
-                    <li><a href="{{ url('/team') }}">App Status</a></li>
-                    <li><a href="{{ url('/contact') }}">Contact</a></li>
-                    <li><a class="white-text waves-effect waves-light btn" href="{{ url('/registration') }}">Register</a></li>
+                    <li><a class="white-text waves-effect waves-light btn" href="{{ url('/team/logout') }}">Logout
+                            <i class="material-icons right white-text">exit_to_app</i></a>
+                    </li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse white-text"><i class="material-icons">menu</i></a>
             </div>
         </nav>
-
         <!--Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="{{ asset('js/materialize.min.js') }}"></script>
@@ -47,13 +42,5 @@
 
         @yield('content')
     </main>
-
-    <footer class="page-footer teal lighten-2">
-        <div class="footer-copyright">
-            <div class="container">
-                Made with <a class="brown-text text-lighten-4" href="https://laravel.com/">Laravel</a> and <a class="brown-text text-lighten-4" href="http://materializecss.com">Materialize</a>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>

@@ -40,3 +40,4 @@ Route::get('/admin', 'AdminController@dashboard');
 Route::get('/admin/login', 'AuthController@showAdminLogin');
 Route::post('/admin/login', 'AuthController@adminLogin');
 Route::get('/admin/logout', 'AuthController@adminLogout');
+Route::post('/admin/maintenance', 'AdminController@toggleAppMaintenance');

@@ -18,7 +18,7 @@ $factory->define(App\Admin::class, function (Faker\Generator $faker) {
     return [
         'firstname' => 'NET',
         'lastname' => 'Admin',
-        'username' => 'rootuser',
+        'username' => env('ADMIN_USERNAME'),
         'email' => env('ADMIN_EMAIL'),
         'password' => bcrypt(env('ADMIN_PASSWORD')),
         'root' => true

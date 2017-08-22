@@ -2,6 +2,14 @@ $(document).ready(function() {
 
     $('select').material_select();
 
+    $('#team_captain_number').formatter({
+        'pattern': '({{999}}) {{999}}-{{9999}}'
+    });
+
+    $('#advisor_number').formatter({
+        'pattern': '({{999}}) {{999}}-{{9999}}'
+    });
+
     $('#econ_back').change(function() {
         var object = $('#econ_exp_div');
         if ($('#econ_back').prop('checked')) {

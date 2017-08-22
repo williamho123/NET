@@ -3,6 +3,7 @@
 @section('title', 'Registration')
 
 @section('scripts')
+    <script src="{{ asset('js/jquery.formatter.min.js') }}"></script>
     <script src="{{ asset('js/registration_create.js') }}"></script>
 @endsection
 
@@ -25,17 +26,17 @@
                         <h5>Team Captain</h5>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="team_captain_first_name" name="team_captain_first_name" type="text" class="validate">
+                                <input id="team_captain_first_name" name="team_captain_first_name" type="text">
                                 <label for="team_captain_first_name">First Name</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="team_captain_last_name" name="team_captain_last_name" type="text" class="validate">
+                                <input id="team_captain_last_name" name="team_captain_last_name" type="text">
                                 <label for="team_captain_last_name">Last Name</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="team_captain_email" name="team_captain_email" type="email" class="validate">
+                                <input id="team_captain_email" name="team_captain_email" type="email">
                                 <label for="team_captain_email">Email</label>
                             </div>
                         </div>
@@ -59,17 +60,17 @@
                         <h5>Team Member 1</h5>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="team_member_1_first_name" name="team_member_1_first_name" type="text" class="validate">
+                                <input id="team_member_1_first_name" name="team_member_1_first_name" type="text">
                                 <label for="team_member_1_first_name">First Name</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="team_member_1_last_name" name="team_member_1_last_name" type="text" class="validate">
+                                <input id="team_member_1_last_name" name="team_member_1_last_name" type="text">
                                 <label for="team_member_1_last_name">Last Name</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="team_member_1_email" name="team_member_1_email" type="email" class="validate">
+                                <input id="team_member_1_email" name="team_member_1_email" type="email">
                                 <label for="team_member_1_email">Email</label>
                             </div>
                         </div>
@@ -93,17 +94,17 @@
                         <h5>Team Member 2</h5>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="team_member_2_first_name" name="team_member_2_first_name" type="text" class="validate">
+                                <input id="team_member_2_first_name" name="team_member_2_first_name" type="text">
                                 <label for="team_member_2_first_name">First Name</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="team_member_2_last_name" name="team_member_2_last_name" type="text" class="validate">
+                                <input id="team_member_2_last_name" name="team_member_2_last_name" type="text">
                                 <label for="team_member_2_last_name">Last Name</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="team_member_2_email" name="team_member_2_email" type="email" class="validate">
+                                <input id="team_member_2_email" name="team_member_2_email" type="email">
                                 <label for="team_member_2_email">Email</label>
                             </div>
                         </div>
@@ -127,17 +128,17 @@
                         <h5>Team Member 3</h5>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="team_member_3_first_name" name="team_member_3_first_name" type="text" class="validate">
+                                <input id="team_member_3_first_name" name="team_member_3_first_name" type="text">
                                 <label for="team_member_3_first_name">First Name</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="team_member_3_last_name" name="team_member_3_last_name" type="text" class="validate">
+                                <input id="team_member_3_last_name" name="team_member_3_last_name" type="text">
                                 <label for="team_member_3_last_name">Last Name</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="team_member_3_email" name="team_member_3_email" type="email" class="validate">
+                                <input id="team_member_3_email" name="team_member_3_email" type="email">
                                 <label for="team_member_3_email">Email</label>
                             </div>
                         </div>
@@ -162,23 +163,23 @@
                         <p>Must be a teacher or parent/guardian aged 25 years or older.</p>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="advisor_first_name" name="advisor_first_name" type="text" class="validate">
+                                <input id="advisor_first_name" name="advisor_first_name" type="text">
                                 <label for="advisor_first_name">First Name</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="advisor_last_name" name="advisor_last_name" type="text" class="validate">
+                                <input id="advisor_last_name" name="advisor_last_name" type="text">
                                 <label for="advisor_last_name">Last Name</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="advisor_email" name="advisor_email" type="email" class="validate">
+                                <input id="advisor_email" name="advisor_email" type="email">
                                 <label for="advisor_email">Email</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="advisor_subject" name="advisor_subject" type="text" class="validate">
+                                <input id="advisor_subject" name="advisor_subject" type="text">
                                 <label for="advisor_subject">Subject Taught/Relationship to Participants</label>
                             </div>
                         </div>
@@ -190,13 +191,13 @@
                         <h5>High School Information</h5>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="school" name="school" type="text" class="validate">
+                                <input id="school" name="school" type="text">
                                 <label for="school">High School Name</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="school_city" name="school_city" type="text" class="validate">
+                                <input id="school_city" name="school_city" type="text">
                                 <label for="school_city">City</label>
                             </div>
                         </div>
@@ -209,13 +210,13 @@
                         <p>This information will only be used in the event we need to contact you the day of the tournament.</p>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="team_captain_number" name="team_captain_number" type="text" class="validate" placeholder="XXX-XXX-XXXX">
+                                <input id="team_captain_number" name="team_captain_number" type="text">
                                 <label for="team_captain_number">Team Captain Number</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="advisor_number" name="advisor_number" type="text" class="validate" placeholder="XXX-XXX-XXXX">
+                                <input id="advisor_number" name="advisor_number" type="text">
                                 <label for="advisor_number">Advisor Number</label>
                             </div>
                         </div>

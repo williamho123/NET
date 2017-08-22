@@ -28,6 +28,6 @@ class ContactController extends Controller
             return response('Success',200);
         }
 
-        return response()->json(['message' => 'Please try again later. If problem persists, send an email to nuecontournament@gmail.com.'], 500);
+        return response('Internal Server Error', 500);
     }
 }
