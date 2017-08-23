@@ -13,7 +13,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-$factory->define(App\Admin::class, function (Faker\Generator $faker) {
+$factory->define(App\Admin::class, function () {
 
     return [
         'firstname' => 'NET',
@@ -32,11 +32,18 @@ $factory->define(App\Registration::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Team::class, function (Faker\Generator $faker) {
+$factory->define(App\Team::class, function () {
 
     return [
         'team_id_code' => 123456,
         'password' => bcrypt('test'),
         'registration_id' => 1,
+    ];
+});
+
+$factory->define(App\Internal::class, function() {
+
+    return [
+        'registration_status' => false
     ];
 });

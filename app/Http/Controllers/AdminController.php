@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Internal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
@@ -39,6 +40,24 @@ class AdminController extends Controller
         } else {
             Artisan::call('down');
             $message = 'Application is down for maintenance.';
+        }
+
+        return response($message, 200);
+    }
+
+    /**
+     * Toggles team registration status.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function toggleRegistration() {
+
+        if (registrationIsOpen()) {
+            Internal::first()->update(['registration_status' => false]);
+            $message = 'Registration is now closed';
+        } else {
+            Internal::first()->update(['registration_status' => true]);
+            $message = 'Registration is now open';
         }
 
         return response($message, 200);

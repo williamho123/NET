@@ -1,7 +1,11 @@
 $(document).ready(function() {
 
+    $('#registration_toggle').change(function() {
+        sendToggleAJAXRequest('/admin/registration');
+    });
+
     $('#maintenance_toggle').change(function() {
-        sendToggleAJAXRequest('/admin/maintenance')
+        sendToggleAJAXRequest('/admin/maintenance');
     })
 
 });

@@ -1,4 +1,4 @@
-{
+    {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
@@ -20,7 +20,10 @@
         ],
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+        "files": [
+            "app/Library/AppHelper.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

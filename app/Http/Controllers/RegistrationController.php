@@ -7,6 +7,14 @@ use App\Http\Requests\RegistrationRequest;
 class RegistrationController extends Controller
 {
     /**
+     * Assigns middleware to controller actions and routes.
+     */
+    public function __construct() {
+
+        $this->middleware('registration')->except('index');
+    }
+
+    /**
      * Shows the registration index page.
      *
      * @return \Illuminate\View\View

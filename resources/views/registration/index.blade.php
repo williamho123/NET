@@ -20,7 +20,7 @@
                                 <li>After submitting the application, you will receive a confirmation email with your team's unique ID code and password.</li>
                                 <li>Use these credentials to track the status of your application through the portal under app status.</li>
                                 <li>Once your application has been accepted, you may use the portal to pay the registration fee through PayPal and upload tournament waivers for students and the advisor.</li>
-                                <li>You will have 5 business days to complete those two tasks. Otherwise, your spot may be given to another team on the waitlist.</li>
+                                <li>You will have 5 business days to complete those two tasks. Otherwise, your spot may be given to another team.</li>
                                 <li>Your portal will reflect a completed status when all steps have been completed. A confirmation email will also be sent.</li>
                             </ul>
                         </div>
@@ -74,11 +74,26 @@
             <div class="divider"></div>
             <br>
 
-            <div class="center-align">
-                <a href="{{ url('/registration/create') }}" class="btn btn-large waves-effect waves-light">Start Application
-                    <i class="material-icons right">keyboard_arrow_right</i>
-                </a>
-            </div>
+            @if(registrationIsOpen())
+                <div class="center-align">
+                    <a href="{{ url('/registration/create') }}" class="btn btn-large waves-effect waves-light">Start Application
+                        <i class="material-icons right">keyboard_arrow_right</i>
+                    </a>
+                </div>
+            @else
+                <div class="row">
+                    <div class="col s6 offset-s3">
+                        <div class="card red darken-1 z-depth-5">
+                            <div class="card-content">
+                                <span class="card-title white-text center-align">
+                                    Registration opens January 8, 2018
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
 
             <br>
 

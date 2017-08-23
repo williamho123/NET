@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Team;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -52,11 +53,20 @@ class TeamLoginRequest extends FormRequest
 
         $credentials = [
             'team_id_code' => $this->input('team_id_code'),
-            'password' => $this->input('password')
+            'password' => $this->input('password'),
+            'active' => true
         ];
 
         if (!Auth::guard('team')->attempt($credentials)) {
-            return redirect()->back()->withErrors(['message' => 'Incorrect Team ID Code or password.']);
+
+            $message = 'Incorrect Team ID Code or password.';
+            $team = Team::where('team_id_code', $this->input('team_id_code'))->first();
+
+            if ($team != null && $team->getAttribute('active') == false) {
+                $message = 'Account is no longer active.';
+            }
+
+            return redirect()->back()->withErrors(['message' => $message]);
         }
 
         return redirect()->intended('/team');

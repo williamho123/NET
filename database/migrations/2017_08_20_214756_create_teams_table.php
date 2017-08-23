@@ -21,6 +21,7 @@ class CreateTeamsTable extends Migration
             $table->boolean('accepted')->default(false);
             $table->boolean('paid')->default(false);
             $table->boolean('forms')->default(false);
+            $table->boolean('active')->default(true);
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
