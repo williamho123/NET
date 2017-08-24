@@ -4,6 +4,7 @@
     $('.button-collapse').sideNav();
     $('.parallax').parallax();
 
+    // Sets up Laravel CSRF Token to work with all AJAX requests
     jQuery.ajaxSetup({
           headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

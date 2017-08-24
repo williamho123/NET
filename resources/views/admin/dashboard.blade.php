@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('scripts')
-    <script src="{{ asset('js/admin_dashboard.js') }}"></script>
+    <script src="{{ asset('js/admin-dashboard.js') }}"></script>
 @endsection
 
 @section('content')

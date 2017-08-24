@@ -3,7 +3,7 @@
 @section('title','Registration')
 
 @section('scripts')
-    <script src={{ asset('js/registration_index.js') }}></script>
+    <script src="{{ asset('js/registration-index.js') }}"></script>
 @endsection
 
 @section('content')
