@@ -28,6 +28,7 @@ Route::get('/contact', 'ContactController@index');
 Route::post('/contact', 'ContactController@store');
 
 Route::get('/registration', 'RegistrationController@index');
+Route::post('/registration/update', 'RegistrationController@keepUpdated');
 Route::get('/registration/create', 'RegistrationController@create');
 Route::post('/registration', 'RegistrationController@store');
 

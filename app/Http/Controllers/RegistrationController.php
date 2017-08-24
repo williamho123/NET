@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use \Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\RegistrationRequest;
 
 class RegistrationController extends Controller
@@ -11,7 +14,7 @@ class RegistrationController extends Controller
      */
     public function __construct() {
 
-        $this->middleware('registration')->except('index');
+        $this->middleware('registration')->except(['index', 'keepUpdated']);
     }
 
     /**
@@ -22,6 +25,31 @@ class RegistrationController extends Controller
     public function index() {
 
         return view('registration.index');
+    }
+
+    /**
+     * Stores email address into database to give user registration updates.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function keepUpdated(Request $request) {
+
+        $this->validate($request, [
+            'email_update' => 'required|email'
+        ]);
+
+        $status = DB::table('email_updates')->insert([
+            'email' => $request->input('email_update'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+
+        if ($status) {
+            return response('Success', 200);
+        }
+
+        return response('Internal Server Error', 500);
     }
 
     /**

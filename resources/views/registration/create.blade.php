@@ -3,7 +3,7 @@
 @section('title', 'Registration')
 
 @section('scripts')
-    <script src="{{ asset('js/jquery.formatter.min.js') }}"></script>
+    <script src="{{ asset('js/lib/jquery.formatter.min.js') }}"></script>
     <script src="{{ asset('js/registration_create.js') }}"></script>
 @endsection
 
@@ -18,7 +18,7 @@
             <br>
 
             <div class="row">
-                <form id="registerform" class="col s12" method="POST" action="{{ url('/registration') }}">
+                <form id="register-form" class="col s12" method="POST" action="{{ url('/registration') }}">
 
                     {{ csrf_field() }}
 

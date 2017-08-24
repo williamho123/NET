@@ -1,18 +1,19 @@
-jQuery(document).ready(function () {
-    $('#contact-form').on('submit', function (e) {
+$(document).ready(function() {
+
+    $('#email-update-form').on('submit', function (e) {
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: '/contact',
+            url: '/registration/update',
             data: new FormData($(this)[0]),
             processData: false,
             contentType: false,
-            success: function (data) {
-                Materialize.toast('Form successfully submitted! <a class="btn-flat toast-action" onclick="closeToast()">Dismiss</a>', 10000);
-                $('#contact-form')[0].reset();
+            success: function () {
+                Materialize.toast('Email successfully added! <a class="btn-flat toast-action" onclick="closeToast()">Dismiss</a>', 10000);
+                $('#email-update-form')[0].reset();
                 Materialize.updateTextFields();
             },
-            error: function (data) {
+            error: function(data) {
                 if (data.status === 500) {
                     $('#500modal').modal('open');
                 } else {
@@ -22,5 +23,5 @@ jQuery(document).ready(function () {
                 }
             }
         });
-    })
+    });
 });

@@ -19,7 +19,7 @@ $(document).ready(function() {
         }
     });
 
-    $('#registerform').on('submit', function (e) {
+    $('#register-form').on('submit', function (e) {
         e.preventDefault();
         $.ajax({
             type: 'POST',
