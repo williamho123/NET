@@ -31,14 +31,7 @@ $(document).ready(function() {
 
             },
             error: function (data) {
-                if (data.status === 500) {
-                    $('#500message').text(data.responseJSON['message']);
-                    $('#500modal').modal('open');
-                } else {
-                    var list = errorsJSONToList(data);
-                    $('#alerts').show().html(list);
-                    $('#alertmodal').modal('open');
-                }
+               handleErrors(data);
             }
         });
     });

@@ -1,4 +1,4 @@
-<div id="alertmodal" class="modal modal-fixed-footer">
+<div id="alert_modal" class="modal modal-fixed-footer">
     <div class="modal-content">
         <h4><i class="small material-icons">error_outline</i> Submission Error</h4>
         <p class="information-text">Please correct before proceeding.</p>
@@ -9,7 +9,7 @@
     </div>
 </div>
 
-<div id="500modal" class="modal modal-fixed-footer">
+<div id="500_modal" class="modal modal-fixed-footer">
     <div class="modal-content">
         <h4><i class="small material-icons">error_outline</i> Internal Server Error</h4>
         <p id="500message" class="information-text">
@@ -20,5 +20,3 @@
         <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
 </div>
-
-<script src="{{ asset('js/errors_modal.js') }}"></script>

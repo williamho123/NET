@@ -9,18 +9,18 @@ $(document).ready(function() {
             processData: false,
             contentType: false,
             success: function () {
-                Materialize.toast('Email successfully added! <a class="btn-flat toast-action" onclick="closeToast()">Dismiss</a>', 10000);
+                swal({
+                    title: "Success!",
+                    text: "Your email has been added.",
+                    type: "success",
+                    confirmButtonColor: "#4db6ac",
+                    confirmButtonText: "OK"
+                });
                 $('#email-update-form')[0].reset();
                 Materialize.updateTextFields();
             },
             error: function(data) {
-                if (data.status === 500) {
-                    $('#500modal').modal('open');
-                } else {
-                    var list = errorsJSONToList(data);
-                    $('#alerts').show().html(list);
-                    $('#alertmodal').modal('open');
-                }
+               handleErrors(data);
             }
         });
     });

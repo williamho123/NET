@@ -1,3 +1,13 @@
+function handleErrors(data) {
+    if (data.status === 500) {
+        $('#500_modal').modal('open');
+    } else {
+        var list = errorsJSONToList(data);
+        $('#alerts').show().html(list);
+        $('#alert_modal').modal('open');
+    }
+}
+
 function errorsJSONToList(data) {
 
     var allErrors = '';

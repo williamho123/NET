@@ -7,19 +7,19 @@ jQuery(document).ready(function () {
             data: new FormData($(this)[0]),
             processData: false,
             contentType: false,
-            success: function (data) {
-                Materialize.toast('Form successfully submitted! <a class="btn-flat toast-action" onclick="closeToast()">Dismiss</a>', 10000);
+            success: function () {
+                swal({
+                    title: "Success!",
+                    text: "Your message has been submitted.",
+                    type: "success",
+                    confirmButtonColor: "#4db6ac",
+                    confirmButtonText: "OK"
+                });
                 $('#contact-form')[0].reset();
                 Materialize.updateTextFields();
             },
             error: function (data) {
-                if (data.status === 500) {
-                    $('#500modal').modal('open');
-                } else {
-                    var list = errorsJSONToList(data);
-                    $('#alerts').show().html(list);
-                    $('#alertmodal').modal('open');
-                }
+                handleErrors(data);
             }
         });
     })
