@@ -28,6 +28,16 @@ class AdminController extends Controller
     }
 
     /**
+     * Shows the settings page for the admin.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function settings() {
+
+        return view('admin.settings');
+    }
+
+    /**
      * Toggles application maintenance mode state.
      *
      * @return \Illuminate\Http\Response

@@ -13,7 +13,6 @@ jQuery(document).ready(function () {
                     text: "Your message has been submitted.",
                     type: "success",
                     confirmButtonColor: "#4db6ac",
-                    confirmButtonText: "OK"
                 });
                 $('#contact-form')[0].reset();
                 Materialize.updateTextFields();

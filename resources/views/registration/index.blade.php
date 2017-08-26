@@ -45,7 +45,7 @@
                         <div class="card indigo darken-2 z-depth-5">
                             <div class="card-content">
                                 <span class="card-title white-text center-align">
-                                    Registration opens on January 8, 2018
+                                    Registration opens on January 8, 2018.
                                 </span>
 
                                 <br>

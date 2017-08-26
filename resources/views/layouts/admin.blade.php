@@ -53,6 +53,7 @@
                 </div>
             </li>
             <li><a href="{{ url('/admin') }}" class="waves-effect"><i class="material-icons">dashboard</i>Dashboard</a></li>
+            <li><a href="{{ url('/admin/settings') }}" class="waves-effect"><i class="material-icons">settings</i>Settings</a></li>
             <li>
                 <a href="{{ url('/admin/logout') }}" class="btn waves-effect waves-light">Logout
                     <i class="material-icons right white-text">exit_to_app</i>
