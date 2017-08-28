@@ -2,10 +2,6 @@
 
 @section('title','Rules')
 
-@section('scripts')
-    <script src="{{ asset('js/scrollspy.js') }}"></script>
-@endsection
-
 @section('content')
 
     <div class="container">

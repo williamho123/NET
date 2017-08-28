@@ -2,6 +2,7 @@
   $(function(){
 
     $('.button-collapse').sideNav();
+    $('.scrollspy').scrollSpy();
     $('.parallax').parallax();
 
     // Sets up Laravel CSRF Token to work with all AJAX requests
@@ -13,6 +14,14 @@
 
   }); // end of document ready
 })(jQuery); // end of jQuery name space
+
+setTimeout(function() {
+    if ($('nav').length) {
+        $('.toc-wrapper').pushpin({
+            top: $('nav').height()
+        });
+    }
+}, 100);
 
 function closeToast() {
     $(document).on('click', '#toast-container .toast', function() {
