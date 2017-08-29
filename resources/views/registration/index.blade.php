@@ -8,7 +8,6 @@
 
 @section('scripts')
     <script src="{{ asset('js/lib/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('js/errors-modal.js') }}"></script>
     <script src="{{ asset('js/registration-index.js') }}"></script>
 @endsection
 
@@ -84,8 +83,6 @@
                 <p class="information-text red-text center-align">
                     Please designate a team captain to fill out the application. One application per team.
                 </p>
-
-                @include('errors.modal')
             @endif
         </div>
     </div>

@@ -8,7 +8,6 @@
 
 @section('scripts')
     <script src="{{ asset('js/lib/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('js/errors-modal.js') }}"></script>
     <script src="{{ asset('js/contact.js') }}"></script>
 @endsection
 
@@ -109,7 +108,4 @@
             </div>
         </div>
     </div>
-
-    @include('errors.modal')
-
 @endsection

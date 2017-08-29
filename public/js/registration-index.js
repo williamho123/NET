@@ -13,8 +13,7 @@ $(document).ready(function() {
                     title: "Success!",
                     text: "Your email has been added.",
                     type: "success",
-                    confirmButtonColor: "#4db6ac",
-                    confirmButtonText: "OK"
+                    confirmButtonColor: "#4db6ac"
                 });
                 $('#email-update-form')[0].reset();
                 Materialize.updateTextFields();

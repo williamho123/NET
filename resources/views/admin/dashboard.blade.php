@@ -22,14 +22,14 @@
                             <div class="row center-align">
                                 <div class="switch">
                                     <label class="white-text information-text">
-                                        Off
+                                        Closed
                                         @if(registrationIsOpen())
                                             <input id="registration_toggle" name="registration_toggle" type="checkbox" checked>
                                         @else
                                             <input id="registration_toggle" name="registration_toggle" type="checkbox">
                                         @endif
                                         <span class="lever"></span>
-                                        On
+                                        Open
                                     </label>
                                 </div>
                             </div>
