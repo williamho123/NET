@@ -43,32 +43,47 @@
                     <div class="col s12">
                         <div class="card indigo darken-2 z-depth-5">
                             <div class="card-content">
-                                <span class="card-title white-text center-align">
-                                    Registration opens on January 8, 2018.
-                                </span>
+                                @if(registrationHasEnded())
+                                    <span class="card-title white-text center-align">
+                                         Registration has ended for the current year.
+                                    </span>
 
-                                <br>
+                                    <br>
+                                    <div class="divider"></div>
+                                    <br>
 
-                                <p class="information-text white-text center-align">
-                                    Sign up for updates below!
-                                </p>
+                                    <p class="information-text white-text center-align">
+                                        Please <a href="{{ url('/contact') }}">contact us</a> if you have any questions!
+                                    </p>
+                                @else
+                                    <span class="card-title white-text center-align">
+                                        @php($open_date = App\Internal::first()->getAttribute('registration_open_date'))
+                                        Registration opens on {{ Carbon\Carbon::createFromFormat('Y-m-d', $open_date)->format('F jS, Y')}}.
+                                    </span>
 
-                                <br>
-                                <div class="divider white"></div>
-                                <br><br>
+                                    <br>
 
-                                <div class="row">
-                                    <form id="email-update-form" method="POST" action="{{ url('/registration/update') }}">
-                                        <div class="input-field col s10">
-                                            <i class="material-icons prefix white-text">email</i>
-                                            <input id="email_update" name="email_update" type="email" class="white-text">
-                                            <label for="email_update" class="white-text">Your Email</label>
-                                        </div>
-                                        <div class="input-field col s2">
-                                            <button class="btn waves-effect waves-light" type="submit">Submit</button>
-                                        </div>
-                                    </form>
-                                </div>
+                                    <p class="information-text white-text center-align">
+                                        Sign up for updates below!
+                                    </p>
+
+                                    <br>
+                                    <div class="divider white"></div>
+                                    <br><br>
+
+                                    <div class="row">
+                                        <form id="email-update-form" method="POST" action="{{ url('/registration/update') }}">
+                                            <div class="input-field col s10">
+                                                <i class="material-icons prefix white-text">email</i>
+                                                <input id="email_update" name="email_update" type="email" class="white-text">
+                                                <label for="email_update" class="white-text">Your Email</label>
+                                            </div>
+                                            <div class="input-field col s2">
+                                                <button class="btn waves-effect waves-light" type="submit">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>

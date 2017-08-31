@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Internal;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Artisan;
+use App\Http\Helpers\AdministrativeActions;
 
 class AdminController extends Controller
 {
+    use AdministrativeActions;
+
     /**
      * Assigns middleware to controller actions and routes.
      */
@@ -34,42 +35,10 @@ class AdminController extends Controller
      */
     public function settings() {
 
-        return view('admin.settings');
-    }
+        $registrationEnded = Internal::first()->getAttribute('registration_ended');
+        $openDate = Internal::first()->getAttribute('registration_open_date');
 
-    /**
-     * Toggles application maintenance mode state.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function toggleAppMaintenance() {
-
-        if (App::isDownForMaintenance()) {
-            Artisan::call('up');
-            $message = 'Application is now live.';
-        } else {
-            Artisan::call('down');
-            $message = 'Application is down for maintenance.';
-        }
-
-        return response($message, 200);
-    }
-
-    /**
-     * Toggles team registration status.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function toggleRegistration() {
-
-        if (registrationIsOpen()) {
-            Internal::first()->update(['registration_status' => false]);
-            $message = 'Registration is now closed';
-        } else {
-            Internal::first()->update(['registration_status' => true]);
-            $message = 'Registration is now open';
-        }
-
-        return response($message, 200);
+        return view('admin.settings')->with('registrationEnded', $registrationEnded)
+                                           ->with('openDate', $openDate);
     }
 }

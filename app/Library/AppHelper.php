@@ -18,3 +18,11 @@ function registrationIsOpen() {
 
     return Internal::first()->getAttribute('registration_status');
 }
+
+/**
+ * Global helper to determine whether registration has ended for the current year.
+ */
+function registrationHasEnded() {
+
+    return Internal::first()->getAttribute('registration_ended');
+}

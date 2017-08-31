@@ -16,6 +16,8 @@ class CreateInternalsTable extends Migration
         Schema::create('internals', function (Blueprint $table) {
             $table->increments('id');
             $table->boolean('registration_status');
+            $table->boolean('registration_ended');
+            $table->date('registration_open_date');
             $table->timestamps();
         });
     }

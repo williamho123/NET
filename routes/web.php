@@ -42,5 +42,6 @@ Route::get('/admin/login', 'AuthController@showAdminLogin');
 Route::post('/admin/login', 'AuthController@adminLogin');
 Route::get('/admin/logout', 'AuthController@adminLogout');
 Route::get('/admin/settings', 'AdminController@settings');
+Route::post('/admin/settings/closedRegistration', 'AdminController@updateClosedRegistrationSettings');
 Route::post('/admin/maintenance', 'AdminController@toggleAppMaintenance');
 Route::post('/admin/registration', 'AdminController@toggleRegistration');

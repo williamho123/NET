@@ -25,24 +25,51 @@
 
                             <br>
 
-                            <form action="#">
-                                <p>
-                                    <input class="with-gap" name="reg_closed_why" type="radio" id="input1" />
-                                    <label for="input1" class="white-text">It has ended for the current year.</label>
-                                </p>
-                                <p>
-                                    <input class="with-gap" name="reg_closed_why" type="radio" id="input2" />
-                                    <label for="input2" class="white-text">It has not yet opened for the current year.</label>
-                                </p>
+                            <form id="update-closed-registration-form" method="POST" action="{{ url('/admin/settings/closedRegistration') }}">
+                                @if($registrationEnded)
+                                    <p>
+                                        <input class="with-gap" name="reg_closed_why" type="radio" id="reg_ended" checked/>
+                                        <label for="reg_ended" class="white-text">It has ended for the current year.</label>
+                                    </p>
+                                    <p>
+                                        <input class="with-gap" name="reg_closed_why" type="radio" id="reg_not_open" />
+                                        <label for="reg_not_open" class="white-text">It has not yet opened for the current year.</label>
+                                    </p>
 
-                                <br>
+                                    <br>
 
-                                <p class="information-text white-text">
-                                    Select registration open date :
-                                </p>
-                                <input type="text" class="datepicker white-text" id="date" value="">
+                                    <div id="registration_open_date_div" hidden>
+                                        <p class="information-text white-text">
+                                            Select registration open date :
+                                        </p>
+
+                                        <input type="text" class="datepicker white-text" id="registration_open_date" data-value="{{ $openDate }}">
+                                    </div>
+                                @else
+                                    <p>
+                                        <input class="with-gap" name="reg_closed_why" type="radio" id="reg_ended"/>
+                                        <label for="reg_ended" class="white-text">It has ended for the current year.</label>
+                                    </p>
+                                    <p>
+                                        <input class="with-gap" name="reg_closed_why" type="radio" id="reg_not_open" checked/>
+                                        <label for="reg_not_open" class="white-text">It has not yet opened for the current year.</label>
+                                    </p>
+
+                                    <br>
+
+                                    <div id="registration_open_date_div">
+                                        <p class="information-text white-text">
+                                            Select registration open date :
+                                        </p>
+
+                                        <input type="text" class="datepicker white-text" id="registration_open_date" data-value="{{ $openDate }}">
+                                    </div>
+                                @endif
+
+                                <button class="btn waves-effect waves-light" type="submit" name="update">Update
+                                    <i class="material-icons right">update</i>
+                                </button>
                             </form>
-
                         </div>
                     </div>
                 </div>

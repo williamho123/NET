@@ -44,6 +44,8 @@ $factory->define(App\Team::class, function () {
 $factory->define(App\Internal::class, function() {
 
     return [
-        'registration_status' => false
+        'registration_status' => false,
+        'registration_ended' => false,
+        'registration_open_date' => new DateTime('2018-01-08')
     ];
 });
