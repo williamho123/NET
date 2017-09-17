@@ -12,7 +12,6 @@
 @endsection
 
 @section('content')
-
     <div class="container">
         <div class="section">
             <h3>Contact Us</h3>

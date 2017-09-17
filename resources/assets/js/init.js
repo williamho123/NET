@@ -1,21 +1,17 @@
-(function($){
-  $(function(){
+/**
+ * This file contains helper functions and initializations that should be made global to all modules.
+ */
+
+// Initialize MaterializeCSS UI elements.
+$(() => {
 
     $('.button-collapse').sideNav();
     $('.scrollspy').scrollSpy();
     $('.parallax').parallax();
+});
 
-    // Sets up Laravel CSRF Token to work with all AJAX requests
-    jQuery.ajaxSetup({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          }
-      });
-
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
-
-setTimeout(function() {
+// Set pushpin element delay
+setTimeout(() => {
     if ($('nav').length) {
         $('.toc-wrapper').pushpin({
             top: $('nav').height()
@@ -23,15 +19,15 @@ setTimeout(function() {
     }
 }, 100);
 
-function closeToast() {
+window.closeToast = () => {
     $(document).on('click', '#toast-container .toast', function() {
         $(this).fadeOut(function(){
             $(this).remove();
         });
     });
-}
+};
 
-function handleErrors(data) {
+window.handleErrors = (data) => {
     if (data.status === 500) {
         swal({
             title: "Internal Server Error",
@@ -48,14 +44,14 @@ function handleErrors(data) {
             confirmButtonColor: "#4db6ac"
         });
     }
-}
+};
 
-function errorsJSONToHTML(data) {
+window.errorsJSONToHTML = (data) => {
 
-    var htmlString = '';
+    let htmlString = '';
     for (error in data.responseJSON) {
         htmlString += '<div class="sa-error-container show"> <div class="icon">!</div> <p>' + data.responseJSON[error] + '</p></div>';
     }
 
     return htmlString;
-}
+};

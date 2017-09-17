@@ -8,7 +8,7 @@
 
 @section('scripts')
     <script src="{{ asset('js/lib/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('js/registration-index.js') }}"></script>
+    <script src="{{ asset('js/index.js') }}"></script>
 @endsection
 
 @section('content')

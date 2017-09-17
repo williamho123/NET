@@ -86,7 +86,7 @@
                     </ul>
                 </div>
 
-                <div id="quizbowl" class="section scrollspy">
+                <div id="quiz-bowl" class="section scrollspy">
                     <h5>Quiz Bowl Rules</h5>
                     <ul class="collection">
                         <li class="collection-item">Each quiz bowl round is <i>10 minutes</i> or consists of <i>15 questions</i>, whichever comes first.</li>
@@ -147,7 +147,7 @@
                         <li><a href="#structure">Tournament Structure</a></li>
                         <li><a href="#curriculum">Curriculum Breakdown</a></li>
                         <li><a href="#individual">Individual Exam Rules</a></li>
-                        <li><a href="#quizbowl">Quiz Bowl Rules</a></li>
+                        <li><a href="#quiz-bowl">Quiz Bowl Rules</a></li>
                         <li><a href="#awards">Awards & Cash Prizes</a></li>
                         <li><a href="#supplementary">Supplementary Rules</a></li>
                     </ul>

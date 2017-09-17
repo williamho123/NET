@@ -3,7 +3,7 @@
 @section('title', 'Settings')
 
 @section('scripts')
-    <script src="{{ asset('js/admin-settings.js') }}"></script>
+    <script src="{{ asset('setsettings.jsscript>
 @endsection
 
 @section('content')
