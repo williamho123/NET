@@ -78,10 +78,12 @@ if (token) {
  * Require all other third-party Javascript dependencies.
  * - MaterializeCSS JS
  * - SweetAlert JS
- **/
+ * - Formatter JS
+ */
 
 __webpack_require__(6);
 __webpack_require__(7);
+//require('../../../public/js/lib/jquery.formatter');
 
 /***/ }),
 /* 12 */,

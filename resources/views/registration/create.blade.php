@@ -4,7 +4,6 @@
 
 @section('scripts')
     <script src="{{ asset('js/lib/jquery.formatter.min.js') }}"></script>
-    <script src="{{ asset('js/create.js') }}"></script>
 @endsection
 
 @section('content')

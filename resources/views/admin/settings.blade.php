@@ -2,10 +2,6 @@
 
 @section('title', 'Settings')
 
-@section('scripts')
-    <script src="{{ asset('setsettings.jsscript>
-@endsection
-
 @section('content')
     <div class="container">
         <div class="section">

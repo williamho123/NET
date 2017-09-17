@@ -29,7 +29,7 @@ if (token) {
  * Require all other third-party Javascript dependencies.
  * - MaterializeCSS JS
  * - SweetAlert JS
- **/
+ */
 
 require('materialize-css');
 require('sweetalert');
