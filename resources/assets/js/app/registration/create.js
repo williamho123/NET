@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(() => {
 
     $('select').material_select();
 
@@ -10,8 +10,8 @@ $(document).ready(function() {
         'pattern': '({{999}}) {{999}}-{{9999}}'
     });
 
-    $('#econ_back').change(function() {
-        var object = $('#econ_exp_div');
+    $('#econ_back').change(() => {
+        let object = $('#econ_exp_div');
         if ($('#econ_back').prop('checked')) {
             object.show(700);
         } else {
@@ -19,18 +19,18 @@ $(document).ready(function() {
         }
     });
 
-    $('#register-form').on('submit', function (e) {
+    let registerForm = $('#register-form');
+
+    registerForm.submit((e) => {
         e.preventDefault();
         $.ajax({
-            type: 'POST',
-            url: '/registration',
-            data: new FormData($(this)[0]),
-            processData: false,
-            contentType: false,
-            success: function (data) {
+            type: registerForm.attr('method'),
+            url: registerForm.attr('action'),
+            data: registerForm.serializeArray(),
+            success: (data) => {
 
             },
-            error: function (data) {
+            error: (data) => {
                handleErrors(data);
             }
         });

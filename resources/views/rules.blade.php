@@ -19,7 +19,7 @@
                     <h5>Tournament Eligibility</h5>
                     <ul class="collection">
                         <li class="collection-item">Student competitors must be enrolled in a high school in one of grades 9-12 for the current academic school year - or if home-schooled, be of high school standing.</li>
-                        <li class="collection-item">Each team must consist of 4 students, and each school may send only 1 team.</li>
+                        <li class="collection-item">Each team must consist of 4 students, and each school may send up to 2 teams.</li>
                         <li class="collection-item">All team members must be from the same high school.</li>
                         <li class="collection-item">Each team must be accompanied by an advisor who is a <b>faculty member</b> at the team's high school OR a <b>parent/guardian</b> of one of the team members.</li>
                     </ul>

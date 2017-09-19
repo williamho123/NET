@@ -4,7 +4,6 @@
 
 // Initialize MaterializeCSS UI elements.
 $(() => {
-
     $('.button-collapse').sideNav();
     $('.scrollspy').scrollSpy();
     $('.parallax').parallax();
@@ -12,9 +11,10 @@ $(() => {
 
 // Set pushpin element delay
 setTimeout(() => {
-    if ($('nav').length) {
+    let nav = $('nav');
+    if (nav.length) {
         $('.toc-wrapper').pushpin({
-            top: $('nav').height()
+            top: nav.height()
         });
     }
 }, 100);
