@@ -14,7 +14,7 @@
                     </h5>
                 </div>
                 <div class="row center">
-                    <a href="{{ url('/about') }}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Learn More</a>
+                    <a href="{{ url('/about') }}" class="btn-large waves-effect waves-light teal lighten-1">Learn More</a>
                 </div>
                 <br><br>
             </div>
@@ -24,8 +24,6 @@
 
     <div class="container">
         <div class="section">
-
-            <!--   Icon Section   -->
             <div class="row">
                 <div class="col s12 m4">
                     <div class="icon-block">
@@ -51,7 +49,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -62,7 +59,7 @@
                     <h4 class="header col s12 white-text">April 7th, 2018 - Kellogg Global Hub</h4>
                 </div>
                 <div class="row center">
-                    <a href="{{ url('/registration') }}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Register Now</a>
+                    <a href="{{ url('/registration') }}" class="btn-large waves-effect waves-light teal lighten-1">Register Now</a>
                 </div>
                 <br><br>
             </div>

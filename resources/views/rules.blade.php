@@ -19,7 +19,7 @@
                     <h5>Tournament Eligibility</h5>
                     <ul class="collection">
                         <li class="collection-item">Student competitors must be enrolled in a high school in one of grades 9-12 for the current academic school year - or if home-schooled, be of high school standing.</li>
-                        <li class="collection-item">Each team must consist of 4 students, and each school may send only 1 team.</li>
+                        <li class="collection-item">Each team must consist of 4 students, and each school may send up to 2 teams.</li>
                         <li class="collection-item">All team members must be from the same high school.</li>
                         <li class="collection-item">Each team must be accompanied by an advisor who is a <b>faculty member</b> at the team's high school OR a <b>parent/guardian</b> of one of the team members.</li>
                     </ul>
@@ -86,7 +86,7 @@
                     </ul>
                 </div>
 
-                <div id="quizbowl" class="section scrollspy">
+                <div id="quiz-bowl" class="section scrollspy">
                     <h5>Quiz Bowl Rules</h5>
                     <ul class="collection">
                         <li class="collection-item">Each quiz bowl round is <i>10 minutes</i> or consists of <i>15 questions</i>, whichever comes first.</li>
@@ -147,7 +147,7 @@
                         <li><a href="#structure">Tournament Structure</a></li>
                         <li><a href="#curriculum">Curriculum Breakdown</a></li>
                         <li><a href="#individual">Individual Exam Rules</a></li>
-                        <li><a href="#quizbowl">Quiz Bowl Rules</a></li>
+                        <li><a href="#quiz-bowl">Quiz Bowl Rules</a></li>
                         <li><a href="#awards">Awards & Cash Prizes</a></li>
                         <li><a href="#supplementary">Supplementary Rules</a></li>
                     </ul>

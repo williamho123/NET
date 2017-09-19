@@ -1,24 +1,24 @@
-$(document).ready(function() {
+$(() => {
 
-    $('#email-update-form').on('submit', function (e) {
+    let emailUpdateForm = $('#email-update-form');
+
+    emailUpdateForm.submit((e) => {
         e.preventDefault();
         $.ajax({
-            type: 'POST',
-            url: '/registration/update',
-            data: new FormData($(this)[0]),
-            processData: false,
-            contentType: false,
-            success: function () {
+            type: emailUpdateForm.attr('method'),
+            url: emailUpdateForm.attr('action'),
+            data: emailUpdateForm.serializeArray(),
+            success: () => {
                 swal({
                     title: "Success!",
                     text: "Your email has been added.",
                     type: "success",
                     confirmButtonColor: "#4db6ac"
                 });
-                $('#email-update-form')[0].reset();
+                emailUpdateForm[0].reset();
                 Materialize.updateTextFields();
             },
-            error: function(data) {
+            error: (data) => {
                handleErrors(data);
             }
         });

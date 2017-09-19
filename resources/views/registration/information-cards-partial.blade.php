@@ -36,7 +36,7 @@
                 <ul class="browser-default">
                     <li>Each team must consist of 4 students (grades 9-12).</li>
                     <li>Each school must have a parent/faculty advisor accompanying.</li>
-                    <li>Max 1 team per school.</li>
+                    <li>Max 2 teams per school.</li>
                 </ul>
             </div>
         </div>
