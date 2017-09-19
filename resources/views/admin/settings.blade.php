@@ -2,10 +2,6 @@
 
 @section('title', 'Settings')
 
-@section('scripts')
-    <script src="{{ asset('js/admin-settings.js') }}"></script>
-@endsection
-
 @section('content')
     <div class="container">
         <div class="section">

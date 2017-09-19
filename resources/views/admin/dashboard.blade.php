@@ -2,10 +2,6 @@
 
 @section('title', 'Dashboard')
 
-@section('scripts')
-    <script src="{{ asset('js/admin-dashboard.js') }}"></script>
-@endsection
-
 @section('content')
 
     <div class="container">

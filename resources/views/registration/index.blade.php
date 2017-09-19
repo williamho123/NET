@@ -2,15 +2,6 @@
 
 @section('title','Registration')
 
-@section('styles')
-    <link href="{{ asset('css/sweetalert.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
-@endsection
-
-@section('scripts')
-    <script src="{{ asset('js/lib/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('js/registration-index.js') }}"></script>
-@endsection
-
 @section('content')
     <div class="container">
         <div class="section">
