@@ -36,7 +36,7 @@ class ContactRequest extends FormRequest
     /**
      * Creates and saves a new contact model. Returns true if successful.
      *
-     * @return bool
+     * @return Contact | null
      */
     public function persist() {
 
@@ -47,6 +47,10 @@ class ContactRequest extends FormRequest
         $contact->setAttribute('subject', $this->input('subject'));
         $contact->setAttribute('message', $this->input('message'));
 
-        return $contact->save();
+        if ($contact->save()) {
+            return $contact;
+        }
+
+        return null;
     }
 }
