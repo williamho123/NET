@@ -83,7 +83,6 @@
                 <div class="divider"></div>
                 <br>
 
-                <h5>Registration Guidelines</h5>
                 @include('registration.information-cards-partial')
 
                 <p class="information-text red-text center-align">

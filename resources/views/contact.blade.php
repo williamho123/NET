@@ -29,8 +29,8 @@
                                 page for a breakdown of the topics and more information about tournament structure.<br><br>
 
                                 <strong>Do we have to pay to attend NET?</strong><br>
-                                There is a $20 registration fee per team that will be paid during the application process. This fee can be waived if you are
-                                unable to pay - please contact for more details. <br><br>
+                                NET 2018 is free! We want students to come enjoy the tournament and learn without the need for an application fee.
+                                <br><br>
 
                                 <strong>Are there any practice resources to prepare for NET?</strong><br>
                                 Take a look at our <a href="{{ url('/tournament') }}">tournament</a> page and scroll all the way down to find sample
