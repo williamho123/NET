@@ -52,7 +52,7 @@
     <footer class="page-footer teal lighten-2">
         <div class="footer-copyright">
             <div class="container">
-                Made with <a class="brown-text text-lighten-4" href="https://laravel.com/">Laravel</a> and <a class="brown-text text-lighten-4" href="http://materializecss.com">Materialize</a>
+                &copy; 2016-2017 Northwestern Economics Tournament
             </div>
         </div>
     </footer>

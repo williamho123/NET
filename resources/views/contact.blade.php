@@ -7,7 +7,7 @@
         <div class="section">
             <h3>Contact Us</h3>
             <p class="information-text">
-                Thank you for your interest in NET! Check out our FAQ below, and please fill out the form below if you have any other questions.
+                Check out our FAQ below, and please fill out the form if you have any other questions. Thanks!
             </p>
 
             <div class="col s12 m6">
