@@ -2,10 +2,6 @@
 
 @section('title', 'Registration')
 
-@section('scripts')
-    <script src="{{ asset('js/lib/jquery.formatter.min.js') }}"></script>
-@endsection
-
 @section('content')
     <div class="container">
         <div class="section">

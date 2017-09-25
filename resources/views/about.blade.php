@@ -11,7 +11,7 @@
                     <h3>About NET</h3>
                     <div class="card z-depth-5">
                         <div class="card-image">
-                            <img class="image-fill" src="{{ asset('resources/pics/NET_Group.jpg') }}">
+                            <img class="image-fill" src="{{ asset('resources/pics/net-group.jpg') }}">
                         </div>
                     </div>
                     <br>

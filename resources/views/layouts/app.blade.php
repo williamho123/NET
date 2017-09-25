@@ -17,6 +17,7 @@
     <script src="{{ asset(mix('js/manifest.js')) }}" type="text/javascript"></script>
     <script src="{{ asset(mix('js/vendor.js')) }}" type="text/javascript"></script>
     <script src="{{ asset(mix('js/app.js')) }}" type="text/javascript"></script>
+    <script src="{{ asset('js/lib/jquery.formatter.min.js') }}"></script>
     @yield('scripts')
 </head>
 
