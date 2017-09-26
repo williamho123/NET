@@ -3,11 +3,11 @@
 @section('title','Home')
 
 @section('content')
-    <div id="index-banner" class="parallax-container">
+    <div id="index-banner" class="parallax-container valign-wrapper">
         <div class="section no-pad-bot">
             <div class="container">
                 <br><br>
-                <h1 class="header center white-text">Northwestern Economics Tournament</h1>
+                <h2 class="header center white-text">Northwestern Economics Tournament</h2>
                 <div class="row center">
                     <h5 class="header col s12 blue-grey-text text-lighten-4">
                         The Chicago area's premier economics competition for high school students

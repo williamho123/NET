@@ -36,6 +36,7 @@
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
+                    <li><a href="{{ url('/') }}">Home</a></li>
                     <li><a href="{{ url('/about') }}">About</a></li>
                     <li><a href="{{ url('/tournament') }}">The Tournament</a></li>
                     <li><a href="{{ url('/rules') }}">Rules</a></li>

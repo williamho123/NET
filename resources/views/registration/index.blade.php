@@ -64,12 +64,12 @@
 
                                     <div class="row">
                                         <form id="email-update-form" method="POST" action="{{ url('/registration/update') }}">
-                                            <div class="input-field col s10">
+                                            <div class="input-field col s7 m9 l10">
                                                 <i class="material-icons prefix white-text">email</i>
                                                 <input id="email_update" name="email_update" type="email" class="white-text">
                                                 <label for="email_update" class="white-text">Your Email</label>
                                             </div>
-                                            <div class="input-field col s2">
+                                            <div class="input-field col s5 m3 l2">
                                                 <button class="btn waves-effect waves-light" type="submit">Submit</button>
                                             </div>
                                         </form>
