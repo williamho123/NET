@@ -52,12 +52,57 @@
 
                 <div id="schedule" class="section scrollspy">
                     <h5>Schedule</h5>
-                    <p>A tentative schedule for the day's events will be posted soon.</p>
+                    <br>
+                    <div class="row">
+                        <div class="col s3 offset-s3">9:30am-10:00am</div>
+                        <div class="col s4">Check-in</div>
+
+                        <div class="pad"></div>
+
+                        <div class="col s3 offset-s3">10:00am-10:15am</div>
+                        <div class="col s4">Welcome & Introductions</div>
+
+                        <div class="pad"></div>
+
+                        <div class="col s3 offset-s3">10:15am-11:30am</div>
+                        <div class="col s4">Individual Exam</div>
+
+                        <div class="pad"></div>
+
+                        <div class="col s3 offset-s3">11:30am-12:00pm</div>
+                        <div class="col s4">Professor Presentations</div>
+
+                        <div class="pad"></div>
+
+                        <div class="col s3 offset-s3">12:00pm-1:30pm</div>
+                        <div class="col s4">Lunch</div>
+
+                        <div class="pad"></div>
+
+                        <div class="col s3 offset-s3">1:30pm-3:30pm</div>
+                        <div class="col s4">Quiz Bowl</div>
+
+                        <div class="pad"></div>
+
+                        <div class="col s3 offset-s3">3:30pm-4:00pm</div>
+                        <div class="col s4">Grad Student Presentations</div>
+
+                        <div class="pad"></div>
+
+                        <div class="col s3 offset-s3">4:00pm-4:15pm</div>
+                        <div class="col s4">Prof. Christiano Talk</div>
+
+                        <div class="pad"></div>
+
+                        <div class="col s3 offset-s3">4:15pm-4:45pm</div>
+                        <div class="col s4">Closing & Awards</div>
+                    </div>
+                    <p class="center-align"><span style="color:#4db6ac;">&#10033;</span>Schedule based on last year's tournament. Subject to change.</p>
                 </div>
 
                 <div id="speakers" class="section scrollspy">
                     <h5>Speakers</h5>
-                    <p>Speakers at NET will be posted soon.</p>
+                    <p>Speakers at NET 2018 will be posted soon.</p>
                 </div>
 
                 <div id="practice" class="section scrollspy">

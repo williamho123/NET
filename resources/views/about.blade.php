@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="card-content">
                                     <h5 class="black-text">Peter Nam</h5>
-                                    <p> Peter is a junior majoring in Economics, Computer Science, and MMSS.</p>
+                                    <p>Peter is a junior majoring in Economics, Computer Science, and MMSS.</p>
                                     <br>
                                     <p><b>Fun Fact: </b> I actually preferred to use Bing over Google for a period of time.</p>
                                 </div>
@@ -114,18 +114,47 @@
                         <div class="col m6">
                             <div class="card z-depth-5">
                                 <div class="card-image">
-                                    <img src="{{ asset('resources/pics/josh.jpg') }}">
+                                    <img src="{{ asset('resources/pics/clarissa.jpg') }}">
                                 </div>
                                 <div class="card-content">
-                                    <h5 class="black-text">Josh Avery</h5>
-                                    <p>Josh is a junior majoring in Economics and minoring in Business Institutions.</p>
+                                    <h5 class="black-text">Clarissa Qian</h5>
+                                    <p>Clarissa is a sophomore majoring in Economics and Computer Science.</p>
                                     <br>
-                                    <p><b>Fun Fact: </b> I crashed my bike into a moose a few summers ago and lived to tell the tale.</p>
+                                    <p><b>Fun Fact: </b> I physically lose my voice at least 2 to 3 times a year.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col m6">
+                            <div class="card z-depth-5">
+                                <div class="card-image">
+                                    <img src="{{ asset('resources/pics/hongrui.jpg') }}">
+                                </div>
+                                <div class="card-content">
+                                    <h5 class="black-text">Hongrui He</h5>
+                                    <p>Hongrui is a freshman majoring in Economics and Math.</p>
+                                    <br>
+                                    <p><b>Fun Fact: </b> I love photopgrahy and often take my camera with me!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col m6">
+                            <div class="card z-depth-5">
+                                <div class="card-image">
+                                    <img src="{{ asset('resources/pics/tyler.jpg') }}">
+                                </div>
+                                <div class="card-content">
+                                    <h5 class="black-text">Tyler Huang</h5>
+                                    <p>Tyler is a freshman majoring in Economics and Computer Science.</p>
+                                    <br>
+                                    <p><b>Fun Fact: </b> I waited 3 hours to eat at a Michelin-starred ramen restaurant in Japan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
