@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -73,5 +74,17 @@ class Handler extends ExceptionHandler
         }
 
         return redirect()->guest($login);
+    }
+
+    /**
+     * Convert a validation exception into a JSON response. Legacy Laravel (< 5.5) JSON format.
+     *
+     * @param $request
+     * @param ValidationException $exception
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function invalidJson($request, ValidationException $exception) {
+
+        return response()->json($exception->errors(), $exception->status);
     }
 }
