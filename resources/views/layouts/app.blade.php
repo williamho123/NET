@@ -49,7 +49,9 @@
             </div>
         </nav>
 
-        @yield('content')
+        <div id="app">
+            @yield('content')
+        </div>
     </main>
 
     <footer class="page-footer teal lighten-2">

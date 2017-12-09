@@ -22,3 +22,22 @@ let req = require.context("./app", true, /\.js$/);
 req.keys().forEach((key) => {
     req(key);
 });
+
+/*---------------------------------------------------------------------------------------*/
+
+/**
+ * Mount all Vue components for this app.
+ */
+
+// import VueFormWizard from 'vue-form-wizard';
+// import 'vue-form-wizard/dist/vue-form-wizard.min.css';
+// Vue.use(VueFormWizard);
+
+// Vue virtual DOM might be interfering with all other JS manipulation of the DOM.
+Vue.component('example-component', require('./components/Example.vue'));
+
+window.onload = () => {
+    const app = new Vue({
+        el: "#app"
+    });
+};
