@@ -34,10 +34,10 @@ req.keys().forEach((key) => {
 // Vue.use(VueFormWizard);
 
 // Vue virtual DOM might be interfering with all other JS manipulation of the DOM.
-Vue.component('example-component', require('./components/Example.vue'));
-
-window.onload = () => {
-    const app = new Vue({
-        el: "#app"
-    });
-};
+// Vue.component('example-component', require('./components/Example.vue'));
+//
+// window.onload = () => {
+//     const app = new Vue({
+//         el: "#app"
+//     });
+// };

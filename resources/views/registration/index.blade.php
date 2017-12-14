@@ -10,7 +10,7 @@
             @if(registrationIsOpen())
                 <p class="information-text">
                     We are excited that you want to participate in NET! Please carefully review the information below
-                    before starting on the application - we look forward to reading them.
+                    before filling out the registration form - we look forward to reading them.
                 </p>
 
                 @include('registration.information-cards-partial')
@@ -23,7 +23,7 @@
                 <br>
 
                 <div class="center-align">
-                    <a href="{{ url('/registration/create') }}" class="btn btn-large waves-effect waves-light">Start Application
+                    <a href="{{ url('/registration/create') }}" class="btn btn-large waves-effect waves-light">Start Registration
                         <i class="material-icons right">keyboard_arrow_right</i>
                     </a>
                 </div>

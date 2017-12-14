@@ -2,7 +2,7 @@
     <div class="col s12">
         <div class="card blue-grey lighten-1 z-depth-5">
             <div class="card-content white-text">
-                <span class="card-title">Application Process</span>
+                <span class="card-title">Registration Process</span>
                 <ul class="browser-default">
                     <li>After submitting the application, you will receive a confirmation email with your team's unique ID code and password.</li>
                     <li>Use these credentials to track the status of your application through the portal under app status.</li>
