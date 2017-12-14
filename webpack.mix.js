@@ -12,12 +12,13 @@ const { mix } = require('laravel-mix');
  */
 
 /**
- * Compile JS assets into public/js folder and extract vendor code.
+ * Compile application-wide JS assets into public/js folder and extract vendor code.
+ * Compile Vue component assets into public/js folder.
  */
 
-let vendor = ['jquery', 'lodash', 'materialize-css', 'sweetalert'];
-
+let vendor = ['jquery', 'lodash', 'materialize-css', 'sweetalert', 'vue'];
 mix.js('resources/assets/js/app.js', 'public/js/app.js').extract(vendor);
+mix.js('resources/assets/js/component.js', 'public/js/component.js');
 
 /*---------------------------------------------------------------------------------------*/
 
