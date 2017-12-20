@@ -1,4 +1,4 @@
-webpackJsonp([1],[
+webpackJsonp([2],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
@@ -9,21 +9,22 @@ webpackJsonp([1],[
 /* 7 */,
 /* 8 */,
 /* 9 */,
-/* 10 */
+/* 10 */,
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(11);
+module.exports = __webpack_require__(12);
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
  * Bootstrap all of the application's JavaScript dependencies.
  */
 
-__webpack_require__(12);
+__webpack_require__(13);
 
 /*---------------------------------------------------------------------------------------*/
 
@@ -31,7 +32,7 @@ __webpack_require__(12);
  * Load all global helper functions that should be accessible from every module.
  */
 
-__webpack_require__(22);
+__webpack_require__(23);
 
 /*---------------------------------------------------------------------------------------*/
 
@@ -39,13 +40,13 @@ __webpack_require__(22);
  * Require all application related JavaScript modules within the app folder.
  */
 
-var req = __webpack_require__(23);
+var req = __webpack_require__(24);
 req.keys().forEach(function (key) {
   req(key);
 });
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -85,7 +86,6 @@ __webpack_require__(6);
 __webpack_require__(8);
 
 /***/ }),
-/* 13 */,
 /* 14 */,
 /* 15 */,
 /* 16 */,
@@ -94,7 +94,8 @@ __webpack_require__(8);
 /* 19 */,
 /* 20 */,
 /* 21 */,
-/* 22 */
+/* 22 */,
+/* 23 */
 /***/ (function(module, exports) {
 
 /**
@@ -163,13 +164,12 @@ window.errorsJSONToHTML = function (data) {
 };
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./admin/dashboard.js": 24,
-	"./admin/settings.js": 25,
-	"./registration/create.js": 26,
+	"./admin/dashboard.js": 25,
+	"./admin/settings.js": 26,
 	"./registration/index.js": 27
 };
 function webpackContext(req) {
@@ -186,10 +186,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 23;
+webpackContext.id = 24;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 $(function () {
@@ -217,7 +217,7 @@ function sendToggleAJAXRequest(url) {
 }
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 $(function () {
@@ -260,47 +260,6 @@ $(function () {
 });
 
 /***/ }),
-/* 26 */
-/***/ (function(module, exports) {
-
-$(function () {
-
-    $('select').material_select();
-
-    $('#team_captain_number').formatter({
-        'pattern': '({{999}}) {{999}}-{{9999}}'
-    });
-
-    $('#advisor_number').formatter({
-        'pattern': '({{999}}) {{999}}-{{9999}}'
-    });
-
-    $('#econ_back').change(function () {
-        var object = $('#econ_exp_div');
-        if ($('#econ_back').prop('checked')) {
-            object.show(700);
-        } else {
-            object.hide(700);
-        }
-    });
-
-    var registerForm = $('#register-form');
-
-    registerForm.submit(function (e) {
-        e.preventDefault();
-        $.ajax({
-            type: registerForm.attr('method'),
-            url: registerForm.attr('action'),
-            data: registerForm.serializeArray(),
-            success: function success(data) {},
-            error: function error(data) {
-                handleErrors(data);
-            }
-        });
-    });
-});
-
-/***/ }),
 /* 27 */
 /***/ (function(module, exports) {
 
@@ -332,4 +291,4 @@ $(function () {
 });
 
 /***/ })
-],[10]);
+],[11]);

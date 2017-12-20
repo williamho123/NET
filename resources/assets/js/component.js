@@ -3,6 +3,7 @@
  */
 
 Vue.component('contact-form', require('./components/ContactForm.vue'));
+Vue.component('registration-form', require('./components/RegistrationForm.vue'));
 
 /**
  * Mount all Vue components for this app.
