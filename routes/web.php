@@ -30,6 +30,10 @@ Route::post('/contact', 'ContactController@store');
 Route::get('/registration', 'RegistrationController@index');
 Route::post('/registration/update', 'RegistrationController@keepUpdated');
 Route::get('/registration/create', 'RegistrationController@create');
+Route::post('/registration/step1', 'RegistrationController@checkStep1');
+Route::post('/registration/step2', 'RegistrationController@checkStep2');
+Route::post('/registration/step3', 'RegistrationController@checkStep3');
+Route::post('/registration/step4', 'RegistrationController@checkStep4');
 Route::post('/registration', 'RegistrationController@store');
 
 Route::get('/team', 'TeamController@dashboard');

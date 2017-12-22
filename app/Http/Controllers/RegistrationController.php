@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use \Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\RegistrationRequest;
 
 class RegistrationController extends Controller
 {
@@ -63,13 +62,55 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Validates and stores the new registration in the database.
+     * Validates 1st step of multi-part registration form. Stores data in session.
      *
-     * @param RegistrationRequest $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RegistrationRequest $request) {
+    public function checkStep1(Request $request) {
 
+    }
+
+    /**
+     * Validates 2nd step of multi-part registration form. Stores data in session.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function checkStep2(Request $request) {
+
+    }
+
+    /**
+     * Validates 3rd step of multi-part registration form. Stores data in session.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function checkStep3(Request $request) {
+
+    }
+
+    /**
+     * Validates 4th step of multi-part registration form. Stores data in session.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function checkStep4(Request $request) {
+
+    }
+
+    /**
+     * Persists registration and associates with a team object.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request) {
+
+        // check to see if statement has been agreed to
+        // check if data exists in session
 
     }
 }

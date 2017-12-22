@@ -10,21 +10,22 @@ webpackJsonp([2],[
 /* 8 */,
 /* 9 */,
 /* 10 */,
-/* 11 */
+/* 11 */,
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(12);
+module.exports = __webpack_require__(13);
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
  * Bootstrap all of the application's JavaScript dependencies.
  */
 
-__webpack_require__(13);
+__webpack_require__(14);
 
 /*---------------------------------------------------------------------------------------*/
 
@@ -32,7 +33,7 @@ __webpack_require__(13);
  * Load all global helper functions that should be accessible from every module.
  */
 
-__webpack_require__(23);
+__webpack_require__(24);
 
 /*---------------------------------------------------------------------------------------*/
 
@@ -40,13 +41,13 @@ __webpack_require__(23);
  * Require all application related JavaScript modules within the app folder.
  */
 
-var req = __webpack_require__(24);
+var req = __webpack_require__(25);
 req.keys().forEach(function (key) {
   req(key);
 });
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -86,7 +87,6 @@ __webpack_require__(6);
 __webpack_require__(8);
 
 /***/ }),
-/* 14 */,
 /* 15 */,
 /* 16 */,
 /* 17 */,
@@ -95,7 +95,8 @@ __webpack_require__(8);
 /* 20 */,
 /* 21 */,
 /* 22 */,
-/* 23 */
+/* 23 */,
+/* 24 */
 /***/ (function(module, exports) {
 
 /**
@@ -164,13 +165,13 @@ window.errorsJSONToHTML = function (data) {
 };
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./admin/dashboard.js": 25,
-	"./admin/settings.js": 26,
-	"./registration/index.js": 27
+	"./admin/dashboard.js": 26,
+	"./admin/settings.js": 27,
+	"./registration/index.js": 28
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -186,10 +187,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 24;
+webpackContext.id = 25;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 $(function () {
@@ -217,7 +218,7 @@ function sendToggleAJAXRequest(url) {
 }
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 $(function () {
@@ -260,7 +261,7 @@ $(function () {
 });
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 $(function () {
@@ -291,4 +292,4 @@ $(function () {
 });
 
 /***/ })
-],[11]);
+],[12]);

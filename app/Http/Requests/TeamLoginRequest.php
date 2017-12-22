@@ -40,7 +40,7 @@ class TeamLoginRequest extends FormRequest
 
         return [
             'team_id_code.required' => 'The team ID code field is required.',
-            'team_id_code.password' => 'The team ID code field must be a string.'
+            'team_id_code.string' => 'The team ID code field must be a string.'
         ];
     }
 
