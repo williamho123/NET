@@ -33,7 +33,7 @@
                     <label for="team_captain_name">Name</label>
                 </div>
                 <div class="input-field col s6">
-                    <select id="team_captain_grade" v-model="teamCaptainGrade">
+                    <select id="team_captain_grade">
                         <option value="" disabled selected>Select an year</option>
                         <option value="Freshman">Freshman</option>
                         <option value="Sophomore">Sophomore</option>
@@ -62,7 +62,7 @@
                     <label for="team_member_1_name">Name</label>
                 </div>
                 <div class="input-field col s6">
-                    <select id="team_member_1_grade" v-model="teamMember1Grade">
+                    <select id="team_member_1_grade">
                         <option value="" disabled selected>Select an year</option>
                         <option value="Freshman">Freshman</option>
                         <option value="Sophomore">Sophomore</option>
@@ -88,7 +88,7 @@
                     <label for="team_member_2_name">Name</label>
                 </div>
                 <div class="input-field col s6">
-                    <select id="team_member_2_grade" v-model="teamMember2Grade">
+                    <select id="team_member_2_grade">
                         <option value="" disabled selected>Select an year</option>
                         <option value="Freshman">Freshman</option>
                         <option value="Sophomore">Sophomore</option>
@@ -114,7 +114,7 @@
                     <label for="team_member_3_name">Name</label>
                 </div>
                 <div class="input-field col s6">
-                    <select id="team_member_3_grade" v-model="teamMember3Grade">
+                    <select id="team_member_3_grade">
                         <option value="" disabled selected>Select an year</option>
                         <option value="Freshman">Freshman</option>
                         <option value="Sophomore">Sophomore</option>
@@ -238,8 +238,15 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button class="modal-action modal-close waves-effect waves-light btn red darken-2">Cancel <i class="material-icons right">cancel</i></button>
-                    <button class="waves-effect waves-light btn" :disabled="!agreed">Submit <i class="material-icons right">send</i></button>
+                    <div v-if="!submitted">
+                        <button class="modal-action modal-close waves-effect waves-light btn red darken-2">Cancel <i class="material-icons right">cancel</i></button>
+                        <button class="waves-effect waves-light btn" :disabled="!agreed" @click="submitForm">Submit <i class="material-icons right">send</i></button>
+                    </div>
+                    <div v-else>
+                        <div class="progress">
+                            <div class="indeterminate"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </tab-content>
@@ -251,6 +258,8 @@
     import {TheMask} from 'vue-the-mask'
     import 'vue-form-wizard/dist/vue-form-wizard.min.css'
 
+    // Select components are not VueJS reactive - statically retrieved with jQuery upon step completion.
+    // MaterializeCSS Select does not mesh well with v-model directive...must create custom wrapper for reactive functionality if needed.
     export default {
         components: {
             FormWizard,
@@ -261,15 +270,16 @@
             return {
                 school: '',
                 teamName: '',
-                teamCaptainName: '', teamCaptainGrade: '', teamCaptainEmail: '',
-                teamMember1Name: '', teamMember1Grade: '', teamMember1Email: '',
-                teamMember2Name: '', teamMember2Grade: '', teamMember2Email: '',
-                teamMember3Name: '', teamMember3Grade: '', teamMember3Email: '',
+                teamCaptainName: '', teamCaptainEmail: '',
+                teamMember1Name: '', teamMember1Email: '',
+                teamMember2Name: '', teamMember2Email: '',
+                teamMember3Name: '', teamMember3Email: '',
                 advisorName: '', advisorEmail: '', advisorSubject: '',
                 teamCaptainNumber: '', advisorNumber: '',
                 checked: false, econExp: '',
                 whyNet: '',
-                agreed: false
+                agreed: false,
+                submitted: false
             }
         },
         methods: {
@@ -279,21 +289,96 @@
             openAgreementModal () {
                 $('#agree_modal').modal('open');
             },
+            submitForm () {
+                this.submitted = true;
+
+                $.post('/registration', {
+                    agreed: this.agreed
+                }).fail((data) => {
+                    handleErrors(data);
+                    this.submitted = false;
+                }).done(() => {
+                    $('#agree_modal').modal('close');
+                    swal({
+                        title: "Submitted!",
+                        text: "An email with your team's login credentials will be sent to " + this.teamCaptainEmail + " and " + this.advisorEmail + " shortly.",
+                        type: "success",
+                        confirmButtonColor: "#4db6ac"
+                        }, () => {
+                            window.location.href = '/';
+                        }
+                    );
+                });
+            },
             validateStep1 () {
-                scrollTop();
-                return true;
+                return new Promise((resolve, reject) => {
+                    $.post('/registration/step1', {
+                        school_name: this.school,
+                        team_name: this.teamName,
+                        team_captain_name: this.teamCaptainName,
+                        team_captain_grade: $('#team_captain_grade').val(),
+                        team_captain_email: this.teamCaptainEmail
+                    }).fail((data) => {
+                        handleErrors(data);
+                        reject();
+                    }).done(() => {
+                        this.scrollTop();
+                        resolve(true);
+                    });
+                })
             },
             validateStep2 () {
-                scrollTop();
-                return true;
+                return new Promise((resolve, reject) => {
+                    $.post('/registration/step2', {
+                        team_member_1_name: this.teamMember1Name,
+                        team_member_1_grade: $('#team_member_1_grade').val(),
+                        team_member_1_email: this.teamMember1Email,
+                        team_member_2_name: this.teamMember2Name,
+                        team_member_2_grade: $('#team_member_2_grade').val(),
+                        team_member_2_email: this.teamMember2Email,
+                        team_member_3_name: this.teamMember3Name,
+                        team_member_3_grade: $('#team_member_3_grade').val(),
+                        team_member_3_email: this.teamMember3Email,
+                    }).fail((data) => {
+                        handleErrors(data);
+                        reject();
+                    }).done(() => {
+                        this.scrollTop();
+                        resolve(true);
+                    });
+                });
             },
             validateStep3 () {
-                scrollTop();
-                return true;
+                return new Promise((resolve, reject) => {
+                    $.post('/registration/step3', {
+                        advisor_name: this.advisorName,
+                        advisor_email: this.advisorEmail,
+                        advisor_relationship: this.advisorSubject,
+                        team_captain_number: this.teamCaptainNumber,
+                        advisor_number: this.advisorNumber
+                    }).fail((data) => {
+                        handleErrors(data);
+                        reject();
+                    }).done(() => {
+                        this.scrollTop();
+                        resolve(true);
+                    });
+                });
             },
             validateStep4 () {
-                scrollTop();
-                return true;
+                return new Promise((resolve, reject) => {
+                    $.post('/registration/step4', {
+                        checked: this.checked,
+                        economics_experience: this.econExp,
+                        short_answer: this.whyNet
+                    }).fail((data) => {
+                        handleErrors(data);
+                        reject();
+                    }).done(() => {
+                        this.scrollTop();
+                        resolve(true);
+                    });
+                });
             }
         }
     }

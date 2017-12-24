@@ -234,22 +234,6 @@ module.exports = __webpack_require__(30);
 Vue.component('contact-form', __webpack_require__(31));
 Vue.component('registration-form', __webpack_require__(34));
 
-/**
- * Mount all Vue components for this app.
- */
-
-// import VueFormWizard from 'vue-form-wizard';
-// import 'vue-form-wizard/dist/vue-form-wizard.min.css';
-// Vue.use(VueFormWizard);
-
-// Vue virtual DOM might be interfering with all other JS manipulation of the DOM.
-//
-// window.onload = () => {
-//     const app = new Vue({
-//         el: "#app"
-//     });
-// };
-
 /***/ }),
 /* 31 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1181,11 +1165,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 
+// Select components are not VueJS reactive - statically retrieved with jQuery upon step completion.
+// MaterializeCSS Select does not mesh well with v-model directive...must create custom wrapper for reactive functionality if needed.
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: {
         FormWizard: __WEBPACK_IMPORTED_MODULE_0_vue_form_wizard__["FormWizard"],
@@ -1195,30 +1188,126 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             school: '',
-            checked: false,
-            agreed: false
+            teamName: '',
+            teamCaptainName: '', teamCaptainEmail: '',
+            teamMember1Name: '', teamMember1Email: '',
+            teamMember2Name: '', teamMember2Email: '',
+            teamMember3Name: '', teamMember3Email: '',
+            advisorName: '', advisorEmail: '', advisorSubject: '',
+            teamCaptainNumber: '', advisorNumber: '',
+            checked: false, econExp: '',
+            whyNet: '',
+            agreed: false,
+            submitted: false
         };
     },
 
     methods: {
+        scrollTop: function scrollTop() {
+            $('html, body').animate({ scrollTop: 0 }, 1000);
+        },
         openAgreementModal: function openAgreementModal() {
             $('#agree_modal').modal('open');
         },
+        submitForm: function submitForm() {
+            var _this = this;
+
+            this.submitted = true;
+
+            $.post('/registration', {
+                agreed: this.agreed
+            }).fail(function (data) {
+                handleErrors(data);
+                _this.submitted = false;
+            }).done(function () {
+                $('#agree_modal').modal('close');
+                swal({
+                    title: "Submitted!",
+                    text: "An email with your team's login credentials will be sent to " + _this.teamCaptainEmail + " and " + _this.advisorEmail + " shortly.",
+                    type: "success",
+                    confirmButtonColor: "#4db6ac"
+                }, function () {
+                    window.location.href = '/';
+                });
+            });
+        },
         validateStep1: function validateStep1() {
-            $('html, body').animate({ scrollTop: 0 }, 1000);
-            return true;
+            var _this2 = this;
+
+            return new Promise(function (resolve, reject) {
+                $.post('/registration/step1', {
+                    school_name: _this2.school,
+                    team_name: _this2.teamName,
+                    team_captain_name: _this2.teamCaptainName,
+                    team_captain_grade: $('#team_captain_grade').val(),
+                    team_captain_email: _this2.teamCaptainEmail
+                }).fail(function (data) {
+                    handleErrors(data);
+                    reject();
+                }).done(function () {
+                    _this2.scrollTop();
+                    resolve(true);
+                });
+            });
         },
         validateStep2: function validateStep2() {
-            $('html, body').animate({ scrollTop: 0 }, 1000);
-            return true;
+            var _this3 = this;
+
+            return new Promise(function (resolve, reject) {
+                $.post('/registration/step2', {
+                    team_member_1_name: _this3.teamMember1Name,
+                    team_member_1_grade: $('#team_member_1_grade').val(),
+                    team_member_1_email: _this3.teamMember1Email,
+                    team_member_2_name: _this3.teamMember2Name,
+                    team_member_2_grade: $('#team_member_2_grade').val(),
+                    team_member_2_email: _this3.teamMember2Email,
+                    team_member_3_name: _this3.teamMember3Name,
+                    team_member_3_grade: $('#team_member_3_grade').val(),
+                    team_member_3_email: _this3.teamMember3Email
+                }).fail(function (data) {
+                    handleErrors(data);
+                    reject();
+                }).done(function () {
+                    _this3.scrollTop();
+                    resolve(true);
+                });
+            });
         },
         validateStep3: function validateStep3() {
-            $('html, body').animate({ scrollTop: 0 }, 1000);
-            return true;
+            var _this4 = this;
+
+            return new Promise(function (resolve, reject) {
+                $.post('/registration/step3', {
+                    advisor_name: _this4.advisorName,
+                    advisor_email: _this4.advisorEmail,
+                    advisor_relationship: _this4.advisorSubject,
+                    team_captain_number: _this4.teamCaptainNumber,
+                    advisor_number: _this4.advisorNumber
+                }).fail(function (data) {
+                    handleErrors(data);
+                    reject();
+                }).done(function () {
+                    _this4.scrollTop();
+                    resolve(true);
+                });
+            });
         },
         validateStep4: function validateStep4() {
-            $('html, body').animate({ scrollTop: 0 }, 1000);
-            return true;
+            var _this5 = this;
+
+            return new Promise(function (resolve, reject) {
+                $.post('/registration/step4', {
+                    checked: _this5.checked,
+                    economics_experience: _this5.econExp,
+                    short_answer: _this5.whyNet
+                }).fail(function (data) {
+                    handleErrors(data);
+                    reject();
+                }).done(function () {
+                    _this5.scrollTop();
+                    resolve(true);
+                });
+            });
         }
     }
 });
@@ -1798,7 +1887,26 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "input-field col s12" }, [
-              _c("input", { attrs: { id: "team_name", type: "text" } }),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.teamName,
+                    expression: "teamName"
+                  }
+                ],
+                attrs: { id: "team_name", type: "text" },
+                domProps: { value: _vm.teamName },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.teamName = $event.target.value
+                  }
+                }
+              }),
               _vm._v(" "),
               _c("label", { attrs: { for: "team_name" } }, [
                 _vm._v("Team Name")
@@ -1812,7 +1920,26 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "input-field col s6" }, [
-              _c("input", { attrs: { id: "team_captain_name", type: "text" } }),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.teamCaptainName,
+                    expression: "teamCaptainName"
+                  }
+                ],
+                attrs: { id: "team_captain_name", type: "text" },
+                domProps: { value: _vm.teamCaptainName },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.teamCaptainName = $event.target.value
+                  }
+                }
+              }),
               _vm._v(" "),
               _c("label", { attrs: { for: "team_captain_name" } }, [
                 _vm._v("Name")
@@ -1851,7 +1978,24 @@ var render = function() {
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "input-field col s12" }, [
               _c("input", {
-                attrs: { id: "team_captain_email", type: "email" }
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.teamCaptainEmail,
+                    expression: "teamCaptainEmail"
+                  }
+                ],
+                attrs: { id: "team_captain_email", type: "email" },
+                domProps: { value: _vm.teamCaptainEmail },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.teamCaptainEmail = $event.target.value
+                  }
+                }
               }),
               _vm._v(" "),
               _c("label", { attrs: { for: "team_captain_email" } }, [
@@ -1877,7 +2021,24 @@ var render = function() {
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "input-field col s6" }, [
               _c("input", {
-                attrs: { id: "team_member_1_name", type: "text" }
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.teamMember1Name,
+                    expression: "teamMember1Name"
+                  }
+                ],
+                attrs: { id: "team_member_1_name", type: "text" },
+                domProps: { value: _vm.teamMember1Name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.teamMember1Name = $event.target.value
+                  }
+                }
               }),
               _vm._v(" "),
               _c("label", { attrs: { for: "team_member_1_name" } }, [
@@ -1917,7 +2078,24 @@ var render = function() {
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "input-field col s12" }, [
               _c("input", {
-                attrs: { id: "team_member_1_email", type: "email" }
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.teamMember1Email,
+                    expression: "teamMember1Email"
+                  }
+                ],
+                attrs: { id: "team_member_1_email", type: "email" },
+                domProps: { value: _vm.teamMember1Email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.teamMember1Email = $event.target.value
+                  }
+                }
               }),
               _vm._v(" "),
               _c("label", { attrs: { for: "team_member_1_email" } }, [
@@ -1933,7 +2111,24 @@ var render = function() {
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "input-field col s6" }, [
               _c("input", {
-                attrs: { id: "team_member_2_name", type: "text" }
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.teamMember2Name,
+                    expression: "teamMember2Name"
+                  }
+                ],
+                attrs: { id: "team_member_2_name", type: "text" },
+                domProps: { value: _vm.teamMember2Name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.teamMember2Name = $event.target.value
+                  }
+                }
               }),
               _vm._v(" "),
               _c("label", { attrs: { for: "team_member_2_name" } }, [
@@ -1973,7 +2168,24 @@ var render = function() {
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "input-field col s12" }, [
               _c("input", {
-                attrs: { id: "team_member_2_email", type: "email" }
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.teamMember2Email,
+                    expression: "teamMember2Email"
+                  }
+                ],
+                attrs: { id: "team_member_2_email", type: "email" },
+                domProps: { value: _vm.teamMember2Email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.teamMember2Email = $event.target.value
+                  }
+                }
               }),
               _vm._v(" "),
               _c("label", { attrs: { for: "team_member_2_email" } }, [
@@ -1989,7 +2201,24 @@ var render = function() {
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "input-field col s6" }, [
               _c("input", {
-                attrs: { id: "team_member_3_name", type: "text" }
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.teamMember3Name,
+                    expression: "teamMember3Name"
+                  }
+                ],
+                attrs: { id: "team_member_3_name", type: "text" },
+                domProps: { value: _vm.teamMember3Name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.teamMember3Name = $event.target.value
+                  }
+                }
               }),
               _vm._v(" "),
               _c("label", { attrs: { for: "team_member_3_name" } }, [
@@ -2029,7 +2258,24 @@ var render = function() {
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "input-field col s12" }, [
               _c("input", {
-                attrs: { id: "team_member_3_email", type: "email" }
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.teamMember3Email,
+                    expression: "teamMember3Email"
+                  }
+                ],
+                attrs: { id: "team_member_3_email", type: "email" },
+                domProps: { value: _vm.teamMember3Email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.teamMember3Email = $event.target.value
+                  }
+                }
               }),
               _vm._v(" "),
               _c("label", { attrs: { for: "team_member_3_email" } }, [
@@ -2060,7 +2306,26 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "input-field col s12" }, [
-              _c("input", { attrs: { id: "advisor_name", type: "text" } }),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.advisorName,
+                    expression: "advisorName"
+                  }
+                ],
+                attrs: { id: "advisor_name", type: "text" },
+                domProps: { value: _vm.advisorName },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.advisorName = $event.target.value
+                  }
+                }
+              }),
               _vm._v(" "),
               _c("label", { attrs: { for: "advisor_name" } }, [
                 _vm._v("Advisor Name")
@@ -2070,7 +2335,26 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "input-field col s12" }, [
-              _c("input", { attrs: { id: "advisor_email", type: "email" } }),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.advisorEmail,
+                    expression: "advisorEmail"
+                  }
+                ],
+                attrs: { id: "advisor_email", type: "email" },
+                domProps: { value: _vm.advisorEmail },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.advisorEmail = $event.target.value
+                  }
+                }
+              }),
               _vm._v(" "),
               _c("label", { attrs: { for: "advisor_email" } }, [
                 _vm._v("Email")
@@ -2080,7 +2364,26 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "input-field col s12" }, [
-              _c("input", { attrs: { id: "advisor_subject", type: "text" } }),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.advisorSubject,
+                    expression: "advisorSubject"
+                  }
+                ],
+                attrs: { id: "advisor_subject", type: "text" },
+                domProps: { value: _vm.advisorSubject },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.advisorSubject = $event.target.value
+                  }
+                }
+              }),
               _vm._v(" "),
               _c("label", { attrs: { for: "advisor_subject" } }, [
                 _vm._v("Relationship to Participants")
@@ -2108,6 +2411,13 @@ var render = function() {
                     id: "team_captain_number",
                     mask: "(###) ###-####",
                     type: "tel"
+                  },
+                  model: {
+                    value: _vm.teamCaptainNumber,
+                    callback: function($$v) {
+                      _vm.teamCaptainNumber = $$v
+                    },
+                    expression: "teamCaptainNumber"
                   }
                 }),
                 _vm._v(" "),
@@ -2129,6 +2439,13 @@ var render = function() {
                     id: "advisor_number",
                     mask: "(###) ###-####",
                     type: "tel"
+                  },
+                  model: {
+                    value: _vm.advisorNumber,
+                    callback: function($$v) {
+                      _vm.advisorNumber = $$v
+                    },
+                    expression: "advisorNumber"
                   }
                 }),
                 _vm._v(" "),
@@ -2222,8 +2539,25 @@ var render = function() {
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "input-field col s12" }, [
                       _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.econExp,
+                            expression: "econExp"
+                          }
+                        ],
                         staticClass: "materialize-textarea",
-                        attrs: { id: "econ_exp", "data-length": "1500" }
+                        attrs: { id: "econ_exp", "data-length": "1500" },
+                        domProps: { value: _vm.econExp },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.econExp = $event.target.value
+                          }
+                        }
                       }),
                       _vm._v(" "),
                       _c("label", { attrs: { for: "econ_exp" } }, [
@@ -2246,8 +2580,25 @@ var render = function() {
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "input-field col s12" }, [
               _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.whyNet,
+                    expression: "whyNet"
+                  }
+                ],
                 staticClass: "materialize-textarea",
-                attrs: { id: "why_net", "data-length": "1500" }
+                attrs: { id: "why_net", "data-length": "1500" },
+                domProps: { value: _vm.whyNet },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.whyNet = $event.target.value
+                  }
+                }
               }),
               _vm._v(" "),
               _c("label", { attrs: { for: "why_net" } }, [
@@ -2330,33 +2681,42 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "modal-action modal-close waves-effect waves-light btn red darken-2"
-                  },
-                  [
-                    _vm._v("Cancel "),
-                    _c("i", { staticClass: "material-icons right" }, [
-                      _vm._v("cancel")
+                !_vm.submitted
+                  ? _c("div", [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "modal-action modal-close waves-effect waves-light btn red darken-2"
+                        },
+                        [
+                          _vm._v("Cancel "),
+                          _c("i", { staticClass: "material-icons right" }, [
+                            _vm._v("cancel")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "waves-effect waves-light btn",
+                          attrs: { disabled: !_vm.agreed },
+                          on: { click: _vm.submitForm }
+                        },
+                        [
+                          _vm._v("Submit "),
+                          _c("i", { staticClass: "material-icons right" }, [
+                            _vm._v("send")
+                          ])
+                        ]
+                      )
                     ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "waves-effect waves-light btn",
-                    attrs: { disabled: !_vm.agreed }
-                  },
-                  [
-                    _vm._v("Submit "),
-                    _c("i", { staticClass: "material-icons right" }, [
-                      _vm._v("send")
+                  : _c("div", [
+                      _c("div", { staticClass: "progress" }, [
+                        _c("div", { staticClass: "indeterminate" })
+                      ])
                     ])
-                  ]
-                )
               ])
             ]
           )

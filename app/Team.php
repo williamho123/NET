@@ -35,4 +35,14 @@ class Team extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     protected $dates = ['deleted_at'];
 
+    /**
+     * Associate the team with its registration data.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function registration() {
+
+        return $this->hasOne('App\Registration');
+    }
+
 }

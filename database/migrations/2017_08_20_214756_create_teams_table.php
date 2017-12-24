@@ -17,11 +17,14 @@ class CreateTeamsTable extends Migration
             $table->increments('id');
             $table->string('team_id_code')->unique();
             $table->string('password');
+            $table->string('team_name');
+            $table->string('school');
             $table->integer('registration_id')->unsigned();
             $table->boolean('accepted')->default(false);
-            $table->boolean('paid')->default(false);
+            $table->boolean('waitlisted')->default(false);
             $table->boolean('forms')->default(false);
             $table->boolean('active')->default(true);
+            $table->boolean('initial_read')->default(false);
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

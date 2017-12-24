@@ -48,6 +48,9 @@
                             </div>
                         </div>
                     </div>
+                    <p class="information-text red-text center-align">
+                        All fields in the form are required unless otherwise noted.
+                    </p>
                 </div>
                 <div class="modal-footer">
                     <button class="modal-action modal-close waves-effect waves-green btn">Continue</button>
