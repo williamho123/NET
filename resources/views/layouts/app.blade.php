@@ -55,7 +55,7 @@
 
     <footer class="page-footer teal lighten-2">
         <div class="container">
-            &copy; 2016-2017 Northwestern Economics Tournament <br><br>
+            &copy; 2016-{{ date('Y') }} Northwestern Economics Tournament <br><br>
         </div>
     </footer>
 </body>

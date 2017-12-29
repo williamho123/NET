@@ -33,7 +33,7 @@
                                 page for a breakdown of the topics and more information about tournament structure.<br><br>
 
                                 <strong>Do we have to pay to attend NET?</strong><br>
-                                NET 2018 is free! We want students to come enjoy the tournament and learn without the need for an application fee.
+                                NET {{ getTournamentYear() }} is free! We want students to come enjoy the tournament and learn without the need for an application fee.
                                 <br><br>
 
                                 <strong>Are there any practice resources to prepare for NET?</strong><br>

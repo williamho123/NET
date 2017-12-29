@@ -35,7 +35,7 @@
                     </blockquote>
 
                     <p>
-                        The 2nd annual tournament will take place on <b>April 7th, 2018</b> at the Kellogg Global Hub. We would like to welcome all students
+                        The annual tournament will take place on <b>{{ getFormattedTournamentDate() }}</b> at the Kellogg Global Hub. We would like to welcome all students
                         interested in learning more about economics to participate in the tournament! Please use the links below to learn more about the tournament
                         itself or to contact us if you have any questions.
                     </p>

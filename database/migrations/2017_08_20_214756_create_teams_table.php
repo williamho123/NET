@@ -22,9 +22,9 @@ class CreateTeamsTable extends Migration
             $table->integer('registration_id')->unsigned();
             $table->boolean('accepted')->default(false);
             $table->boolean('waitlisted')->default(false);
+            $table->boolean('rejected')->default(false);
             $table->boolean('forms')->default(false);
             $table->boolean('active')->default(true);
-            $table->boolean('initial_read')->default(false);
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

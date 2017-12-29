@@ -48,8 +48,7 @@
                                     </p>
                                 @else
                                     <span class="card-title white-text center-align">
-                                        @php($open_date = App\Internal::first()->getAttribute('registration_open_date'))
-                                        Registration opens on {{ Carbon\Carbon::createFromFormat('Y-m-d', $open_date)->format('F jS, Y')}}.
+                                        Registration opens on {{ getFormattedOpenRegDate() }}.
                                     </span>
 
                                     <br>

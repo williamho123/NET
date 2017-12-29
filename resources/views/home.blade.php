@@ -56,7 +56,7 @@
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="row center">
-                    <h4 class="header col s12 white-text">April 7th, 2018 - Kellogg Global Hub</h4>
+                    <h4 class="header col s12 white-text">{{ getFormattedTournamentDate() }} - Kellogg Global Hub</h4>
                 </div>
                 <div class="row center">
                     <a href="{{ url('/registration') }}" class="btn-large waves-effect waves-light teal lighten-1">Register Now</a>

@@ -16,7 +16,7 @@
                     </div>
                     <br>
                     <div class="center-align">
-                        <h5 class="black-text">April 7th, 2018</h5>
+                        <h5 class="black-text">{{ getFormattedTournamentDate() }}</h5>
                         <h5 class="black-text">Northwestern University</h5>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                 <div id="location" class="section scrollspy">
                     <h5>Location</h5>
                     <p>
-                        NET 2018 will be taking place in the <b>Kellogg Global Hub</b> located at <i>2211 Campus Dr., Evanston IL 60208.</i>.
+                        NET {{ getTournamentYear() }} will be taking place in the <b>Kellogg Global Hub</b> located at <i>2211 Campus Dr., Evanston IL 60208.</i>.
                         A map of Northwestern's Evanston campus can be found <a target="_blank" href="https://maps.northwestern.edu/evanston">here</a>.
                     </p>
                 </div>
@@ -102,7 +102,7 @@
 
                 <div id="speakers" class="section scrollspy">
                     <h5>Speakers</h5>
-                    <p>Speakers at NET 2018 will be posted soon.</p>
+                    <p>Speakers at NET {{ getTournamentYear() }} will be posted soon.</p>
                 </div>
 
                 <div id="practice" class="section scrollspy">

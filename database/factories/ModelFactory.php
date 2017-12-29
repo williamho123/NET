@@ -25,10 +25,11 @@ $factory->define(App\Admin::class, function () {
     ];
 });
 
+// Fill in with dummy data later.
 $factory->define(App\Registration::class, function (Faker\Generator $faker) {
 
     return [
-        // Fill in dummy data later.
+        'data' => json_encode([])
     ];
 });
 
@@ -37,6 +38,8 @@ $factory->define(App\Team::class, function () {
     return [
         'team_id_code' => 123456,
         'password' => bcrypt('test'),
+        'team_name' => 'Some Team',
+        'school' => 'Some High School',
         'registration_id' => 1,
     ];
 });
@@ -46,6 +49,7 @@ $factory->define(App\Internal::class, function() {
     return [
         'registration_status' => false,
         'registration_ended' => false,
-        'registration_open_date' => new DateTime('2018-01-08')
+        'registration_open_date' => new DateTime('2018-01-08'),
+        'tournament_date' => new DateTime('2018-04-07')
     ];
 });

@@ -225,10 +225,10 @@
                     </p>
 
                     <blockquote>
-                        By registering for NET 2018, I confirm that my team (i.e. all student members and advisor that make up the team)
-                        from {{ school }} will be in attendance at the tournament on April 7, 2018. If for
+                        By registering for NET {{ year }}, I confirm that my team (i.e. all student members and advisor that make up the team)
+                        from {{ school }} will be in attendance at the tournament on {{ tour_date }}. If for
                         whatever reason the team will not be able to participate in the tournament, I will notify the tournament
-                        organizers by <b>March 7, 2018</b> for arrangements to be made. I acknowledge that failure to do so
+                        organizers by <b>{{ cut_date }}</b> for arrangements to be made. I acknowledge that failure to do so
                         will seriously jeopardize {{ school }}’s participation at NET in the future.
                     </blockquote>
 
@@ -266,6 +266,7 @@
             TabContent,
             TheMask
         },
+        props: ['year', 'tour_date', 'cut_date'],
         data () {
             return {
                 school: '',

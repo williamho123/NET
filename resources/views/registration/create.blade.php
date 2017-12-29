@@ -58,7 +58,9 @@
             </div>
 
             <div id="vue-gov">
-                <registration-form></registration-form>
+                <registration-form year="{{ getTournamentYear() }}"
+                                   tour_date="{{ getFormattedTournamentDate() }}"
+                                   cut_date="{{ getFormattedCutOffDate() }}"></registration-form>
             </div>
         </div>
     </div>

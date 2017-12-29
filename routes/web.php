@@ -11,6 +11,12 @@
 |
 */
 
+Route::get('/mail', function() {
+    $team = App\Team::first();
+
+    return new App\Mail\RegistrationReceived($team, 'TEST');
+});
+
 Route::get('/', function () {
     return view('home');
 });

@@ -1185,6 +1185,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         TabContent: __WEBPACK_IMPORTED_MODULE_0_vue_form_wizard__["TabContent"],
         TheMask: __WEBPACK_IMPORTED_MODULE_1_vue_the_mask__["TheMask"]
     },
+    props: ['year', 'tour_date', 'cut_date'],
     data: function data() {
         return {
             school: '',
@@ -2625,11 +2626,15 @@ var render = function() {
                 _vm._v(" "),
                 _c("blockquote", [
                   _vm._v(
-                    "\n                    By registering for NET 2018, I confirm that my team (i.e. all student members and advisor that make up the team)\n                    from " +
+                    "\n                    By registering for NET " +
+                      _vm._s(_vm.year) +
+                      ", I confirm that my team (i.e. all student members and advisor that make up the team)\n                    from " +
                       _vm._s(_vm.school) +
-                      " will be in attendance at the tournament on April 7, 2018. If for\n                    whatever reason the team will not be able to participate in the tournament, I will notify the tournament\n                    organizers by "
+                      " will be in attendance at the tournament on " +
+                      _vm._s(_vm.tour_date) +
+                      ". If for\n                    whatever reason the team will not be able to participate in the tournament, I will notify the tournament\n                    organizers by "
                   ),
-                  _c("b", [_vm._v("March 7, 2018")]),
+                  _c("b", [_vm._v(_vm._s(_vm.cut_date))]),
                   _vm._v(
                     " for arrangements to be made. I acknowledge that failure to do so\n                    will seriously jeopardize " +
                       _vm._s(_vm.school) +
