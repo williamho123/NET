@@ -24,6 +24,7 @@ class CreateTeamsTable extends Migration
             $table->boolean('waitlisted')->default(false);
             $table->boolean('rejected')->default(false);
             $table->boolean('forms')->default(false);
+            $table->boolean('forms_reviewed')->default(false);
             $table->boolean('active')->default(true);
             $table->rememberToken();
             $table->softDeletes();

@@ -11,7 +11,7 @@ use Carbon\Carbon;
 // ------------------------------------ //
 
 /**
- * Global helper to determine whether team registrations are open.
+ * Global helper to determine whether team registration are open.
  *
  * @return bool
  */

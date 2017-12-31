@@ -2,6 +2,7 @@
 
 namespace App\Http\Helpers;
 
+use App\Team;
 use App\Internal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -46,7 +47,7 @@ trait AdministrativeActions
     }
 
     /**
-     * Updates settings regarding closed registrations.
+     * Updates settings regarding closed registration.
      *
      * @param Request $request
      * @return \Illuminate\Http\Response
@@ -56,7 +57,7 @@ trait AdministrativeActions
         $regEnded = ($request->input('reg_ended') === 'true');
 
         if (!$regEnded) {
-            if (!$request->has('open_date')) {
+            if (!$request->filled('open_date')) {
                return response('Please select a registration opening date.', 422);
             }
 
@@ -73,5 +74,74 @@ trait AdministrativeActions
         }
 
         return response('Your settings have been successfully updated.',200);
+    }
+
+    /**
+     * Soft-deletes a Team and its given Registration.
+     *
+     * @param Team $team
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function deleteRegistration(Team $team) {
+
+        if ($team->delete()) {
+            return response('Success',200);
+        }
+
+        return response('Internal Server Error', 500);
+    }
+
+    /**
+     * Accept a Team and its Registration.
+     *
+     * @param Team $team
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function acceptRegistration(Team $team) {
+
+        $team->setAttribute('accepted', true);
+        $team->setAttribute('waitlisted', false);
+        $team->setAttribute('rejected', false);
+        if ($team->save()) {
+            return response('Success',200);
+        }
+
+        return response('Internal Server Error',500);
+    }
+
+    /**
+     * Waitlist a Team and its Registration.
+     *
+     * @param Team $team
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function waitlistRegistration(Team $team) {
+
+        $team->setAttribute('waitlisted', true);
+        $team->setAttribute('accepted', false);
+        $team->setAttribute('rejected', false);
+        if ($team->save()) {
+            return response('Success',200);
+        }
+
+        return response('Internal Server Error',500);
+    }
+
+    /**
+     * Reject a Team and its Registration.
+     *
+     * @param Team $team
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function rejectRegistration(Team $team) {
+
+        $team->setAttribute('rejected', true);
+        $team->setAttribute('accepted', false);
+        $team->setAttribute('waitlisted', false);
+        if ($team->save()) {
+            return response('Success',200);
+        }
+
+        return response('Internal Server Error',500);
     }
 }

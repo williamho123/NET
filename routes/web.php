@@ -11,12 +11,6 @@
 |
 */
 
-Route::get('/mail', function() {
-    $team = App\Team::first();
-
-    return new App\Mail\RegistrationReceived($team, 'TEST');
-});
-
 Route::get('/', function () {
     return view('home');
 });
@@ -51,6 +45,12 @@ Route::get('/admin', 'AdminController@dashboard');
 Route::get('/admin/login', 'AuthController@showAdminLogin');
 Route::post('/admin/login', 'AuthController@adminLogin');
 Route::get('/admin/logout', 'AuthController@adminLogout');
+Route::get('/admin/registrations', 'AdminController@registrations');
+Route::get('/admin/registrations/{team}/view', 'AdminController@viewRegistration');
+Route::put('admin/registrations/{team}/accept', 'AdminController@acceptRegistration');
+Route::put('admin/registrations/{team}/waitlist', 'AdminController@waitlistRegistration');
+Route::put('admin/registrations/{team}/reject', 'AdminController@rejectRegistration');
+Route::delete('/admin/registrations/{team}', 'AdminController@deleteRegistration');
 Route::get('/admin/settings', 'AdminController@settings');
 Route::post('/admin/settings/closedRegistration', 'AdminController@updateClosedRegistrationSettings');
 Route::post('/admin/maintenance', 'AdminController@toggleAppMaintenance');

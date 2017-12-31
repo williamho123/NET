@@ -9,7 +9,7 @@
 
     <!--CSS-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,500,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link href="{{ asset(mix('css/app.css')) }}" type="text/css" rel="stylesheet" media="screen,projection"/>
     @yield('styles')
 
@@ -17,8 +17,7 @@
     <script src="{{ asset(mix('js/manifest.js')) }}" type="text/javascript"></script>
     <script src="{{ asset(mix('js/vendor.js')) }}" type="text/javascript"></script>
     <script src="{{ asset(mix('js/app.js')) }}" type="text/javascript"></script>
-    <script src="{{ asset('js/lib/analytics.js') }}"></script>
-    <script src="{{ asset('js/lib/jquery.formatter.min.js') }}"></script>
+    <script src="{{ asset('js/analytics.js') }}"></script>
     @yield('scripts')
 
     <style>
@@ -41,7 +40,7 @@
 
 <body>
 <header>
-    <nav class="top-nav teal lighten-2" role="navigation">
+    <nav class="top-nav teal lighten-2 z-depth-5" role="navigation">
         <div class="nav-wrapper container">
             <a class="page-title">@yield('title')</a>
             <a href="#" data-activates="slide-out" class="button-collapse top-nav full hide-on-large-only"><i class="material-icons white-text">menu</i></a>
@@ -61,6 +60,7 @@
                 </div>
             </li>
             <li><a href="{{ url('/admin') }}" class="waves-effect"><i class="material-icons">dashboard</i>Dashboard</a></li>
+            <li><a href="{{ url('/admin/registrations') }}" class="waves-effect"><i class="material-icons">format_list_numbered</i>Registrations</a></li>
             <li><a href="{{ url('/admin/settings') }}" class="waves-effect"><i class="material-icons">settings</i>Settings</a></li>
             <li>
                 <a href="{{ url('/admin/logout') }}" class="btn waves-effect waves-light">Logout

@@ -38,11 +38,11 @@ class Team extends Model implements AuthenticatableContract, AuthorizableContrac
     /**
      * Associate the team with its registration data.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function registration() {
 
-        return $this->hasOne('App\Registration');
+        return $this->belongsTo('App\Registration');
     }
 
 }
