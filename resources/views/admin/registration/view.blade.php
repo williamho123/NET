@@ -19,7 +19,7 @@
                 <span class="card-title teal-text lighten-2">Actions</span>
 
                 <div class="row">
-                    <div class="input-field col s2 information-text">
+                    <div class="input-field col m2 information-text">
                         <b>Auxiliary</b>
                     </div>
                     <div class="input-field col">
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="input-field col s2 information-text">
+                    <div class="input-field col m2 information-text">
                         <b>Decision</b>
                     </div>
                     <div class="input-field col">
@@ -61,7 +61,8 @@
         <br>
 
         <div class="information-text">
-            <b>Submitted On: </b> {{ $team->created_at }}
+            <b>Submitted On: </b> {{ $team->created_at }}<br>
+            <b>Updated At: </b> {{ $team->updated_at }}
         </div>
 
         <br>

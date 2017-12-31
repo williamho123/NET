@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TeamController extends Controller
 {
@@ -21,6 +22,21 @@ class TeamController extends Controller
      */
     public function dashboard() {
 
-        return view('team.dashboard');
+        $team = Auth::guard('team')->user();
+
+        return view('team.dashboard')->with('team', $team);
+    }
+
+    /**
+     * Shows the registration data for the team.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function viewRegistration() {
+
+        $team = Auth::guard('team')->user();
+        $registration = json_decode($team->registration->data);
+
+        return view('team.registration-view')->with('team', $team)->with('registration', $registration);
     }
 }

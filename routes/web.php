@@ -40,6 +40,7 @@ Route::get('/team', 'TeamController@dashboard');
 Route::get('/team/login', 'AuthController@showTeamLogin');
 Route::post('/team/login', 'AuthController@teamLogin');
 Route::get('/team/logout', 'AuthController@teamLogout');
+Route::get('/team/registration', 'TeamController@viewRegistration');
 
 Route::get('/admin', 'AdminController@dashboard');
 Route::get('/admin/login', 'AuthController@showAdminLogin');
