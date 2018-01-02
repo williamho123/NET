@@ -33,7 +33,7 @@
             @if($team->waitlisted)
                 <div class="amber-text darken-3">Your team has been waitlisted. We will notify you as soon as a spot opens up.</div>
             @elseif($team->rejected)
-                <div class="red-text darken-2">Your team cannot attend NET this year due to capacity constraints. We will notify you of any changes.</div>
+                <div class="red-text darken-2">Sorry, we are unable to accommodate you at NET this year. We will notify you of any changes.</div>
             @elseif($team->accepted)
                 <div class="green-text lighten-2">Congratulations! We look forward to seeing you at NET this year.</div>
             @else

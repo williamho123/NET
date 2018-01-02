@@ -1,15 +1,10 @@
-webpackJsonp([1],[
+webpackJsonp([0],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
 /* 3 */,
 /* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */
+/* 5 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -118,6 +113,11 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
 /* 11 */
 /***/ (function(module, exports) {
 
@@ -233,13 +233,14 @@ module.exports = __webpack_require__(30);
 
 Vue.component('contact-form', __webpack_require__(31));
 Vue.component('registration-form', __webpack_require__(34));
+Vue.component('waiver-upload-form', __webpack_require__(47));
 
 /***/ }),
 /* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(10)
+var normalizeComponent = __webpack_require__(5)
 /* script */
 var __vue_script__ = __webpack_require__(32)
 /* template */
@@ -568,7 +569,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(35)
 }
-var normalizeComponent = __webpack_require__(10)
+var normalizeComponent = __webpack_require__(5)
 /* script */
 var __vue_script__ = __webpack_require__(39)
 /* template */
@@ -2739,6 +2740,492 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-4f85f8d4", module.exports)
+  }
+}
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(5)
+/* script */
+var __vue_script__ = __webpack_require__(48)
+/* template */
+var __vue_template__ = __webpack_require__(49)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/WaiverUploadForm.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-987680c0", Component.options)
+  } else {
+    hotAPI.reload("data-v-987680c0", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            advisorWaiver: '',
+            teamCaptainWaiver: '',
+            teamMember1Waiver: '',
+            teamMember2Waiver: '',
+            teamMember3Waiver: '',
+            submitted: false
+        };
+    },
+
+    methods: {
+        assignAdvisor: function assignAdvisor(event) {
+            this.advisorWaiver = event.target.files[0];
+        },
+        assignTC: function assignTC(event) {
+            this.teamCaptainWaiver = event.target.files[0];
+        },
+        assignT1: function assignT1(event) {
+            this.teamMember1Waiver = event.target.files[0];
+        },
+        assignT2: function assignT2(event) {
+            this.teamMember2Waiver = event.target.files[0];
+        },
+        assignT3: function assignT3(event) {
+            this.teamMember3Waiver = event.target.files[0];
+        },
+        submitWaivers: function submitWaivers() {
+            var _this = this;
+
+            this.submitted = true;
+
+            var data = new FormData();
+            data.append('advisor_waiver', this.advisorWaiver);
+            data.append('team_captain_waiver', this.teamCaptainWaiver);
+            data.append('team_member_1_waiver', this.teamMember1Waiver);
+            data.append('team_member_2_waiver', this.teamMember2Waiver);
+            data.append('team_member_3_waiver', this.teamMember3Waiver);
+
+            $.ajax({
+                url: '/team/waivers',
+                type: 'POST',
+                data: data,
+                processData: false,
+                contentType: false
+            }).fail(function (data) {
+                handleErrors(data);
+                _this.submitted = false;
+            }).done(function () {
+                swal({
+                    title: "Success!",
+                    text: "Your waivers have been uploaded.",
+                    type: "success",
+                    confirmButtonColor: "#4db6ac"
+                }, function () {
+                    location.reload();
+                });
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("b", { staticClass: "information-text" }, [_vm._v("Advisor Waiver")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col s12" }, [
+        _c("div", { staticClass: "file-field input-field" }, [
+          _c("div", { staticClass: "btn" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "file", accept: "application/pdf" },
+              on: {
+                change: function($event) {
+                  _vm.assignAdvisor($event)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("b", { staticClass: "information-text" }, [
+      _vm._v("Team Captain Waiver")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col s12" }, [
+        _c("div", { staticClass: "file-field input-field" }, [
+          _c("div", { staticClass: "btn" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "file", accept: "application/pdf" },
+              on: {
+                change: function($event) {
+                  _vm.assignTC($event)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(3)
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("b", { staticClass: "information-text" }, [
+      _vm._v("Team Member 1 Waiver")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col s12" }, [
+        _c("div", { staticClass: "file-field input-field" }, [
+          _c("div", { staticClass: "btn" }, [
+            _vm._m(4),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "file", accept: "application/pdf" },
+              on: {
+                change: function($event) {
+                  _vm.assignT1($event)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(5)
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("b", { staticClass: "information-text" }, [
+      _vm._v("Team Member 2 Waiver")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col s12" }, [
+        _c("div", { staticClass: "file-field input-field" }, [
+          _c("div", { staticClass: "btn" }, [
+            _vm._m(6),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "file", accept: "application/pdf" },
+              on: {
+                change: function($event) {
+                  _vm.assignT2($event)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(7)
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("b", { staticClass: "information-text" }, [
+      _vm._v("Team Member 3 Waiver")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col s12" }, [
+        _c("div", { staticClass: "file-field input-field" }, [
+          _c("div", { staticClass: "btn" }, [
+            _vm._m(8),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "file", accept: "application/pdf" },
+              on: {
+                change: function($event) {
+                  _vm.assignT3($event)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(9)
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "input-field col s12" }, [
+        !_vm.submitted
+          ? _c("div", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn waves-effect waves-light",
+                  on: { click: _vm.submitWaivers }
+                },
+                [
+                  _vm._v("Submit\n                    "),
+                  _c("i", { staticClass: "material-icons right" }, [
+                    _vm._v("send")
+                  ])
+                ]
+              )
+            ])
+          : _c("div", [_vm._m(10)])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _vm._v("File"),
+      _c("i", { staticClass: "material-icons right" }, [_vm._v("file_upload")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "file-path-wrapper" }, [
+      _c("input", {
+        staticClass: "file-path",
+        attrs: { type: "text", placeholder: "Choose a PDF Document..." }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _vm._v("File"),
+      _c("i", { staticClass: "material-icons right" }, [_vm._v("file_upload")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "file-path-wrapper" }, [
+      _c("input", {
+        staticClass: "file-path",
+        attrs: { type: "text", placeholder: "Choose a PDF Document..." }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _vm._v("File"),
+      _c("i", { staticClass: "material-icons right" }, [_vm._v("file_upload")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "file-path-wrapper" }, [
+      _c("input", {
+        staticClass: "file-path",
+        attrs: { type: "text", placeholder: "Choose a PDF Document..." }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _vm._v("File"),
+      _c("i", { staticClass: "material-icons right" }, [_vm._v("file_upload")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "file-path-wrapper" }, [
+      _c("input", {
+        staticClass: "file-path",
+        attrs: { type: "text", placeholder: "Choose a PDF Document..." }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _vm._v("File"),
+      _c("i", { staticClass: "material-icons right" }, [_vm._v("file_upload")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "file-path-wrapper" }, [
+      _c("input", {
+        staticClass: "file-path",
+        attrs: { type: "text", placeholder: "Choose a PDF Document..." }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "progress" }, [
+      _c("div", { staticClass: "indeterminate" })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-987680c0", module.exports)
   }
 }
 

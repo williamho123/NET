@@ -26,6 +26,8 @@ class CreateTeamsTable extends Migration
             $table->boolean('forms')->default(false);
             $table->boolean('forms_reviewed')->default(false);
             $table->boolean('active')->default(true);
+            $table->json('forms_data')->nullable()->default(null);
+            $table->date('forms_deadline')->nullable()->default(null);
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

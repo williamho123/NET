@@ -55,14 +55,26 @@
                         </a>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="input-field col m2 information-text">
+                        <b>Waivers</b>
+                    </div>
+                    <div class="input-field col">
+                        <a href="{{ action('AdminController@viewWaivers', [$team->id]) }}" class="btn waves-effect waves-light blue darken-2" {{ !$team->forms ? 'disabled' : '' }}>View
+                            <i class="material-icons right">remove_red_eye</i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <br>
 
         <div class="information-text">
-            <b>Submitted On: </b> {{ $team->created_at }}<br>
-            <b>Updated At: </b> {{ $team->updated_at }}
+            <b>Submitted On: </b> {{ \Carbon\Carbon::parse($team->created_at)->format('F jS, Y | g:i A') }} <br>
+            <b>Updated At: </b> {{ \Carbon\Carbon::parse($team->updated_at)->format('F jS, Y | g:i A') }} <br>
+            <b>Waiver Deadline: </b> {{ $team->forms_deadline ? \Carbon\Carbon::parse($team->forms_deadline)->format('F jS, Y') : 'N/A' }}
         </div>
 
         <br>

@@ -287,7 +287,7 @@ class RegistrationController extends Controller
      */
     protected function generateTeam(Registration $registration, $pw, $session) {
 
-        $allIDs = Team::all()->pluck('team_id_code');
+        $allIDs = Team::withTrashed()->get()->pluck('team_id_code');
         $faker = Factory::create();
         $newID = $faker->randomNumber(6);
 

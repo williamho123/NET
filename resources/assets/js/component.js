@@ -4,3 +4,4 @@
 
 Vue.component('contact-form', require('./components/ContactForm.vue'));
 Vue.component('registration-form', require('./components/RegistrationForm.vue'));
+Vue.component('waiver-upload-form', require('./components/WaiverUploadForm.vue'));

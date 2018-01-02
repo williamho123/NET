@@ -60,6 +60,7 @@
             </li>
             <li><a href="{{ url('/team') }}" class="waves-effect"><i class="material-icons">dashboard</i>Dashboard</a></li>
             <li><a href="{{ url('/team/registration') }}" class="waves-effect"><i class="material-icons">format_list_numbered</i>Registration</a></li>
+            <li><a href="{{ url('/team/faq') }}" class="waves-effect"><i class="material-icons">help</i>FAQ's</a></li>
             <li>
                 <a href="{{ url('/team/logout') }}" class="btn waves-effect waves-light">Logout
                     <i class="material-icons right white-text">exit_to_app</i>

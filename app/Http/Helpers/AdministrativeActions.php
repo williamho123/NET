@@ -4,9 +4,11 @@ namespace App\Http\Helpers;
 
 use App\Team;
 use App\Internal;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Storage;
 
 trait AdministrativeActions
 {
@@ -102,6 +104,8 @@ trait AdministrativeActions
         $team->setAttribute('accepted', true);
         $team->setAttribute('waitlisted', false);
         $team->setAttribute('rejected', false);
+        $team->setAttribute('forms_deadline',  Carbon::now()->addWeek()->format('Y-m-d'));
+
         if ($team->save()) {
             return response('Success',200);
         }
@@ -120,6 +124,8 @@ trait AdministrativeActions
         $team->setAttribute('waitlisted', true);
         $team->setAttribute('accepted', false);
         $team->setAttribute('rejected', false);
+        $team->setAttribute('forms_deadline',  null);
+
         if ($team->save()) {
             return response('Success',200);
         }
@@ -138,7 +144,80 @@ trait AdministrativeActions
         $team->setAttribute('rejected', true);
         $team->setAttribute('accepted', false);
         $team->setAttribute('waitlisted', false);
+        $team->setAttribute('forms_deadline',  null);
+
         if ($team->save()) {
+            return response('Success',200);
+        }
+
+        return response('Internal Server Error',500);
+    }
+
+    /**
+     * Approve the waivers a team has uploaded.
+     *
+     * @param Team $team
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function approveWaivers(Team $team) {
+
+        if ($team->forms_reviewed || !$team->accepted) {
+            return response('Internal Server Error',500);
+        }
+
+        $team->setAttribute('forms_reviewed', true);
+
+        if ($team->save()) {
+            return response('Success',200);
+        }
+
+        return response('Internal Server Error',500);
+    }
+
+    /**
+     * Replace a waiver for the given Team.
+     *
+     * @param Request $request
+     * @param Team $team
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function replaceWaiver(Request $request, Team $team) {
+
+        if ($team->forms_reviewed || !$team->accepted) {
+            return response('Internal Server Error',500);
+        }
+
+        $this->validate($request, [
+            'id' => 'required',
+            'waiver' => 'required|file|mimes:pdf'
+        ]);
+
+        $data = json_decode($team->forms_data);
+        $id = $request->input('id');
+        $directory = 'waivers/' . $team->team_id_code;
+
+        if ($id === 'advisor' && Storage::exists($data->advisor->path)) {
+            Storage::delete($data->advisor->path);
+            $data->advisor->path = $request->file('waiver')->store($directory);
+        } elseif ($id === 'tc' && Storage::exists($data->team_captain->path)) {
+            Storage::delete($data->team_captain->path);
+            $data->team_captain->path = $request->file('waiver')->store($directory);
+        } elseif ($id === 't1' && Storage::exists($data->team_member_1->path)) {
+            Storage::delete($data->team_member_1->path);
+            $data->team_member_1->path = $request->file('waiver')->store($directory);
+        } elseif ($id === 't2' && Storage::exists($data->team_member_2->path)) {
+            Storage::delete($data->team_member_2->path);
+            $data->team_member_2->path = $request->file('waiver')->store($directory);
+        } elseif ($id === 't3' && Storage::exists($data->team_member_3->path)) {
+            Storage::delete($data->team_member_3->path);
+            $data->team_member_3->path = $request->file('waiver')->store($directory);
+        } else {
+            return response('Internal Server Error',500);
+        }
+
+        $team->forms_data = json_encode($data);
+
+        if ($team->save()){
             return response('Success',200);
         }
 

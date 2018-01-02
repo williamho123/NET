@@ -7,6 +7,7 @@ use App\Internal;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Helpers\AdministrativeActions;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -57,6 +58,51 @@ class AdminController extends Controller
         $registration = json_decode($team->registration->data);
 
         return view('admin.registration.view')->with('team', $team)->with('registration', $registration);
+    }
+
+    /**
+     * Show the waivers page.
+     *
+     * @param Team $team
+     * @return \Illuminate\View\View
+     */
+    public function viewWaivers(Team $team) {
+
+        if (!$team->forms) {
+            abort(404);
+        }
+
+        return view('admin.registration.waivers')->with('team', $team);
+    }
+
+    /**
+     * Displays the appropriate waiver for viewing.
+     *
+     * @param Team $team
+     * @param $id
+     * @return \Illuminate\Http\Response
+     */
+    public function viewSpecificWaiver(Team $team, $id) {
+
+        $data = json_decode($team->forms_data);
+        $path = storage_path('app/');
+        $file = null;
+
+        if ($id === 'advisor' && Storage::exists($data->advisor->path)) {
+            $file = response()->file($path . $data->advisor->path);
+        } elseif ($id === 'team_captain' && Storage::exists($data->team_captain->path)) {
+            $file = response()->file($path . $data->team_captain->path);
+        } elseif ($id === 'team_member_1' && Storage::exists($data->team_member_1->path)) {
+            $file = response()->file($path . $data->team_member_1->path);
+        } elseif ($id === 'team_member_2' && Storage::exists($data->team_member_2->path)) {
+            $file = response()->file($path . $data->team_member_2->path);
+        } elseif ($id === 'team_member_3' && Storage::exists($data->team_member_3->path)) {
+            $file = response()->file($path . $data->team_member_3->path);
+        } else {
+            abort(404);
+        }
+
+        return $file;
     }
 
     /**

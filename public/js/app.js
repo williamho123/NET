@@ -55,7 +55,7 @@ req.keys().forEach(function (key) {
  */
 
 window.$ = window.jQuery = __webpack_require__(0);
-window.Vue = __webpack_require__(5);
+window.Vue = __webpack_require__(6);
 
 /*---------------------------------------------------------------------------------------*/
 
@@ -83,8 +83,8 @@ if (token) {
  * - SweetAlert JS
  */
 
-__webpack_require__(6);
-__webpack_require__(8);
+__webpack_require__(7);
+__webpack_require__(9);
 
 /***/ }),
 /* 15 */,
