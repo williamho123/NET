@@ -4,11 +4,13 @@ namespace App\Http\Helpers;
 
 use App\Team;
 use App\Internal;
+use App\Mail\RegistrationComplete;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
 
 trait AdministrativeActions
 {
@@ -154,7 +156,7 @@ trait AdministrativeActions
     }
 
     /**
-     * Approve the waivers a team has uploaded.
+     * Approve the waivers a team has uploaded. Dispatch completion email.
      *
      * @param Team $team
      * @return \Symfony\Component\HttpFoundation\Response
@@ -168,6 +170,15 @@ trait AdministrativeActions
         $team->setAttribute('forms_reviewed', true);
 
         if ($team->save()) {
+
+            $data = json_decode($team->registration->data);
+
+            $advisorEmail = $data->advisor->email;
+            $teamCaptainEmail = $data->team_captain->email;
+
+            // Send the registration complete email.
+            Mail::to([$teamCaptainEmail, $advisorEmail])->send(new RegistrationComplete($team));
+
             return response('Success',200);
         }
 
@@ -183,7 +194,7 @@ trait AdministrativeActions
      */
     public function replaceWaiver(Request $request, Team $team) {
 
-        if ($team->forms_reviewed || !$team->accepted) {
+        if (!$team->accepted) {
             return response('Internal Server Error',500);
         }
 
@@ -199,25 +210,30 @@ trait AdministrativeActions
         if ($id === 'advisor' && Storage::exists($data->advisor->path)) {
             Storage::delete($data->advisor->path);
             $data->advisor->path = $request->file('waiver')->store($directory);
+            $data->advisor->original = $request->file('waiver')->getClientOriginalName();
         } elseif ($id === 'tc' && Storage::exists($data->team_captain->path)) {
             Storage::delete($data->team_captain->path);
             $data->team_captain->path = $request->file('waiver')->store($directory);
+            $data->team_captain->original = $request->file('waiver')->getClientOriginalName();
         } elseif ($id === 't1' && Storage::exists($data->team_member_1->path)) {
             Storage::delete($data->team_member_1->path);
             $data->team_member_1->path = $request->file('waiver')->store($directory);
+            $data->team_member_1->original = $request->file('waiver')->getClientOriginalName();
         } elseif ($id === 't2' && Storage::exists($data->team_member_2->path)) {
             Storage::delete($data->team_member_2->path);
             $data->team_member_2->path = $request->file('waiver')->store($directory);
+            $data->team_member_2->original = $request->file('waiver')->getClientOriginalName();
         } elseif ($id === 't3' && Storage::exists($data->team_member_3->path)) {
             Storage::delete($data->team_member_3->path);
             $data->team_member_3->path = $request->file('waiver')->store($directory);
+            $data->team_member_3->original = $request->file('waiver')->getClientOriginalName();
         } else {
             return response('Internal Server Error',500);
         }
 
         $team->forms_data = json_encode($data);
 
-        if ($team->save()){
+        if ($team->save()) {
             return response('Success',200);
         }
 

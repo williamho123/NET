@@ -17,15 +17,15 @@
         <div class="divider"></div>
         <br>
         <div class="collection">
-            <a href="{{ action('AdminController@viewSpecificWaiver', [$team->id, 'advisor']) }}" target="_blank" class="collection-item black-text">Advisor Waiver ({{ $registration->advisor->name }})</a>
-            <a href="{{ action('AdminController@viewSpecificWaiver', [$team->id, 'team_captain']) }}" target="_blank" class="collection-item black-text">Team Captain Waiver ({{ $registration->team_captain->name }})</a>
-            <a href="{{ action('AdminController@viewSpecificWaiver', [$team->id, 'team_member_1']) }}" target="_blank" class="collection-item black-text">Team Member 1 Waiver ({{ $registration->team_member_1->name }})</a>
-            <a href="{{ action('AdminController@viewSpecificWaiver', [$team->id, 'team_member_2']) }}" target="_blank" class="collection-item black-text">Team Member 2 Waiver ({{ $registration->team_member_2->name }})</a>
-            <a href="{{ action('AdminController@viewSpecificWaiver', [$team->id, 'team_member_3']) }}" target="_blank" class="collection-item black-text">Team Member 3 Waiver ({{ $registration->team_member_3->name }})</a>
+            <a href="{{ action('AdminController@viewSpecificWaiver', [$team->id, 'advisor']) }}" target="_blank" class="collection-item black-text">Advisor Waiver</a>
+            <a href="{{ action('AdminController@viewSpecificWaiver', [$team->id, 'team_captain']) }}" target="_blank" class="collection-item black-text">Team Captain Waiver</a>
+            <a href="{{ action('AdminController@viewSpecificWaiver', [$team->id, 'team_member_1']) }}" target="_blank" class="collection-item black-text">Team Member 1 Waiver</a>
+            <a href="{{ action('AdminController@viewSpecificWaiver', [$team->id, 'team_member_2']) }}" target="_blank" class="collection-item black-text">Team Member 2 Waiver</a>
+            <a href="{{ action('AdminController@viewSpecificWaiver', [$team->id, 'team_member_3']) }}" target="_blank" class="collection-item black-text">Team Member 3 Waiver</a>
         </div>
         <div class="row">
             <div class="input-field col">
-                <a class='dropdown-button btn waves-effect waves-light amber darken-3' data-activates='dropdown1' {{ $team->forms_reviewed || !$team->accepted ? 'disabled' : '' }}>
+                <a class='dropdown-button btn waves-effect waves-light amber darken-3' data-activates='dropdown1' {{ !$team->accepted ? 'disabled' : '' }}>
                     Replace <i class="material-icons right">find_replace</i>
                 </a>
                 <ul id='dropdown1' class='dropdown-content'>

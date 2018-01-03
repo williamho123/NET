@@ -89,15 +89,15 @@ class AdminController extends Controller
         $file = null;
 
         if ($id === 'advisor' && Storage::exists($data->advisor->path)) {
-            $file = response()->file($path . $data->advisor->path);
+            $file = response()->file($path . $data->advisor->path, ['Cache-Control' => 'no-cache']);
         } elseif ($id === 'team_captain' && Storage::exists($data->team_captain->path)) {
-            $file = response()->file($path . $data->team_captain->path);
+            $file = response()->file($path . $data->team_captain->path, ['Cache-Control' => 'no-cache']);
         } elseif ($id === 'team_member_1' && Storage::exists($data->team_member_1->path)) {
-            $file = response()->file($path . $data->team_member_1->path);
+            $file = response()->file($path . $data->team_member_1->path, ['Cache-Control' => 'no-cache']);
         } elseif ($id === 'team_member_2' && Storage::exists($data->team_member_2->path)) {
-            $file = response()->file($path . $data->team_member_2->path);
+            $file = response()->file($path . $data->team_member_2->path, ['Cache-Control' => 'no-cache']);
         } elseif ($id === 'team_member_3' && Storage::exists($data->team_member_3->path)) {
-            $file = response()->file($path . $data->team_member_3->path);
+            $file = response()->file($path . $data->team_member_3->path, ['Cache-Control' => 'no-cache']);
         } else {
             abort(404);
         }
