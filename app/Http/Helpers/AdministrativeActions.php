@@ -96,6 +96,63 @@ trait AdministrativeActions
     }
 
     /**
+     * Updates a team's registration information. NO VALIDATION IS PROVIDED - assumes admin integrity.
+     *
+     * @param Request $request
+     * @param Team $team
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function updateRegistration(Request $request, Team $team) {
+
+        $team->school = $request->input('school_name');
+        $team->team_name = $request->input('team_name');
+
+        $data = [
+            'team_captain' => [
+                'name' => $request->input('team_captain_name'),
+                'grade' => $request->input('team_captain_grade'),
+                'email' => $request->input('team_captain_email')
+            ],
+            'team_member_1' => [
+                'name' => $request->input('team_member_1_name'),
+                'grade' => $request->input('team_member_1_grade'),
+                'email' => $request->input('team_member_1_email')
+            ],
+            'team_member_2' => [
+                'name' => $request->input('team_member_2_name'),
+                'grade' => $request->input('team_member_2_grade'),
+                'email' => $request->input('team_member_2_email')
+            ],
+            'team_member_3' => [
+                'name' => $request->input('team_member_3_name'),
+                'grade' => $request->input('team_member_3_grade'),
+                'email' => $request->input('team_member_3_email')
+            ],
+            'advisor' => [
+                'name' => $request->input('advisor_name'),
+                'email' => $request->input('advisor_email'),
+                'relationship' => $request->input('advisor_relationship')
+            ],
+            'numbers' => [
+                'advisor' => $request->input('advisor_number'),
+                'team_captain' => $request->input('team_captain_number')
+            ],
+            'econ_exp' => ($request->exists('checked') ? true : false),
+            'econ_back' => $request->input('economics_experience'),
+            'short_answer' => $request->input('short_answer')
+        ];
+
+        $registration = $team->registration;
+        $registration->data = json_encode($data);
+
+        if ($registration->save() && $team->save()) {
+            return response('Success',200);
+        }
+
+        return response('Internal Server Error', 500);
+    }
+
+    /**
      * Accept a Team and its Registration.
      *
      * @param Team $team

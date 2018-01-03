@@ -23,7 +23,7 @@
                         <b>Auxiliary</b>
                     </div>
                     <div class="input-field col">
-                        <a href="" class="btn waves-effect waves-light blue darken-2">Edit
+                        <a href="{{ action('AdminController@editRegistration', [$team->id]) }}" class="btn waves-effect waves-light blue darken-2">Edit
                             <i class="material-icons right">create</i>
                         </a>
                     </div>
@@ -73,7 +73,7 @@
 
         <div class="information-text">
             <b>Submitted On: </b> {{ \Carbon\Carbon::parse($team->created_at)->format('F jS, Y | g:i A') }} <br>
-            <b>Updated At: </b> {{ \Carbon\Carbon::parse($team->updated_at)->format('F jS, Y | g:i A') }} <br>
+            <b>Last Updated At: </b> {{ \Carbon\Carbon::parse($team->updated_at)->format('F jS, Y | g:i A') }} <br>
             <b>Waiver Deadline: </b> {{ $team->forms_deadline ? \Carbon\Carbon::parse($team->forms_deadline)->format('F jS, Y') : 'N/A' }}
         </div>
 

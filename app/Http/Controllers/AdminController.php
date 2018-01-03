@@ -61,6 +61,19 @@ class AdminController extends Controller
     }
 
     /**
+     * Show the registration edit page for the given Team.
+     *
+     * @param Team $team
+     * @return \Illuminate\View\View
+     */
+    public function editRegistration(Team $team) {
+
+        $registration = json_decode($team->registration->data);
+
+        return view('admin.registration.edit')->with('team', $team)->with('registration', $registration);
+    }
+
+    /**
      * Show the waivers page.
      *
      * @param Team $team

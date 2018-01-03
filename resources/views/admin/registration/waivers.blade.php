@@ -16,6 +16,17 @@
         <h4>Team {{ $team->team_id_code }}</h4>
         <div class="divider"></div>
         <br>
+
+        <div class="information-text">
+            @if($team->forms_reviewed)
+                <span class="green-text lighten-2">Approved</span>
+            @else
+                <span class="red-text darken-2">Not Approved</span>
+            @endif
+        </div>
+
+        <br>
+
         <div class="collection">
             <a href="{{ action('AdminController@viewSpecificWaiver', [$team->id, 'advisor']) }}" target="_blank" class="collection-item black-text">Advisor Waiver</a>
             <a href="{{ action('AdminController@viewSpecificWaiver', [$team->id, 'team_captain']) }}" target="_blank" class="collection-item black-text">Team Captain Waiver</a>

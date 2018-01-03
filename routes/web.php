@@ -50,6 +50,8 @@ Route::post('/admin/login', 'AuthController@adminLogin');
 Route::get('/admin/logout', 'AuthController@adminLogout');
 Route::get('/admin/registrations', 'AdminController@registrations');
 Route::get('/admin/registrations/{team}/view', 'AdminController@viewRegistration');
+Route::get('/admin/registrations/{team}/edit', 'AdminController@editRegistration');
+Route::put('/admin/registrations/{team}/update', 'AdminController@updateRegistration');
 Route::get('/admin/registrations/{team}/waivers', 'AdminController@viewWaivers');
 Route::get('/admin/registrations/{team}/waivers/{id}/view', 'AdminController@viewSpecificWaiver');
 Route::put('/admin/registrations/{team}/waivers/approve', 'AdminController@approveWaivers');
