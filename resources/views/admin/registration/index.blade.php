@@ -11,11 +11,9 @@
         <br>
 
         <h4>Current</h4>
-        <div class="information-text">Registrations in the past 6 months.</div>
-        <br>
         @if($currentTeams->isEmpty())
             <div class="information-text">
-                <b>No active registrations in the previous 6 months.</b>
+                <b>No active registrations.</b>
             </div>
         @else
             <table class="striped responsive-table">
@@ -85,8 +83,6 @@
         <br>
 
         <h4>Archived</h4>
-        <div class="information-text">Previous registrations dating farther back than 6 months.</div>
-        <br>
 
         @if($archivedTeams->isEmpty())
             <div class="information-text">

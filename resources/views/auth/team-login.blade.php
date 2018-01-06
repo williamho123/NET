@@ -7,8 +7,8 @@
         <div class="section">
             <h3>Application Status</h3>
             <p class="information-text">
-                Enter your team's login information below to check the status of your application or to complete the next steps of
-                your registration.
+                Enter your team's login information to check the status of your application or to complete registration
+                next steps.
             </p>
             <div id="team-login" class="row">
                 <div class="col s12 m4 offset-m4">

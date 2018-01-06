@@ -73,3 +73,14 @@ function getTournamentYear() {
     $tour_date = Internal::first()->getAttribute('tournament_date');
     return Carbon::createFromFormat('Y-m-d', $tour_date)->format('Y');
 }
+
+/**
+ * Global helper to get the formatted registration end date.
+ *
+ * @return string
+ */
+function getFormattedRegistrationEndDate() {
+
+    $end_date = Internal::first()->getAttribute('registration_end_date');
+    return Carbon::parse($end_date)->format('F jS, Y');
+}

@@ -8,10 +8,15 @@
             <h3>Registration</h3>
 
             @if(registrationIsOpen())
-                <p class="information-text">
-                    We are excited that you want to participate in NET! Please carefully review the information below
-                    before filling out the registration form - we look forward to reading them.
-                </p>
+                <div class="information-text">
+                    Registration is on a first-come, first-serve basis so we encourage teams to register as soon as possible!
+                </div>
+                <br>
+
+                <div class="information-text">
+                    <b>Registration Deadline: </b> {{ getFormattedRegistrationEndDate() }}
+                </div>
+                <br>
 
                 @include('registration.information-cards-partial')
 
@@ -27,8 +32,6 @@
                         <i class="material-icons right">keyboard_arrow_right</i>
                     </a>
                 </div>
-
-                <br>
             @else
                 <div class="row">
                     <div class="col s12">

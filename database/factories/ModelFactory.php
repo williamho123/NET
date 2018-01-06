@@ -50,6 +50,7 @@ $factory->define(App\Internal::class, function() {
         'registration_status' => false,
         'registration_ended' => false,
         'registration_open_date' => new DateTime('2018-01-08'),
-        'tournament_date' => new DateTime('2018-04-07')
+        'tournament_date' => new DateTime('2018-04-07'),
+        'registration_end_date' => new DateTime('2018-02-23')
     ];
 });
