@@ -2,6 +2,10 @@
 
 @section('title','Registration')
 
+@section('scripts')
+    <script src="{{ asset(mix('js/component.js')) }}" type="text/javascript"></script>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="section">
@@ -64,17 +68,8 @@
                                     <div class="divider white"></div>
                                     <br><br>
 
-                                    <div class="row">
-                                        <form id="email-update-form" method="POST" action="{{ url('/registration/update') }}">
-                                            <div class="input-field col s7 m9 l10">
-                                                <i class="material-icons prefix white-text">email</i>
-                                                <input id="email_update" name="email_update" type="email" class="white-text">
-                                                <label for="email_update" class="white-text">Your Email</label>
-                                            </div>
-                                            <div class="input-field col s5 m3 l2">
-                                                <button class="btn waves-effect waves-light" type="submit">Submit</button>
-                                            </div>
-                                        </form>
+                                    <div id="vue-gov">
+                                        <email-update-form></email-update-form>
                                     </div>
                                 @endif
                             </div>
@@ -93,4 +88,10 @@
             @endif
         </div>
     </div>
+
+    <script type="text/javascript">
+        new Vue ({
+            el: '#vue-gov'
+        })
+    </script>
 @endsection

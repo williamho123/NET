@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
+use Log;
 
 trait AdministrativeActions
 {
@@ -62,7 +63,7 @@ trait AdministrativeActions
 
         if (!$regEnded) {
             if (!$request->filled('open_date')) {
-               return response('Please select a registration opening date.', 422);
+               return response('Please select a registration open date.', 422);
             }
 
             $openDate = $request->input('open_date');
