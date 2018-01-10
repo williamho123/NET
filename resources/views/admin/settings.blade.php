@@ -12,6 +12,22 @@
             <div class="section">
                 <div class="row">
                     <div class="col s12 m6">
+                        <date-card class="green lighten-2 z-depth-5"
+                                   init-date="{{ $tourDate }}"
+                                   post-to="/admin/settings/tournamentDate">
+                            <span slot="title">Tournament Date</span>
+                        </date-card>
+                    </div>
+                    <div class="col s12 m6">
+                        <date-card class="amber darken-2 z-depth-5"
+                                   init-date="{{ $endDate }}"
+                                   post-to="/admin/settings/registrationEndDate">
+                            <span slot="title">Registration End Date</span>
+                        </date-card>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
                         <closed-registration-card class="blue darken-2 z-depth-5"
                                                   :ended="{{ $registrationEnded }}"
                                                   open-date="{{ $openDate }}">

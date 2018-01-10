@@ -52,6 +52,44 @@ trait AdministrativeActions
     }
 
     /**
+     * Update tournament date.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function updateTournamentDate(Request $request) {
+
+        if (!$request->filled('date')) {
+            return response('The date field is required', 422);
+        }
+
+        Internal::first()->update([
+            'tournament_date' => new \DateTime($request->input('date'))
+        ]);
+
+        return response('The tournament date has been set.', 200);
+    }
+
+    /**
+     * Update registration close date.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function updateRegistrationEndDate(Request $request) {
+
+        if (!$request->filled('date')) {
+            return response('The date field is required', 422);
+        }
+
+        Internal::first()->update([
+            'registration_end_date' => new \DateTime($request->input('date'))
+        ]);
+
+        return response('The registration end date has been set.', 200);
+    }
+
+    /**
      * Updates settings regarding closed registration.
      *
      * @param Request $request

@@ -11,5 +11,9 @@ class Internal extends Model
      *
      * @var array
      */
-    protected $fillable = ['registration_status', 'registration_ended', 'registration_open_date'];
+    protected $fillable = ['registration_status',
+                            'registration_ended',
+                            'registration_open_date',
+                            'tournament_date',
+                            'registration_end_date'];
 }

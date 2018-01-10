@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Helpers\AdministrativeActions;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -28,7 +29,41 @@ class AdminController extends Controller
      */
     public function dashboard() {
 
-        return view('admin.dashboard');
+        $teams = Team::all()->where('active', '=',true);
+
+        $complete = 0;
+        $attention = 0;
+        $decisions = 0;
+        $waiver = 0;
+
+        foreach ($teams as $team) {
+            if ($team->accepted && $team->forms && $team->forms_reviewed) {
+                $complete++;
+                continue;
+            }
+            if ($team->accepted && $team->forms) {
+                $waiver++;
+                $attention++;
+                continue;
+            }
+            if (!$team->accepted && !$team->waitlisted && !$team->rejected) {
+                $decisions++;
+                $attention++;
+                continue;
+            }
+        }
+
+        $stats = [
+            'complete' => $complete,
+            'active' => count($teams),
+            'attention' => $attention,
+            'decisions' => $decisions,
+            'waiver' => $waiver,
+            'pending' => count(DB::table('jobs')->get()),
+            'failed' => count(DB::table('failed_jobs')->get())
+        ];
+
+        return view('admin.dashboard')->with('stats', $stats);
     }
 
     /**
@@ -125,10 +160,15 @@ class AdminController extends Controller
      */
     public function settings() {
 
-        $registrationEnded = Internal::first()->getAttribute('registration_ended');
-        $openDate = Internal::first()->getAttribute('registration_open_date');
+        $internal = Internal::first();
+        $registrationEnded = $internal->getAttribute('registration_ended');
+        $openDate = $internal->getAttribute('registration_open_date');
+        $tourDate = $internal->getAttribute('tournament_date');
+        $endDate = $internal->getAttribute('registration_end_date');
 
         return view('admin.settings')->with('registrationEnded', $registrationEnded)
-                                           ->with('openDate', $openDate);
+                                           ->with('openDate', $openDate)
+                                           ->with('tourDate', $tourDate)
+                                           ->with('endDate', $endDate);
     }
 }

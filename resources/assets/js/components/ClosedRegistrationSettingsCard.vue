@@ -3,29 +3,34 @@
         <div class="card-content white-text">
             <span class="card-title">Closed Registration Settings</span>
             <br>
-            <div class="information-text">
-                Registration is closed because
-            </div>
-            <br>
-            <p>
-                <input class="with-gap" type="radio" id="reg_ended" value="1" v-model="isPicked"/>
-                <label for="reg_ended" class="white-text">It has ended for the current year.</label>
-            </p>
-            <p>
-                <input class="with-gap" type="radio" id="reg_not_open" value="2" v-model="isPicked"/>
-                <label for="reg_not_open" class="white-text">It has not yet opened for the current year.</label>
-            </p>
-            <br>
-            <transition name="fade">
-                <div v-if="isPicked == 2">
-                    <p class="information-text white-text">
-                        Registration open date
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="information-text">
+                        Registration is closed because
+                    </div>
+                    <br>
+                    <p>
+                        <input class="with-gap" type="radio" id="reg_ended" value="1" v-model="isPicked"/>
+                        <label for="reg_ended" class="white-text">It has ended for the current year.</label>
                     </p>
-
-                    <date-picker input-class="white-text" :not-before='new Date()' lang="en" v-model="date"></date-picker>
+                    <p>
+                        <input class="with-gap" type="radio" id="reg_not_open" value="2" v-model="isPicked"/>
+                        <label for="reg_not_open" class="white-text">It has not yet opened for the current year.</label>
+                    </p>
                 </div>
-            </transition>
+                <div class="col s12 m6">
+                    <br>
+                    <transition name="fade">
+                        <div v-if="isPicked == 2">
+                            <p class="information-text white-text">
+                                Registration open date
+                            </p>
 
+                            <date-picker input-class="white-text" :not-before='new Date()' lang="en" v-model="date"></date-picker>
+                        </div>
+                    </transition>
+                </div>
+            </div>
             <button class="btn waves-effect waves-light" @click="submit">Update
                 <i class="material-icons right">update</i>
             </button>
