@@ -36,7 +36,7 @@ class ContactUs extends Mailable implements ShouldQueue
      */
     public function build() {
 
-        return $this->from(env('ADMIN_EMAIL'), 'NET Team')
+        return $this->from(env('ADMIN_EMAIL_NOTIF'), 'NET Team')
                     ->replyTo($this->contact->email)
                     ->subject($this->contact->subject)
                     ->text('emails.contact-us');

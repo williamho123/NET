@@ -199,6 +199,10 @@ trait AdministrativeActions
      */
     public function acceptRegistration(Team $team) {
 
+        if (!$team->active) {
+            return response('Forbidden', 403);
+        }
+
         $team->setAttribute('accepted', true);
         $team->setAttribute('waitlisted', false);
         $team->setAttribute('rejected', false);
@@ -218,6 +222,10 @@ trait AdministrativeActions
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function waitlistRegistration(Team $team) {
+
+        if (!$team->active) {
+            return response('Forbidden', 403);
+        }
 
         $team->setAttribute('waitlisted', true);
         $team->setAttribute('accepted', false);
@@ -239,6 +247,10 @@ trait AdministrativeActions
      */
     public function rejectRegistration(Team $team) {
 
+        if (!$team->active) {
+            return response('Forbidden', 403);
+        }
+
         $team->setAttribute('rejected', true);
         $team->setAttribute('accepted', false);
         $team->setAttribute('waitlisted', false);
@@ -258,6 +270,10 @@ trait AdministrativeActions
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function approveWaivers(Team $team) {
+
+        if (!$team->active) {
+            return response('Forbidden', 403);
+        }
 
         if ($team->forms_reviewed || !$team->accepted) {
             return response('Internal Server Error',500);
@@ -289,6 +305,10 @@ trait AdministrativeActions
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function replaceWaiver(Request $request, Team $team) {
+
+        if (!$team->active) {
+            return response('Forbidden', 403);
+        }
 
         if (!$team->accepted) {
             return response('Internal Server Error',500);
@@ -334,5 +354,23 @@ trait AdministrativeActions
         }
 
         return response('Internal Server Error',500);
+    }
+
+    /**
+     * Set all "active" flags for current teams to false.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function archiveTeams() {
+
+        $teams = Team::where('active', '=', true)->get();
+        foreach($teams as $team) {
+            $team->active = false;
+            if (!$team->save()) {
+                return response('Internal Server Error',500);
+            }
+        }
+
+        return response('Success',200);
     }
 }

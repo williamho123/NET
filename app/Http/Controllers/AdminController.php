@@ -67,16 +67,14 @@ class AdminController extends Controller
     }
 
     /**
-     * Shows the registration index page. Registrations 6 months prior are displayed.
+     * Shows the registration index page. Distinguishes current/archived teams by "active" boolean flag.
      *
      * @return \Illuminate\View\View
      */
     public function registrations() {
 
-        // maybe change selection criteria to "active" boolean flag on Team model? Have option in settings tab to archive these registrations
-        $from = Carbon::now()->subMonth(6);
-        $currentTeams = Team::where('created_at', '>=', $from)->oldest()->get();
-        $archivedTeams = Team::where('created_at', '<', $from)->oldest()->get();
+        $currentTeams = Team::where('active', '=', true)->oldest()->get();
+        $archivedTeams = Team::where('active', '=', false)->oldest()->get();
 
         return view('admin.registration.index')->with('currentTeams', $currentTeams)
                                                      ->with('archivedTeams', $archivedTeams);

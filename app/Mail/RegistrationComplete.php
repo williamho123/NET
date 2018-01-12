@@ -36,7 +36,7 @@ class RegistrationComplete extends Mailable implements ShouldQueue
      */
     public function build() {
 
-        return $this->from(env('ADMIN_EMAIL'), 'NET Team')
+        return $this->from(env('ADMIN_EMAIL_NOTIF'), 'NET Team')
                     ->replyTo(env('ADMIN_EMAIL'))
                     ->subject('Northwestern Economics Tournament: Registration Complete for ' . $this->team->school)
                     ->markdown('emails.registration.complete');

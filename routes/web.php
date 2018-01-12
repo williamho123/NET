@@ -64,5 +64,6 @@ Route::get('/admin/settings', 'AdminController@settings');
 Route::post('/admin/settings/tournamentDate', 'AdminController@updateTournamentDate');
 Route::post('/admin/settings/registrationEndDate', 'AdminController@updateRegistrationEndDate');
 Route::post('/admin/settings/closedRegistration', 'AdminController@updateClosedRegistrationSettings');
+Route::put('/admin/settings/archiveTeams', 'AdminController@archiveTeams');
 Route::post('/admin/maintenance', 'AdminController@toggleAppMaintenance');
 Route::post('/admin/registration', 'AdminController@toggleRegistration');

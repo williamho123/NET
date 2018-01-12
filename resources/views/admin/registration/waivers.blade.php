@@ -36,7 +36,7 @@
         </div>
         <div class="row">
             <div class="input-field col">
-                <a class='dropdown-button btn waves-effect waves-light amber darken-3' data-activates='dropdown1' {{ !$team->accepted ? 'disabled' : '' }}>
+                <a class='dropdown-button btn waves-effect waves-light amber darken-3' data-activates='dropdown1' {{ !$team->accepted ? 'disabled' : '' }} {{ !$team->active ? 'disabled' : '' }}>
                     Replace <i class="material-icons right">find_replace</i>
                 </a>
                 <ul id='dropdown1' class='dropdown-content'>
@@ -48,7 +48,7 @@
                 </ul>
             </div>
             <div class="input-field col">
-                <a href="{{ action('AdminController@approveWaivers', [$team->id]) }}" class="btn waves-effect waves-light" data-method="PUT" {{ $team->forms_reviewed || !$team->accepted ? 'disabled' : '' }}>Approve
+                <a href="{{ action('AdminController@approveWaivers', [$team->id]) }}" class="btn waves-effect waves-light" data-method="PUT" {{ $team->forms_reviewed || !$team->accepted ? 'disabled' : '' }} {{ !$team->active ? 'disabled' : '' }}>Approve
                     <i class="material-icons right">check_circle</i>
                 </a>
             </div>

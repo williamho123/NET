@@ -39,18 +39,19 @@
                     </div>
                     <div class="input-field col">
                         <a href="{{ action('AdminController@acceptRegistration', [$team->id]) }}" class="btn waves-effect waves-light green lighten-2" data-method="PUT" data-redirect="{{ url('/admin/registrations') }}"
-                            {{ $team->accepted ? 'disabled' : '' }}>Accept<i class="material-icons right">check_circle</i>
+                                {{ $team->accepted ? 'disabled' : '' }} {{ !$team->active ? 'disabled' : '' }}>Accept
+                            <i class="material-icons right">check_circle</i>
                         </a>
                     </div>
                     <div class="input-field col">
                         <a href="{{ action('AdminController@waitlistRegistration', [$team->id]) }}" class="btn waves-effect waves-light amber darken-3" data-method="PUT" data-redirect="{{ url('/admin/registrations') }}"
-                                {{ $team->waitlisted ? 'disabled' : '' }}>Waitlist
+                                {{ $team->waitlisted ? 'disabled' : '' }} {{ !$team->active ? 'disabled' : '' }}>Waitlist
                             <i class="material-icons right">timer</i>
                         </a>
                     </div>
                     <div class="input-field col">
                         <a href="{{ action('AdminController@rejectRegistration', [$team->id]) }}" class="btn waves-effect waves-light red darken-2" data-method="PUT" data-redirect="{{ url('/admin/registrations') }}"
-                                {{ $team->rejected ? 'disabled' : '' }}>Reject
+                                {{ $team->rejected ? 'disabled' : '' }} {{ !$team->active ? 'disabled' : '' }}>Reject
                             <i class="material-icons right">cancel</i>
                         </a>
                     </div>

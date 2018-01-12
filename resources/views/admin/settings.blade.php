@@ -3,6 +3,7 @@
 @section('title', 'Settings')
 
 @section('scripts')
+    <script src="{{ asset('js/link-http-request.js') }}"></script>
     <script src="{{ asset(mix('js/component.js')) }}" type="text/javascript"></script>
 @endsection
 
@@ -32,6 +33,27 @@
                                                   :ended="{{ $registrationEnded }}"
                                                   open-date="{{ $openDate }}">
                         </closed-registration-card>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card z-depth-5 red lighten-1">
+                            <div class="card-content white-text">
+                                <span class="card-title">Sudo Actions</span>
+                                Be careful, these actions cannot be undone!
+                                <br><br>
+                                <div class="row">
+                                    <div class="col s6 m4">
+                                        <a href="{{ action('AdminController@archiveTeams') }}" class="btn waves-effect waves-light" data-method="PUT"
+                                           data-confirm="Are you sure you want to archive the current teams?">Archive Teams<i class="material-icons right">archive</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 m8">
+                                        Archive all current teams in registration tab.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
