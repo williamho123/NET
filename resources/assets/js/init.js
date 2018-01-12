@@ -35,12 +35,19 @@ window.handleErrors = (data) => {
             type: "error",
             confirmButtonColor: "#4db6ac"
         });
-    } else {
+    } else if (data.status === 422) {
         swal({
             title: "Submission Error",
-            text: 'Please correct before proceeding. <br><br>' + errorsJSONToHTML(data),
+            text: 'Please correct before trying again. <br><br>' + errorsJSONToHTML(data),
             type: "error",
             html: true,
+            confirmButtonColor: "#4db6ac"
+        });
+    } else {
+        swal({
+            title: "Oops!",
+            text: "Something went wrong. If problem persists, please send an email to " + $('meta[name="admin-email"]').attr('content'),
+            type: "error",
             confirmButtonColor: "#4db6ac"
         });
     }

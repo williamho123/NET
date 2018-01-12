@@ -2,74 +2,67 @@
 
 @section('title', 'Settings')
 
+@section('scripts')
+    <script src="{{ asset('js/link-http-request.js') }}"></script>
+    <script src="{{ asset(mix('js/component.js')) }}" type="text/javascript"></script>
+@endsection
+
 @section('content')
     <div class="container">
-        <div class="section">
-            <div class="row">
-                <div class="col s12">
-                    <div class="card indigo darken-2 z-depth-5">
-                        <div class="card-content">
-                            <span class="card-title white-text">
-                                Closed Registration Settings
-                            </span>
-
-                            <br>
-
-                            <p class="information-text white-text">
-                                Registration is closed because :
-                            </p>
-
-                            <br>
-
-                            <form id="update-closed-registration-form" method="POST" action="{{ url('/admin/settings/closedRegistration') }}">
-                                @if($registrationEnded)
-                                    <p>
-                                        <input class="with-gap" name="reg_closed_why" type="radio" id="reg_ended" checked/>
-                                        <label for="reg_ended" class="white-text">It has ended for the current year.</label>
-                                    </p>
-                                    <p>
-                                        <input class="with-gap" name="reg_closed_why" type="radio" id="reg_not_open" />
-                                        <label for="reg_not_open" class="white-text">It has not yet opened for the current year.</label>
-                                    </p>
-
-                                    <br>
-
-                                    <div id="registration_open_date_div" hidden>
-                                        <p class="information-text white-text">
-                                            Select registration open date :
-                                        </p>
-
-                                        <input type="text" class="datepicker white-text" id="registration_open_date" data-value="{{ $openDate }}">
+        <div id="vue-gov">
+            <div class="section">
+                <div class="row">
+                    <div class="col s12 m6">
+                        <date-card class="green lighten-2 z-depth-5"
+                                   init-date="{{ $tourDate }}"
+                                   post-to="/admin/settings/tournamentDate">
+                            <span slot="title">Tournament Date</span>
+                        </date-card>
+                    </div>
+                    <div class="col s12 m6">
+                        <date-card class="amber darken-2 z-depth-5"
+                                   init-date="{{ $endDate }}"
+                                   post-to="/admin/settings/registrationEndDate">
+                            <span slot="title">Registration End Date</span>
+                        </date-card>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <closed-registration-card class="blue darken-2 z-depth-5"
+                                                  :ended="{{ $registrationEnded }}"
+                                                  open-date="{{ $openDate }}">
+                        </closed-registration-card>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card z-depth-5 red lighten-1">
+                            <div class="card-content white-text">
+                                <span class="card-title">Sudo Actions</span>
+                                Be careful, these actions cannot be undone!
+                                <br><br>
+                                <div class="row">
+                                    <div class="col s6 m4">
+                                        <a href="{{ action('AdminController@archiveTeams') }}" class="btn waves-effect waves-light" data-method="PUT"
+                                           data-confirm="Are you sure you want to archive the current teams?">Archive Teams<i class="material-icons right">archive</i>
+                                        </a>
                                     </div>
-                                @else
-                                    <p>
-                                        <input class="with-gap" name="reg_closed_why" type="radio" id="reg_ended"/>
-                                        <label for="reg_ended" class="white-text">It has ended for the current year.</label>
-                                    </p>
-                                    <p>
-                                        <input class="with-gap" name="reg_closed_why" type="radio" id="reg_not_open" checked/>
-                                        <label for="reg_not_open" class="white-text">It has not yet opened for the current year.</label>
-                                    </p>
-
-                                    <br>
-
-                                    <div id="registration_open_date_div">
-                                        <p class="information-text white-text">
-                                            Select registration open date :
-                                        </p>
-
-                                        <input type="text" class="datepicker white-text" id="registration_open_date" data-value="{{ $openDate }}">
+                                    <div class="col s6 m8">
+                                        Archive all current teams in registration tab.
                                     </div>
-                                @endif
-
-                                <button class="btn waves-effect waves-light" type="submit" name="update">Update
-                                    <i class="material-icons right">update</i>
-                                </button>
-                            </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        new Vue({
+           el: '#vue-gov'
+        });
+    </script>
 @endsection

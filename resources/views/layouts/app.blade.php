@@ -9,7 +9,7 @@
 
     <!--CSS-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,500,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link href="{{ asset(mix('css/app.css')) }}" type="text/css" rel="stylesheet" media="screen,projection"/>
     @yield('styles')
 
@@ -17,37 +17,36 @@
     <script src="{{ asset(mix('js/manifest.js')) }}" type="text/javascript"></script>
     <script src="{{ asset(mix('js/vendor.js')) }}" type="text/javascript"></script>
     <script src="{{ asset(mix('js/app.js')) }}" type="text/javascript"></script>
-    <script src="{{ asset('js/lib/analytics.js') }}"></script>
-    <script src="{{ asset('js/lib/jquery.formatter.min.js') }}"></script>
+    <script src="{{ asset('js/analytics.js') }}"></script>
     @yield('scripts')
 </head>
 
 <body>
     <main id="app-layout">
-        <nav class="teal lighten-2" role="navigation">
-            <div class="nav-wrapper container">
-                <a id="logo-container" href="{{ url('/') }}" class="brand-logo"><img src="{{ asset('resources/pics/logo.png') }}"></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a class="white-text" href="{{ url('/about') }}">About</a></li>
-                    <li><a class="white-text" href="{{ url('/tournament') }}">The Tournament</a></li>
-                    <li><a class="white-text" href="{{ url('/rules') }}">Rules</a></li>
-                    <li><a class="white-text" href="{{ url('/team') }}">App Status</a></li>
-                    <li><a class="white-text" href="{{ url('/contact') }}">Contact</a></li>
-                    <li><a class="white-text waves-effect waves-light btn" href="{{ url('/registration') }}">Register</a></li>
-                </ul>
+            <nav class="teal lighten-2 z-depth-5" role="navigation">
+                <div class="nav-wrapper container">
+                    <a id="logo-container" href="{{ url('/') }}" class="brand-logo"><img src="{{ asset('resources/pics/logo.png') }}"></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a class="white-text" href="{{ url('/about') }}">About</a></li>
+                        <li><a class="white-text" href="{{ url('/tournament') }}">The Tournament</a></li>
+                        <li><a class="white-text" href="{{ url('/rules') }}">Rules</a></li>
+                        <li><a class="white-text" href="{{ url('/team') }}">App Status</a></li>
+                        <li><a class="white-text" href="{{ url('/contact') }}">Contact</a></li>
+                        <li><a class="white-text waves-effect waves-light btn" href="{{ url('/registration') }}">Register <i class="material-icons right">create</i></a></li>
+                    </ul>
 
-                <ul id="nav-mobile" class="side-nav">
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('/about') }}">About</a></li>
-                    <li><a href="{{ url('/tournament') }}">The Tournament</a></li>
-                    <li><a href="{{ url('/rules') }}">Rules</a></li>
-                    <li><a href="{{ url('/team') }}">App Status</a></li>
-                    <li><a href="{{ url('/contact') }}">Contact</a></li>
-                    <li><a class="white-text waves-effect waves-light btn" href="{{ url('/registration') }}">Register</a></li>
-                </ul>
-                <a href="#" data-activates="nav-mobile" class="button-collapse white-text"><i class="material-icons">menu</i></a>
-            </div>
-        </nav>
+                    <ul id="nav-mobile" class="side-nav">
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/about') }}">About</a></li>
+                        <li><a href="{{ url('/tournament') }}">The Tournament</a></li>
+                        <li><a href="{{ url('/rules') }}">Rules</a></li>
+                        <li><a href="{{ url('/team') }}">App Status</a></li>
+                        <li><a href="{{ url('/contact') }}">Contact</a></li>
+                        <li><a class="white-text waves-effect waves-light btn" href="{{ url('/registration') }}">Register <i class="material-icons right white-text">create</i></a></li>
+                    </ul>
+                    <a href="#" data-activates="nav-mobile" class="button-collapse white-text"><i class="material-icons">menu</i></a>
+                </div>
+            </nav>
 
         <div id="app">
             @yield('content')
@@ -55,10 +54,8 @@
     </main>
 
     <footer class="page-footer teal lighten-2">
-        <div class="footer-copyright">
-            <div class="container">
-                &copy; 2016-2017 Northwestern Economics Tournament
-            </div>
+        <div class="container">
+            &copy; 2016-{{ date('Y') }} Northwestern Economics Tournament <br><br>
         </div>
     </footer>
 </body>

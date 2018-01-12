@@ -28,14 +28,14 @@
                         our distinguished faculty as well.
                     </p>
 
-                    <p>
+                    <blockquote>
                         Above all else, NET is a learning experience for students, so we encourage everyone interested to participate regardless of their
                         level of exposure to economics. The tournament is a great way to form friendships with peers who are also interested in economics
                         and to learn more about the field and its real-world applications in a college setting.
-                    </p>
+                    </blockquote>
 
                     <p>
-                        The 2nd annual tournament will take place on <b>April 7th, 2018</b> at the Kellogg Global Hub. We would like to welcome all students
+                        The annual tournament will take place on <b>{{ getFormattedTournamentDate() }}</b> at the Kellogg Global Hub. We would like to welcome all students
                         interested in learning more about economics to participate in the tournament! Please use the links below to learn more about the tournament
                         itself or to contact us if you have any questions.
                     </p>

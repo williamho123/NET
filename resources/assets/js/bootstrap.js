@@ -1,8 +1,7 @@
 /**
- * Require the jQuery, Lodash, and Vue libraries and set global indicators.
+ * Require the jQuery and Vue libraries and set global indicators.
  */
 
-window._ = require('lodash');
 window.$ = window.jQuery = require('jquery');
 window.Vue = require('vue');
 

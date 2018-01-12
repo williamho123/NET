@@ -2,16 +2,25 @@
 
 @section('title','Registration')
 
+@section('scripts')
+    <script src="{{ asset(mix('js/component.js')) }}" type="text/javascript"></script>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="section">
             <h3>Registration</h3>
 
             @if(registrationIsOpen())
-                <p class="information-text">
-                    We are excited that you want to participate in NET! Please carefully review the information below
-                    before starting on the application - we look forward to reading them.
-                </p>
+                <div class="information-text">
+                    Registration is on a first-come, first-serve basis so we encourage teams to register as soon as possible!
+                </div>
+                <br>
+
+                <div class="information-text">
+                    <b>Registration Deadline: </b> {{ getFormattedRegistrationEndDate() }}
+                </div>
+                <br>
 
                 @include('registration.information-cards-partial')
 
@@ -23,12 +32,10 @@
                 <br>
 
                 <div class="center-align">
-                    <a href="{{ url('/registration/create') }}" class="btn btn-large waves-effect waves-light">Start Application
+                    <a href="{{ url('/registration/create') }}" class="btn btn-large waves-effect waves-light">Start Registration
                         <i class="material-icons right">keyboard_arrow_right</i>
                     </a>
                 </div>
-
-                <br>
             @else
                 <div class="row">
                     <div class="col s12">
@@ -48,8 +55,7 @@
                                     </p>
                                 @else
                                     <span class="card-title white-text center-align">
-                                        @php($open_date = App\Internal::first()->getAttribute('registration_open_date'))
-                                        Registration opens on {{ Carbon\Carbon::createFromFormat('Y-m-d', $open_date)->format('F jS, Y')}}.
+                                        Registration opens on {{ getFormattedOpenRegDate() }}.
                                     </span>
 
                                     <br>
@@ -62,17 +68,8 @@
                                     <div class="divider white"></div>
                                     <br><br>
 
-                                    <div class="row">
-                                        <form id="email-update-form" method="POST" action="{{ url('/registration/update') }}">
-                                            <div class="input-field col s7 m9 l10">
-                                                <i class="material-icons prefix white-text">email</i>
-                                                <input id="email_update" name="email_update" type="email" class="white-text">
-                                                <label for="email_update" class="white-text">Your Email</label>
-                                            </div>
-                                            <div class="input-field col s5 m3 l2">
-                                                <button class="btn waves-effect waves-light" type="submit">Submit</button>
-                                            </div>
-                                        </form>
+                                    <div id="vue-gov">
+                                        <email-update-form></email-update-form>
                                     </div>
                                 @endif
                             </div>
@@ -91,4 +88,10 @@
             @endif
         </div>
     </div>
+
+    <script type="text/javascript">
+        new Vue ({
+            el: '#vue-gov'
+        })
+    </script>
 @endsection

@@ -9,7 +9,7 @@
 
     <!--CSS-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,500,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link href="{{ asset(mix('css/app.css')) }}" type="text/css" rel="stylesheet" media="screen,projection"/>
     @yield('styles')
 
@@ -17,34 +17,61 @@
     <script src="{{ asset(mix('js/manifest.js')) }}" type="text/javascript"></script>
     <script src="{{ asset(mix('js/vendor.js')) }}" type="text/javascript"></script>
     <script src="{{ asset(mix('js/app.js')) }}" type="text/javascript"></script>
-    <script src="{{ asset('js/lib/analytics.js') }}"></script>
-    <script src="{{ asset('js/lib/jquery.formatter.min.js') }}"></script>
+    <script src="{{ asset('js/analytics.js') }}"></script>
     @yield('scripts')
+
+    <style>
+        header, main, footer {
+            padding-left: 200px;
+        }
+
+        @media only screen and (max-width : 992px) {
+            header, main, footer {
+                padding-left: 0;
+            }
+        }
+
+        .page-title {
+            color: white;
+            font-size: 2.5em;
+        }
+    </style>
 </head>
 
 <body>
-    <main id="app-layout">
-        <nav class="teal lighten-2" role="navigation">
-            <div class="nav-wrapper container">
-                <a id="logo-container" href="{{ url('/') }}" class="brand-logo"><img src="{{ asset('resources/pics/logo.png') }}"></a>
-                <a class="brand-logo white-text center">@yield('title')</a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a class="white-text waves-effect waves-light btn" href="{{ url('/team/logout') }}">Logout
-                            <i class="material-icons right white-text">exit_to_app</i>
-                        </a>
-                    </li>
-                </ul>
+<header>
+    <nav class="top-nav teal lighten-2 z-depth-5" role="navigation">
+        <div class="nav-wrapper container">
+            <a class="page-title">@yield('title')</a>
+            <a href="#" data-activates="slide-out" class="button-collapse top-nav full hide-on-large-only"><i class="material-icons white-text">menu</i></a>
+        </div>
+    </nav>
+    <div class="container">
+        <ul id="slide-out" class="side-nav fixed">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <img src="{{ asset('/resources/pics/material.jpg') }}">
+                    </div>
+                    <img class="circle" src="{{ asset('resources/pics/empty-avatar.png') }}">
+                    @php($team = Auth::guard('team')->user())
+                    <span class="white-text information-text">Team {{ $team->team_id_code }}</span>
+                </div>
+            </li>
+            <li><a href="{{ url('/team') }}" class="waves-effect"><i class="material-icons">dashboard</i>Dashboard</a></li>
+            <li><a href="{{ url('/team/registration') }}" class="waves-effect"><i class="material-icons">format_list_numbered</i>Registration</a></li>
+            <li><a href="{{ url('/team/faq') }}" class="waves-effect"><i class="material-icons">help</i>FAQ's</a></li>
+            <li>
+                <a href="{{ url('/team/logout') }}" class="btn waves-effect waves-light">Logout
+                    <i class="material-icons right white-text">exit_to_app</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
 
-                <ul id="nav-mobile" class="side-nav">
-                    <li><a class="white-text waves-effect waves-light btn" href="{{ url('/team/logout') }}">Logout
-                            <i class="material-icons right white-text">exit_to_app</i></a>
-                    </li>
-                </ul>
-                <a href="#" data-activates="nav-mobile" class="button-collapse white-text"><i class="material-icons">menu</i></a>
-            </div>
-        </nav>
-
-        @yield('content')
-    </main>
+<main id="app-layout">
+    @yield('content')
+</main>
 </body>
 </html>

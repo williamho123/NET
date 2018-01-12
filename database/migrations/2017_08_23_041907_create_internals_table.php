@@ -18,6 +18,8 @@ class CreateInternalsTable extends Migration
             $table->boolean('registration_status');
             $table->boolean('registration_ended');
             $table->date('registration_open_date');
+            $table->date('tournament_date');
+            $table->date('registration_end_date');
             $table->timestamps();
         });
     }
