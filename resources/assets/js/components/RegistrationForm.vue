@@ -302,8 +302,10 @@
                     $('#agree_modal').modal('close');
                     swal({
                         title: "Submitted!",
-                        text: "An email with your team's login credentials will be sent to " + this.teamCaptainEmail + " and " + this.advisorEmail + " shortly.",
+                        text: "An email with your team's login credentials will be sent to " + this.teamCaptainEmail +
+                                " and " + this.advisorEmail + ' shortly. <br><br>Just in case, make sure to check your spam folder for our email as well.',
                         type: "success",
+                        html: true,
                         confirmButtonColor: "#4db6ac"
                         }, () => {
                             window.location.href = '/';
