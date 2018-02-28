@@ -142,6 +142,40 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col s12 m4 offset-m2">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="{{ asset('resources/pics/loren.jpg') }}">
+                                    </div>
+                                    <div class="card-content center-align">
+                                        <h6 class="black-text">Loren Fryxell</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m4">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="{{ asset('resources/pics/stephanie.jpg') }}">
+                                    </div>
+                                    <div class="card-content center-align">
+                                        <h6 class="black-text">Stephanie Johnson</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 m4 offset-m4">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="{{ asset('resources/pics/pom.jpg') }}">
+                                    </div>
+                                    <div class="card-content center-align">
+                                        <h6 class="black-text">Janjala (Pom) Chirakijja</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
