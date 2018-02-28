@@ -55,7 +55,7 @@
                     <div class="card-content">
                         <span class="card-title teal-text lighten-2">Schedule</span>
                         <div class="row">
-                            <div class="col s6 m3 offset-m3">9:30am-10:00am</div>
+                            <div class="col s6 m3 offset-m3">9:00am-10:00am</div>
                             <div class="col s6 m4">Check-in</div>
                         </div>
                         <div class="row">
@@ -67,27 +67,27 @@
                             <div class="col s6 m4">Individual Exam</div>
                         </div>
                         <div class="row">
-                            <div class="col s6 m3 offset-m3">11:30am-12:00pm</div>
+                            <div class="col s6 m3 offset-m3">11:30am-12:15pm</div>
                             <div class="col s6 m4">Professor Presentations</div>
                         </div>
                         <div class="row">
-                            <div class="col s6 m3 offset-m3">12:00pm-1:30pm</div>
+                            <div class="col s6 m3 offset-m3">12:15pm-1:15pm</div>
                             <div class="col s6 m4">Lunch</div>
                         </div>
                         <div class="row">
-                            <div class="col s6 m3 offset-m3">1:30pm-3:30pm</div>
+                            <div class="col s6 m3 offset-m3">1:15pm-3:30pm</div>
                             <div class="col s6 m4">Quiz Bowl</div>
                         </div>
                         <div class="row">
                             <div class="col s6 m3 offset-m3">3:30pm-4:00pm</div>
-                            <div class="col s6 m4">Grad Student Presentations</div>
+                            <div class="col s6 m4">Professor Presentation</div>
                         </div>
                         <div class="row">
                             <div class="col s6 m3 offset-m3">4:00pm-4:15pm</div>
-                            <div class="col s6 m4">Prof. Christiano Talk</div>
+                            <div class="col s6 m4">Prof. Witte Talk</div>
                         </div>
                         <div class="row">
-                            <div class="col s6 m3 offset-m3">4:15pm-4:45pm</div>
+                            <div class="col s6 m3 offset-m3">4:15pm-4:30pm</div>
                             <div class="col s6 m4">Closing & Awards</div>
                         </div>
                         <p class="center-align"><span style="color:#4db6ac;">&#10033;</span>Schedule based on last year's tournament. Subject to change.</p>
