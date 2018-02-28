@@ -91,13 +91,57 @@
                             <div class="col s6 m4">Closing & Awards</div>
                         </div>
                         <p class="center-align"><span style="color:#4db6ac;">&#10033;</span>Schedule based on last year's tournament. Subject to change.</p>
+                        <p class="center-align"><span style="color:#4db6ac;">&#10033;&#10033;</span>Graduate students will be speaking during the quiz bowl. More details to follow.</p>
                     </div>
                 </div>
 
                 <div id="speakers" class="section scrollspy card z-depth-5">
                     <div class="card-content">
                         <span class="card-title teal-text lighten-2">Speakers</span>
-                        Speakers at NET {{ getTournamentYear() }} will be posted soon.
+                        <div class="row">
+                            <div class="col s12 m4 offset-m2">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="{{ asset('resources/pics/witte.jpg') }}">
+                                    </div>
+                                    <div class="card-content center-align">
+                                        <h6 class="black-text">Professor Mark Witte</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m4">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="{{ asset('resources/pics/ogawa.jpg') }}">
+                                    </div>
+                                    <div class="card-content center-align">
+                                        <h6 class="black-text">Professor Scott Ogawa</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 m4 offset-m2">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="{{ asset('resources/pics/hornsten.jpg') }}">
+                                    </div>
+                                    <div class="card-content center-align">
+                                        <h6 class="black-text">Professor Jim Hornsten</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m4">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="{{ asset('resources/pics/reguant.jpg') }}">
+                                    </div>
+                                    <div class="card-content center-align">
+                                        <h6 class="black-text">Professor Mar Reguant</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
