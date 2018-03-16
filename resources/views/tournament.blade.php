@@ -156,10 +156,10 @@
                             <div class="col s12 m4">
                                 <div class="card">
                                     <div class="card-image">
-                                        <img src="{{ asset('resources/pics/stephanie.jpg') }}">
+                                        <img src="{{ asset('resources/pics/sasha.jpg') }}">
                                     </div>
                                     <div class="card-content center-align">
-                                        <h6 class="black-text">Stephanie Johnson</h6>
+                                        <h6 class="black-text">Sasha Indarte</h6>
                                     </div>
                                 </div>
                             </div>
